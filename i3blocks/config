@@ -1,10 +1,13 @@
-# For the benefit of emacs users: -*- shell-script -*-
-#
-#  _ _____ _     _            _
-# (_)___ /| |__ | | ___   ___| | _____
-# | | |_ \| '_ \| |/ _ \ / __| |/ / __|
-# | |___) | |_) | | (_) | (__|   <\__ \
-# |_|____/|_.__/|_|\___/ \___|_|\_\___/ 
+#   _  _____ _     _            _        
+#  (_)|____ | |   | |          | |       
+#   _     / / |__ | | ___   ___| | _____ 
+#  | |    \ \ '_ \| |/ _ \ / __| |/ / __|
+#  | |.___/ / |_) | | (_) | (__|   <\__ \
+#  |_|\____/|_.__/|_|\___/ \___|_|\_\___/
+#                                        
+# | Frolov
+# | Konstantin
+
 
 align=center
 separator=false
@@ -86,15 +89,27 @@ interval=1
 label=<span color="#bd93f9"> </span>
 
 [date]
-command=date '+%Y年%B%d日 %A'
+# command=date '+%Y年%B%d日 %A'
+command=date '+%Y%B%d %A'
 interval=60
 label=<span color="#8be9fd"> </span>
 
-[shutdown_menu]
-full_text=<span color="#50fa7b"> </span>
-command=~/.config/i3blocks/blocks/shutdown_menu/shutdown_menu
-ROFI_TEXT=Menu:
-ROFI_OPTIONS=-no-config -location 3 -yoffset 29 -width 5 -xoffset 5 -bw 0 -border 0 -theme ~/.config/rofi/menu.rasi
-ENABLE_CONFIRMATIONS=true
-LAUNCHER=rofi
-LOCKSCRIPT=betterlockscreen -l dimblur
+## The following caused an error for me, so I commented it.
+## Feel free to try that and decide for yourself
+
+# [shutdown_menu]
+# full_text=<span color="#50fa7b"> </span>
+# command=~/.config/i3blocks/blocks/shutdown_menu/shutdown_menu
+# ROFI_TEXT=Menu:
+# ROFI_OPTIONS=-no-config -location 3 -yoffset 29 -width 5 -xoffset 5 -bw 0 -border 0 -theme ~/.config/rofi/menu.rasi
+# ENABLE_CONFIRMATIONS=true
+# LAUNCHER=rofi
+# LOCKSCRIPT=betterlockscreen -l dimblur
+
+####################
+#
+### About
+#
+####################
+
+## This config file is based on @da-edra's i3blocks config
