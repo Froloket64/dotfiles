@@ -61,7 +61,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 
 # You can also use any non-zero value if you'd like to have a border
-for_window [class=".*"] border pixel 0
+for_window [class=".*"] border pixel 2
 
 # smart_gaps on
 
@@ -212,7 +212,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
+# Start i3bar to display a workspace bar (plus the system information i3blocks
 # finds out, if available)
 bar {
         status_command i3blocks
@@ -223,8 +223,8 @@ bar {
 exec qterminal
 exec firefox
 
-# Setting a background (yes, "misty shit.jpg" is the name of background file)
-exec_always feh --bg-scale /home/kali/Pictures/misty\ shit.jpg
+# Setting a background
+exec_always feh --bg-scale # Full path to your bg file
 
 # Custom vars
 
