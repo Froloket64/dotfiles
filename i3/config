@@ -222,3 +222,4 @@ exec_always feh --bg-scale # Full path to your bg file
 assign [class="Firefox"] $ws2
 assign [class="qterminal"] $ws1
 assign [class="Emacs"] $ws4
+assign [class="Thunar"] $ws3
