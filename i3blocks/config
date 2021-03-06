@@ -1,13 +1,18 @@
-#   _  _____ _     _            _        
-#  (_)|____ | |   | |          | |       
-#   _     / / |__ | | ___   ___| | _____ 
-#  | |    \ \ '_ \| |/ _ \ / __| |/ / __|
-#  | |.___/ / |_) | | (_) | (__|   <\__ \
-#  |_|\____/|_.__/|_|\___/ \___|_|\_\___/
-#                                        
+#
+# ██╗██████╗ ██████╗ ██╗      █████╗  █████╗ ██╗  ██╗ ██████╗
+# ██║╚════██╗██╔══██╗██║     ██╔══██╗██╔══██╗██║ ██╔╝██╔════╝
+# ██║ █████╔╝██████╦╝██║     ██║  ██║██║  ╚═╝█████═╝ ╚█████╗
+# ██║ ╚═══██╗██╔══██╗██║     ██║  ██║██║  ██╗██╔═██╗  ╚═══██╗
+# ██║██████╔╝██████╦╝███████╗╚█████╔╝╚█████╔╝██║ ╚██╗██████╔╝
+# ╚═╝╚═════╝ ╚═════╝ ╚══════╝ ╚════╝  ╚════╝ ╚═╝  ╚═╝╚═════╝
+#
 # | Frolov
 # | Konstantin
 
+
+color=#f3f4f5
+separator_block_width=15
+markup=none
 
 align=center
 separator=false
@@ -73,24 +78,23 @@ command=pulseaudio-ctl full-status | awk '{ printf "%i%\n", $1 }'
 interval=1
 label=<span color="#ffb86c"> </span>
 
-[time_pst]
-command=TZ=":US/Pacific" date '+%I:%M %Z'
-interval=1
-label=<span color="#ff5555"> </span>
+# [time_pst]
+# command=TZ=":US/Pacific" date '+%I:%M %Z'
+# interval=1
+# label=<span color="#ff5555"> </span>
 
-[time_cst]
-command=TZ=":US/Central" date '+%I:%M %Z'
-interval=1
-label=<span color="#ff79c6"> </span>
+# [time_cst]
+# command=TZ=":US/Central" date '+%I:%M %Z'
+# interval=1
+# label=<span color="#ff79c6"> </span>
 
-[time_est]
-command=TZ=":US/Eastern" date '+%I:%M %Z'
-interval=1
-label=<span color="#bd93f9"> </span>
+# [time_est]
+# command=TZ=":US/Eastern" date '+%I:%M %Z'
+# interval=1
+# label=<span color="#bd93f9"> </span>
 
 [date]
-# command=date '+%Y年%B%d日 %A'
-command=date '+%Y%B%d %A'
+command=date '+%A, %d %B %Y'
 interval=60
 label=<span color="#8be9fd"> </span>
 
