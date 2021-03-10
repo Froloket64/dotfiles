@@ -10,9 +10,6 @@
 # | Konstantin
 
 
-## i3 CONFIGURATION FILE
-
-
 ########################
 #
 ## Main stuff (system) 
@@ -244,8 +241,9 @@ assign [class="Thunar"] $ws3
 exec qterminal
 exec firefox
 
-# Setting a background
-exec_always feh --bg-scale # Full path to your bg file
+# Setting a background.
+# It basically sets the last wallpaper you were using (if it was also set with nitrogen)
+exec nitrogen --restore
 
 # Start i3bar to display i3blocks info
 bar {
