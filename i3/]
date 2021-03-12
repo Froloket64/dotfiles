@@ -16,8 +16,8 @@ set $right  semicolon
 
 # define names for workspaces
 set $ws1    "1:  Terminal "
-set $ws2    "2:  Code "
-set $ws3    "3:  Web "
+set $ws2    "2:  Web "
+set $ws3    "3:  Code "
 set $ws4    "4:  Files "
 set $ws5    "5:  Documents "
 set $ws6    "6:  Media "
@@ -29,7 +29,7 @@ set $ws10   "10:  Settings "
 # use $mod+Mouse to drag floating windows to their wanted position
 floating_modifier $mod
 
-# window focus follows the mouse movements
+# control focused window when follows the mouse movements
 focus_follows_mouse yes
 
 # window border settings
@@ -267,7 +267,7 @@ assign [class="Menu"]               → $ws10
 assign [class="Obconf"]             → $ws10
 assign [class="Lightdm-gtk-greeter-settings"]   → $ws10
 assign [class="Software-properties-gtk"]        → $ws10
-assign [class="Emacs"]              → $ws2
+assign [class="Emacs"]              → $ws3
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #2b83a6 #2b83a6 #ffffff #dddddd   #2b83a6
