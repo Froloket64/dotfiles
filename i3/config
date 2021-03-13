@@ -304,7 +304,7 @@ bar {
     }
 }
 
-# i3-gaps specific (turn off if on -just i3-)
+# i3-gaps specific (turn off if using -just i3-)
 smart_gaps on
 gaps inner 8
 gaps outer 2
@@ -315,4 +315,5 @@ exec_always --no-startup-id nm-applet
 exec_always --no-startup-id pulseaudio --start
 exec_always --no-startup-id lxpolkit
 exec_always --no-startup-id feh --bg-fill ~/Public/desktop/dark_planet_minimalist.png
-exec_always --no-startup-id picom
+# exec_always --no-startup-id compton    # Starts compton (window compositor, add effects, such as shadows and other stuff)
+exec_always --no-startup-id picom    # Starts picom (window compositor, compton's fork and is more actively maintained)
