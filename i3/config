@@ -176,7 +176,8 @@ bindsym XF86AudioRaiseVolume    exec --no-startup-id amixer -q -D pulse sset Mas
 bindsym XF86AudioMute           exec --no-startup-id amixer -q -D pulse sset Master toggle
 
 # brightness
-bindsym XF86MonBrightnessDown      exec xrandr --output LVDS-1 --brightness 5%-
+bindsym XF86MonBrightnessDown   exec xrandr --output LVDS-1 --brightness 0.8
+bindsym XF86MonBrightnessUp     exec xrandr --output LVDS-1 --brightness 0.9
 
 # notification
 bindsym Ctrl+space              exec --no-startup-id dunstctl close
