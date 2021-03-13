@@ -1,6 +1,9 @@
-# My version of Diki Ananta (aka dikiaap on GitHub)'s i3 config.
-# Original repository - https://github.com/dikiaap/dotfiles
-
+# ██╗██████╗     | My version of Diki Ananta (aka @dikiaap on GitHub)'s i3 config.
+# ██║╚════██╗    | Original repository - https://github.com/dikiaap/dotfiles
+# ██║ █████╔╝
+# ██║ ╚═══██╗
+# ██║██████╔╝
+# ╚═╝╚═════╝
 
 # font for window titles and bar
 font pango:Mononoki 9
