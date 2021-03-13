@@ -41,16 +41,16 @@
 ;;;   Custom   ;;;
 ;;---------------<
 
+;; (trying to) Setting directory for custom configuration
+;; (setq-default custom-file (expand-file-name "custom.el"))
+;; (when (file-exists-p custom-file)
+;;   (load custom-file))
+
 ;; Enabling across-X clipboard
 (setq select-enable-clipboard t)
 
 ;; Enabling copying, pasting via common keybinds (C-c, C-v) (and probably other things?..)
 (cua-mode t)
-
-;; Setting directory for custom configuration
-(setq-default custom-file (expand-file-name "custom.el" doom-private-dir))
-(when (file-exists-p custom-file)
-  (load custom-file))
 
 ;; Setting custom font
 (add-to-list 'default-frame-alist '(font . "mononoki-11"))
