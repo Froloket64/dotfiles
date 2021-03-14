@@ -227,13 +227,13 @@ for_window [class="Lxappearance"]                   floating enable
 for_window [class="Menu"]                           floating enable
 
 # assign program to workspace
-assign [class="Alacritty"]          → $ws1
 assign [class="terminal"]           → $ws1
 assign [class="Sublime"]            → $ws2
+assign [class="Emacs"]              → $ws2
 assign [class="Chromium"]           → $ws3
 assign [class="Firefox"]            → $ws3
-assign [class="File-roller"]        → $ws4
 assign [class="Pcmanfm"]            → $ws4
+assign [class="Thunar"]             → $ws4
 assign [class="Evince"]             → $ws5
 assign [class="ghostwriter"]        → $ws5
 assign [class="libreoffice"]        → $ws5
@@ -265,7 +265,6 @@ assign [class="Menu"]               → $ws10
 assign [class="Obconf"]             → $ws10
 assign [class="Lightdm-gtk-greeter-settings"]   → $ws10
 assign [class="Software-properties-gtk"]    → $ws10
-assign [class="Emacs"]              → $ws2
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #2b83a6 #2b83a6 #ffffff #dddddd   #2b83a6
