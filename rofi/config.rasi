@@ -1,9 +1,9 @@
 configuration {
-/*	modi: "window,run,ssh";*/
+	modi: "window,run,drun,ssh";
 /*	width: 50;*/
 /*	lines: 15;*/
 /*	columns: 1;*/
-	font: "mononoki 12";    // Font setting (it'll set the font to default,
+	font: "mononoki 12";    // Font setting (set's the font to default,
 	// if the specified one is not found)
 /*	bw: 1;*/
 	location: 2;    // Location on the screen. Values are integers from 0 to 8,
@@ -58,7 +58,7 @@ configuration {
 /*	window-format: "{w}    {c}   {t}";*/
 /*	click-to-exit: true;*/
 /*	show-match: true;*/
-/*	theme: ;*/
+/*	theme: lb;*/
 /*	color-normal: ;*/
 /*	color-urgent: ;*/
 /*	color-active: ;*/
@@ -110,7 +110,7 @@ configuration {
 /*	kb-ellipsize: "Alt+period";*/
 /*	kb-toggle-case-sensitivity: "grave,dead_grave";*/
 /*	kb-toggle-sort: "Alt+grave";*/
-/*	kb-cancel: "Escape,Control+g,Control+bracketleft";*/
+	kb-cancel: "Escape,Super+d";
 /*	kb-custom-1: "Alt+1";*/
 /*	kb-custom-2: "Alt+2";*/
 /*	kb-custom-3: "Alt+3";*/
