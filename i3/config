@@ -6,7 +6,7 @@
 # ╚═╝╚═════╝
 
 # font for window titles and bar
-font pango:Mononoki 9
+font pango:Hurmit Nerd Font Mono 9
 
 # set <Mod> to Win key
 set $mod Mod4
