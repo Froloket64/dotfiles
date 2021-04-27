@@ -73,11 +73,11 @@
 ;; Setting theme
 ;; You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function.
-(setq doom-theme 'doom-monokai-classic)
+(setq doom-theme 'doom-monokai-classic) ; Themes (doom-): "miramare", "gruvbox"
 
 
 ;; Setting font(-s)
-(setq doom-font (font-spec :family "mononoki NF" :size 15 :weight 'regular)
+(setq doom-font (font-spec :family "JetBrainsMono NF" :size 15 :weight 'regular) ; Families: "mononoki NF"
       doom-variable-pitch-font (font-spec :family "sans" :size 12))
 
 
