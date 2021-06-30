@@ -81,7 +81,7 @@ window:
 scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
-  history: 100
+  history: 5000
 
   # Number of lines the viewport will move for every line scrolled when
   # scrollback is enabled (history > 0).
@@ -186,7 +186,7 @@ draw_bold_text_with_bright_colors: true
 colors:
   # Default colors
   primary:
-    background: '0x232627'
+    background: '0x272822' # '0x232627'
     foreground: '0xf0f0f0'
 
     # Bright and dim foreground colors
@@ -218,7 +218,7 @@ colors:
   normal:
     black:   '0x1c1f24'
     red:     '0xff6c6b'
-    green:   '0x20b826'
+    green:   '0x78e632' # '0x66e22e'
     yellow:  '0xda8548'
     blue:    '0x1d99f3'
     magenta: '0xc678dd'
