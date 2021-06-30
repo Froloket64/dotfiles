@@ -80,6 +80,8 @@
 (setq doom-font (font-spec :family "JetBrainsMono NF" :size 15 :weight 'regular) ; Families: "mononoki NF"
       doom-variable-pitch-font (font-spec :family "sans" :size 12))
 
+;; Tab width
+(setq tab-width 4)
 
 ;; If you wish to load another (config, or any other) file (called "private.el" here)
 ;; (load! "private")
