@@ -5,6 +5,7 @@
 # Copyright (c) 2012 Craig Barnes
 # Copyright (c) 2013 horsik
 # Copyright (c) 2013 Tao Sauvage
+# Copyright (c) 20XX Froloket64
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -23,13 +24,6 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-
-# import os
-# import subprocess
-# from libqtile import bar, layout, widget, window, hook
-# from libqtile.config import Click, Drag, Group, Key, Match, Screen
-# from libqtile.lazy import lazy
-# from libqtile.utils import guess_terminal
 
 import os
 import re
@@ -93,7 +87,8 @@ keys = [
 
     # Application start binds
     Key([mod], "Return", lazy.spawn(terminal), desc="Run terminal (defined by var)"),
-    Key([mod], "d", lazy.spawn("rofi -show drun"), desc="Run app launcher"),
+    Key([mod], "d", lazy.spawn("rofi -show drun"), desc="Run app launcher (rofi here)"),
+    Key([mod, "control"], "h", lazy.spawn(f"{terminal} -e htop"), desc="Run htop in the chosen terminal"),
 
     # Toggle layouts
     Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
@@ -111,28 +106,34 @@ terminal_group = 'λ Terminal'
 code_group = ' Code'
 web_group = ' Web'
 games_group = ' Games'
+work_group = ' Work'
 
 groupNames = [
         terminal_group,
         code_group,
         web_group,
-        games_group
+        games_group,
+        work_group
 ]
 
-# Symbols: '  λ    '
+# Some Symbols: '  λ    '
 
-
-# groups = [Group(name) for name in groupNames] ## Making an easier-usable list of all groups
+## Making an easier-usable list of all groups
 groups = []
 for name in groupNames:
     if name == terminal_group:  ## Put following to `terminal` group:
-        groups.append( Group( name, matches=[Match(wm_class=[terminal])] ) )  ## <Currently set terminal>
+        if terminal == 'alacritty':
+            groups.append( Group( name, matches=[Match(wm_class=['Alacritty'])] ) )  ## <Currently set terminal>
+        else:
+            groups.append( Group( name, matches=[Match(wm_class=[terminal])] ) )  ## <Currently set terminal>
     elif name == code_group:  ## Put following to `code` group:
-        groups.append( Group( name, matches=[Match(wm_class=['code'])] ) ) ## VSCode
+        groups.append( Group( name, matches=[Match(wm_class=['code', 'code-oss', 'Emacs'])] ) ) ## VSCode
     elif name == web_group:  ## Put following to `web` group:
         groups.append( Group( name, matches=[Match(wm_class=['firefox'])] ) )  ## Firefox
     elif name == games_group:  ## Put following to `games` group:
-        groups.append( Group( name, matches=[Match(wm_class=['Steam'])] ) )  ## Steam (Runtime)
+        groups.append( Group( name, matches=[Match(wm_class=['Steam', 'fceux', 'gzdoom'])] ) )  ## Steam (Runtime), FCEUX
+    elif name == work_group:
+        groups.append( Group( name, matches=[Match(wm_class=['qbittorrent', 'Triangula', 'htop', 'libreoffice'])] ) ) ## qBitTorrent, Triangula, htop, LibreOffice (all apps)
     else:
         groups.append( Group(name) )
 
