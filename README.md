@@ -1,19 +1,22 @@
-```
-   ▄████████    ▄████████  ▄██████▄   ▄█        ▄██████▄     ▄█   ▄█▄    ▄████████     ███     
-  ███    ███   ███    ███ ███    ███ ███       ███    ███   ███ ▄███▀   ███    ███ ▀█████████▄ 
-  ███    █▀    ███    ███ ███    ███ ███       ███    ███   ███▐██▀     ███    █▀     ▀███▀▀██ 
- ▄███▄▄▄      ▄███▄▄▄▄██▀ ███    ███ ███       ███    ███  ▄█████▀     ▄███▄▄▄         ███   ▀ 
-▀▀███▀▀▀     ▀▀███▀▀▀▀▀   ███    ███ ███       ███    ███ ▀▀█████▄    ▀▀███▀▀▀         ███     
-  ███        ▀███████████ ███    ███ ███       ███    ███   ███▐██▄     ███    █▄      ███     
-  ███          ███    ███ ███    ███ ███▌    ▄ ███    ███   ███ ▀███▄   ███    ███     ███     
-  ███          ███    ███  ▀██████▀  █████▄▄██  ▀██████▀    ███   ▀█▀   ██████████    ▄████▀   
-               ███    ███            ▀                      ▀                                  
-```
+![\[Dotfiles logo\]](assets/dot-logo.png)
 
-That's simply my `dotfiles`.
-Basically creating this repo just for safe storing purposes, but feel free to clone it.
+That's my `dotfiles`!
 
-At the moment, it's just raw files, but I'm planning to wrap them into something like `sh` scripts for easier installation.
-Also, I'll try to unify it as much as I can, but sorry for some occasional personal settings.
+These contain:
+- `Alacritty`
+- `(Doom) Emacs`
+- `dunst`
+- `FISH`
+- `htop`
+- `i3` (+ `i3blocks`)
+- `neofetch`
+- `picom`
+- `QTile`
+- `rofi`
 
-Issue reports for any of aforementioned problems are appreciated if any specific information given.
+
+## PS
+At the moment, it's just raw files, but I'm planning to write something like `sh` scripts for easier installation.
+Also, I'll try to unify them as much as I can, but sorry for some occasional personal settings.
+
+**Issue reports** for any problems are appreciated if any _specific_ information given.
