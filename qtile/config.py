@@ -102,18 +102,20 @@ keys = [
 
 ### Groups ###
 ## Names of (window) groups
-terminal_group = 'λ Terminal'
-code_group = ' Code'
-web_group = ' Web'
-games_group = ' Games'
-work_group = ' Work'
+terminal_group = {'minimal': 'λ', 'full': 'λ Terminal'}
+code_group     = {'minimal': '', 'full': ' Code'}
+web_group      = {'minimal': '', 'full': ' Web'}
+games_group    = {'minimal': '', 'full': ' Games'}
+work_group     = {'minimal': '', 'full': ' Work'}
+
+mode = 'full'
 
 groupNames = [
-        terminal_group,
-        code_group,
-        web_group,
-        games_group,
-        work_group
+        terminal_group[mode],
+        code_group[mode],
+        web_group[mode],
+        games_group[mode],
+        work_group[mode]
 ]
 
 # Some Symbols: '  λ    '
@@ -121,18 +123,18 @@ groupNames = [
 ## Making an easier-usable list of all groups
 groups = []
 for name in groupNames:
-    if name == terminal_group:  ## Put following to `terminal` group:
+    if name in terminal_group.values():  ## Put following to `terminal` group:
         if terminal == 'alacritty':
             groups.append( Group( name, matches=[Match(wm_class=['Alacritty'])] ) )  ## <Currently set terminal>
         else:
             groups.append( Group( name, matches=[Match(wm_class=[terminal])] ) )  ## <Currently set terminal>
-    elif name == code_group:  ## Put following to `code` group:
+    elif name in code_group.values():  ## Put following to `code` group:
         groups.append( Group( name, matches=[Match(wm_class=['code', 'code-oss', 'Emacs'])] ) ) ## VSCode
-    elif name == web_group:  ## Put following to `web` group:
+    elif name in web_group.values():  ## Put following to `web` group:
         groups.append( Group( name, matches=[Match(wm_class=['firefox'])] ) )  ## Firefox
-    elif name == games_group:  ## Put following to `games` group:
+    elif name in games_group.values():  ## Put following to `games` group:
         groups.append( Group( name, matches=[Match(wm_class=['Steam', 'fceux', 'gzdoom'])] ) )  ## Steam (Runtime), FCEUX
-    elif name == work_group:
+    elif name in work_group.values():
         groups.append( Group( name, matches=[Match(wm_class=['qbittorrent', 'Triangula', 'htop', 'libreoffice'])] ) ) ## qBitTorrent, Triangula, htop, LibreOffice (all apps)
     else:
         groups.append( Group(name) )
