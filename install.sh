@@ -5,54 +5,108 @@
 pkgs=(alacritty dunst fish ly neofetch neovim qtile rofi stow)
 
 # Install a package
-install () {
-  # If --force specified, (re-)install without check
-  case $@ in
-    "-f" | "--force")
-      sudo pacman -S $1 
-      return
-  esac
+install_pkg () {
+    # If --force specified, (re-)install without check
+    case $@ in
+        "-f" | "--force")
+            sudo pacman -S $1 
+            return
+    esac
 
   # Check if the package is installed and install if not
-  if pacman -Qe $1; then
-    echo $1 already installed. Skipping.
-  else
-    sudo pacman -S $1 
-  fi
+    if pacman -Qe $1; then
+        echo $1 already installed. Skipping.
+    else
+        sudo pacman -S $1 
+    fi
 }
 
-# Install all packages
-for pkg in ${pkgs[@]}; do
-  install $pkg
+# Additional installations
+install_ext () {
+    # Oh My Fish
+    curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+}
+
+for arg in $@
+do
+    case $arg in
+        -f | --force)
+            force=1
+            ;;
+
+        -i | --install)
+            install=1
+            ;;
+
+        -*)
+            echo ERROR: Unknown option: $arg
+            ;;
+
+        *)
+            to_install += $arg
+            ;;
+    esac
 done
 
-# Additional installations
-# Oh My Fish
-curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
-omf theme integral-froloket
+# Install all packages
+if [[ $install ]]; then
+    echo Installing packages...
 
-# Override conflicting dotfiles if --force is set
-case $@ in 
-  "-f" | "--force")
-    found=1
+    for pkg in ${pkgs[@]}; do
+        install_pkg $pkg
+    done
 
-    find . -name "*" | sed "s/^/~\//" | xargs rm
-esac
+    install_ext
+else
+    read -p "Install packages? (Otherwise, just copying configs) [y/n] " answer
 
-# Otherwise, ask if this should be done
-if ! [[ $found ]]; then
+    # Make check case-insensitive
+    shopt -s nocasematch
+    if [[ answer =~ (y|yes) ]]; then
+        echo Installing packages...
+
+        for pkg in ${pkgs[@]}; do
+            install_pkg $pkg
+        done
+
+        install_ext
+    fi
+fi
+
+# Ask if existing dotfiles should be overridden if unspecified
+if [[ ! $force ]]; then
     read -p "Override existing dotfiles? [y/n] " answer
 
     # Make check case-insensitive
     shopt -s nocasematch
     if [[ answer =~ (y|yes) ]]; then
-      find . -name "*" | sed "s/^/~\//" | xargs rm
+        force=1
     fi
 fi
 
-# Symlink everything
-stow -t ~ .
+# Additional configuration
+fish -c "omf theme integral-froloket" 2&>/dev/null
 
-# and delete the symlinked `install.sh` ;)
-# P.S. Bad idea, but haven't come up with anything better
-# rm ~/install.sh
+# Symlinking
+# Try
+output=$(stow -t ~ . 2>&1)
+
+# Process exceptions about existing files (if --force)
+if [[ $force ]]; then
+    echo Removing existing dotfiles...
+    readarray -t lines <<< $output
+
+    # Delete every dotfile that was present
+    for ((i=1; i<${#lines[@]}-1; i++))
+    do
+        # file=$(echo ${lines[i]} | awk "{print \$NF}" | sed "s/^/$HOME\//")
+        file=$HOME/$(echo ${lines[i]} | awk "{print \$NF}")
+
+        rm -f $file
+    done
+
+    stow -t ~ .
+fi
+
+echo DONE
+echo Enjoy the dotfiles!
