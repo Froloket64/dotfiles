@@ -3,7 +3,7 @@ try
   let g:onedark_config = {
       \ 'style': 'warm',
   \}
-  colorscheme onedark
+  colorscheme gruvbox
 catch /^Vim\%((\a\+)\)\=:E185/
   colorscheme default
   set background=dark
