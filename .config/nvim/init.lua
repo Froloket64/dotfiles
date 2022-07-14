@@ -1,6 +1,7 @@
 if vim.g.started_by_firenvim then -- If loaded by Firenvim (https://github.com/glacambre/firenvim)
   require "user.colorscheme"
   require "user.keymaps"
+  require "user.firenvim"
 else
   require "user.options"
   require "user.keymaps"
