@@ -5,8 +5,8 @@ alias ll="lsd -l"
 alias cl="clear; ll"
 alias clt="clear; ls --tree"
 alias myip="curl zx2c4.com/ip"
-alias htb="sudo openvpn ~/Downloads/htb.ovpn"
-alias ubuntu="docker start -ia my-ubuntu"
+alias new="$TERM --working-directory=\$PWD -e fish & test"
+# alias new="$TERM --working-directory=(echo $PWD) -e fish & test"
 alias logout="pkill -KILL -u $USER"
 
 # --Scripts-- ###
