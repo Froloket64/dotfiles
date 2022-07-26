@@ -28,7 +28,22 @@ vim.cmd [[
     autocmd!
     autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
   augroup end
+
+  augroup _font
+    autocmd!
+    autocmd FileType * set guifont=JetBrainsMono_Nerd_Font:h10
+
+    autocmd FileType bqn set guifont=BQN386_Unicode:h10
+  augroup end
 ]]
+
+-- augroup _font
+-- autocmd!
+-- autocmd FileType * set guifont=g:prev_font
+--
+-- autocmd FileType bqn if !exists("g:prev_font") | let g:prev_font=g:guifont
+-- autocmd FileType bqn set guifont=BQN386_Unicode:h10
+-- augroup end
 
 -- Autoformat
 -- augroup _lsp
