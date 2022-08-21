@@ -1,7 +1,8 @@
 -- Sites to not load firenvim on
 local blacklist = {
     "https://mlochbaum.github.io/BQN/try.html",
-    "https://bqnpad.mechanize.systems/"
+    "https://bqnpad.mechanize.systems/",
+    "https://*.fandom.com/*"
 }
 
 -- Default recommended settings
