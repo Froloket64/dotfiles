@@ -2,7 +2,9 @@
 local blacklist = {
     "https://mlochbaum.github.io/BQN/try.html",
     "https://bqnpad.mechanize.systems/",
-    "https://*.fandom.com/*"
+    "https://*.fandom.com/*",
+    "https://www.desmos.com",
+    "https://www.codewars.com",
 }
 
 -- Default recommended settings
