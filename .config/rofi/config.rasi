@@ -1,0 +1,19 @@
+configuration {
+	modi: "window,run,drun,ssh";
+	width: 100;
+	font: "JetBrainsMono Nerd Font 12";
+	location: 0;    // Location on the screen. Values are integers from 0 to 8,
+	// as described in the following table
+	//  1 2 3
+	//  8 0 4
+	//  7 6 5
+	show-icons: true;    // Show app icons
+	sort: false;    // Sort options (Not sure, which values are possible here)
+	case-sensitive: false;
+	cycle: false;    // Cycle to bottom when hit top and vise-versa
+	auto-select: false;    // Automatically hit <Enter> (select the option) if there's only one option left
+	scrollbar-width: 7;
+	scroll-method: 1;
+}
+
+@theme "gruvy"
