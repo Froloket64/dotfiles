@@ -24,5 +24,7 @@ end
 ## Other vars/overrides
 set fish_greeting # Disbale the startup intro message
 
+fish_vi_key_bindings # eVIl, am i right?
+
 ## Exec on startup
 neofetch # how d'ya live without it ;)
