@@ -1,17 +1,13 @@
 <h1 align="center">~/.dotfiles</h1>
 <p align="right">-- powered by <a href="https://www.gnu.org/software/stow/">Stow</a></p>
 
-Includes dofiles for:
-+ [Alacritty](https://github.com/alacritty/alacritty)
-+ [fish](https://fishshell.com/)
-+ [ly](https://github.com/fairyglade/ly)
-+ [jonaburg/picom](https://github.com/jonaburg/picom)
-+ [QTile](https://github.com/qtile/qtile)
-+ [NeoVim](https://github.com/neovim/neovim)
-
 ## Previews
-![Some terminals](/preview/terminals.png)
-![Coding](/preview/coding.png)
+### QTile
+![Some terminals](/preview/qtile/terminals.png)
+![Coding](/preview/qtile/coding.png)
+
+### Sway
+![Some more terminals](/preview/sway/terminals.png)
 
 ## Installation
 ### Supported distros\*
@@ -27,7 +23,7 @@ This will install all the packages and deploy the dotfiles.
 + Arch Linux _(and -based)_\*\*
 + Ubuntu _(and -based)_
 
-\*\* But note the repository changes (i.e., in some \<your distro\>-based distros some package names can vary, or can be even not included)
+\*\* But note the repository changes (i.e., in some \<your distro\>-based distros some package names can vary, or can be even absent)
 
 ### Other distros
 If you're not using one of the supported distros, the operations are similar, except you need to replace the run of installation script with some manual work
