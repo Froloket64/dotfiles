@@ -1,75 +1,78 @@
 #!/bin/bash
 # This is an installation/deployment script for Arch Linux
 
+# TODO:
+# - Add dependency installation
+# - Add more distros
+
+shopt -s nocasematch
+
 # Some OS information
-os_info=$(cat /etc/os-release)
+os_name=$(cat /etc/os-release)
 
 # All packages including deps (e.g. `stow` for symlinking the dots)
-pkgs=(alacritty dunst fish ly neofetch neovim qtile rofi stow)
+pkgs=(alacritty dunst fish neovim qtile rofi hyprland polybar sway waybar wezterm)
 
 # Install a package
-install_cmd () {
-    case $os_info in
-        *[Uu]buntu*)
+# IDEA: Check for OS by checking installed pkg manager
+install () {
+    case $os_name in
+        *ubuntu* | *mint*)
             sudo apt-get install $1
             ;;
 
-        *[Aa]rch*)
-            sudo pacman -S $1
+        *arch*)
+	    if command -v yay; then
+		yay -S --needed $1
+	    else
+		sudo pacman -S --needed $1
+	    fi
             ;;
 
         *)
-            echo Unknown distro
+            echo "Unknown distro"
             exit
     esac
 }
 
-findpkg_cmd () {
-    case $os_info in
-        *[Uu]buntu*)
+find_pkg () {
+    case $os_name in
+        *ubuntu* | *mint*)
             sudo apt-get list --installed $1 | grep $1
             ;;
 
-        *[Aa]rch*)
-            sudo pacman -Q $1
+        *arch*)
+	    if command -v yay; then
+		yay -S --needed $1
+	    else
+		sudo pacman -S --needed $1
+	    fi
             ;;
 
         *)
-            echo Unknown distro
+            echo "Unknown distro"
             exit
     esac
 }
 
-update_cmd () {
-    case $os_info in
-        *[Uu]buntu*)
+update () {
+    case $os_name in
+        *ubuntu* | *mint*)
             sudo apt-get update
             ;;
 
-        *[Aa]rch*)
-            sudo pacman -Sy
+        *arch*)
+	    if command -v yay; then
+		yay -S --needed $1
+	    else
+		sudo pacman -S --needed $1
+	    fi
             ;;
 
         *)
-            echo Unknown distro
+            echo "Unknown distro"
             exit
     esac
-}
-
-install_pkg () {
-    # If --force specified, (re-)install without check
-    case $@ in
-        "-f" | "--force")
-            install_cmd $1
-            return
-    esac
-
-  # Check if the package is installed and install if not
-    if findpkg_cmd $1; then
-        echo $1 already installed. Skipping.
-    else
-        install_cmd $1
-    fi
 }
 
 # Additional installations
@@ -78,9 +81,25 @@ install_ext () {
     curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 }
 
-for arg in $@
-do
+# Parsing args
+for arg in $@; do
     case $arg in
+	-h | --help)
+	    echo "Usage:  ./install.sh [OPTIONS] [DOTFILES]
+
+Options:
+	-h, --help        Print this message
+	-f, --force       Override dotfiles which are already present
+	-i, --install     Install the packages along with dotfiles
+	-o, --os=OS       Set \"OS\" as OS name
+	-d, --dotfiles    Print all available dotfiles
+
+You can also pass program names to install only their dotfiles.
+Otherwise, all dotfiles are installed."
+
+	    exit
+	    ;;
+	
         -f | --force)
             force=1
             ;;
@@ -89,8 +108,21 @@ do
             install=1
             ;;
 
+	-d | --dotfiles)
+	    echo "Available dotfiles: ${pkgs[@]}"
+
+	    exit
+	    ;;
+
+	-o=* | --os=*)
+	    # Strip off all --os='s
+	    os_name=${arg#"--os="}; os_name=${os_name#"-o="}
+	    ;;
+
         -*)
-            echo ERROR: Unknown option: $arg
+            echo "ERROR: Unknown option: $arg"
+
+	    exit
             ;;
 
         *)
@@ -99,14 +131,19 @@ do
     esac
 done
 
+# If no packages were specified, default to all
+if ! [[ $to_install ]]; then
+    to_install=${pkgs[@]}
+fi
+
 # Install all packages
 if [[ $install ]]; then
     echo Installing packages...
 
-    update_cmd
+    update
 
     for pkg in ${pkgs[@]}; do
-        install_pkg $pkg
+        install $pkg
     done
 
     install_ext
@@ -114,14 +151,13 @@ else
     read -p "Install packages? (Otherwise, just copying configs) [y/n] " answer
 
     # Make check case-insensitive
-    shopt -s nocasematch
     if [[ answer =~ (y|yes) ]]; then
-        echo Installing packages...
+        echo "Installing packages..."
 
-	update_cmd
+	update
 
         for pkg in ${pkgs[@]}; do
-            install_pkg $pkg
+            install $pkg
         done
 
         install_ext
@@ -133,7 +169,6 @@ if [[ -z $force ]]; then
     read -p "Override existing dotfiles? [y/n] " answer
 
     # Make check case-insensitive
-    shopt -s nocasematch
     if [[ answer =~ (y|yes) ]]; then
         force=1
     fi
@@ -142,7 +177,21 @@ fi
 # Additional configuration
 fish -c "omf theme integral-froloket" 2&>/dev/null
 
+# Dependency installation
+echo "Installing dependencies..."
+
+readarray -t deps <<< `cat dependencies.txt`
+
+for pkg in ${deps[@]}; do
+    install pkg
+done
+
 # Symlinking
+# Install stow if needed
+if ! command -v stow; then
+    install stow
+fi
+
 # Try
 output=$(stow -t ~ . 2>&1)
 
@@ -152,9 +201,7 @@ if [[ $force ]]; then
     readarray -t lines <<< $output
 
     # Delete every dotfile that was present
-    for ((i=1; i<${#lines[@]}-1; i++))
-    do
-        # file=$(echo ${lines[i]} | awk "{print \$NF}" | sed "s/^/$HOME\//")
+    for ((i=1; i<${#lines[@]}-1; i++)); do
         file=$HOME/$(echo ${lines[i]} | awk "{print \$NF}")
 
         rm -f $file

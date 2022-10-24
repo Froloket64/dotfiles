@@ -1,0 +1,5 @@
+ptsh
+lsd
+bat
+vivid
+neofetch
