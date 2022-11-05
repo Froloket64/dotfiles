@@ -22,11 +22,11 @@ install () {
             ;;
 
         *arch*)
-	    if command -v yay; then
-		yay -S --needed $1
-	    else
-		sudo pacman -S --needed $1
-	    fi
+            if command -v yay; then
+                yay -S --needed $1
+            else
+                sudo pacman -S --needed $1
+            fi
             ;;
 
         *)
@@ -42,11 +42,11 @@ find_pkg () {
             ;;
 
         *arch*)
-	    if command -v yay; then
-		yay -S --needed $1
-	    else
-		sudo pacman -S --needed $1
-	    fi
+            if command -v yay; then
+                yay -S --needed $1
+            else
+                sudo pacman -S --needed $1
+            fi
             ;;
 
         *)
@@ -62,11 +62,11 @@ update () {
             ;;
 
         *arch*)
-	    if command -v yay; then
-		yay -S --needed $1
-	    else
-		sudo pacman -S --needed $1
-	    fi
+            if command -v yay; then
+                yay -S --needed $1
+            else
+                sudo pacman -S --needed $1
+            fi
             ;;
 
         *)
@@ -84,22 +84,22 @@ install_ext () {
 # Parsing args
 for arg in $@; do
     case $arg in
-	-h | --help)
-	    echo "Usage:  ./install.sh [OPTIONS] [DOTFILES]
+    -h | --help)
+        echo "Usage:  ./install.sh [OPTIONS] [DOTFILES]
 
 Options:
-	-h, --help        Print this message
-	-f, --force       Override dotfiles which are already present
-	-i, --install     Install the packages along with dotfiles
-	-o, --os=OS       Set \"OS\" as OS name
-	-d, --dotfiles    Print all available dotfiles
+    -h, --help        Print this message
+    -f, --force       Override dotfiles which are already present
+    -i, --install     Install the packages along with dotfiles
+    -o, --os=OS       Set \"OS\" as OS name
+    -d, --dotfiles    Print all available dotfiles
 
 You can also pass program names to install only their dotfiles.
 Otherwise, all dotfiles are installed."
 
-	    exit
-	    ;;
-	
+        exit
+        ;;
+
         -f | --force)
             force=1
             ;;
@@ -108,21 +108,21 @@ Otherwise, all dotfiles are installed."
             install=1
             ;;
 
-	-d | --dotfiles)
-	    echo "Available dotfiles: ${pkgs[@]}"
+        -d | --dotfiles)
+            echo "Available dotfiles: ${pkgs[@]}"
 
-	    exit
-	    ;;
+            exit
+            ;;
 
-	-o=* | --os=*)
-	    # Strip off all --os='s
-	    os_name=${arg#"--os="}; os_name=${os_name#"-o="}
-	    ;;
+        -o=* | --os=*)
+            # Strip off all --os='s
+            os_name=${arg#"--os="}; os_name=${os_name#"-o="}
+            ;;
 
-        -*)
-            echo "ERROR: Unknown option: $arg"
+            -*)
+                echo "ERROR: Unknown option: $arg"
 
-	    exit
+            exit
             ;;
 
         *)
@@ -154,7 +154,7 @@ else
     if [[ answer =~ (y|yes) ]]; then
         echo "Installing packages..."
 
-	update
+    update
 
         for pkg in ${pkgs[@]}; do
             install $pkg
