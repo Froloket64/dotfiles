@@ -43,6 +43,7 @@
         "format-disconnected": "Disconnected ",
         "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
         "unknown-tag": "N/A",
+        "max-length": 40,
         "interval": 2,
         "consume-icons": {
             "on": " "
