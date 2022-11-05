@@ -17,7 +17,8 @@ window:
 
   startup_mode: Windowed
 
-  opacity: 0.75
+  # opacity: 0.75
+  opacity: 1
 
 # Fonts
 font:
