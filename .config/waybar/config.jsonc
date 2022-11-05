@@ -25,12 +25,12 @@
             "2": "COD",
             "3": "WEB",
             "4": "GAM",
-            "5": "CHT",
+            "5": "WRK",
             "6": "MUS",
+            "7": "CHT",
+            "8": "TOP",
             "9": "SET",
             "10": "TDO"
-
-            // "default": "TRM" // A hack to allow 1st to work on (at least on Hyprland)
         }
     },
 
