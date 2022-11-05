@@ -121,8 +121,8 @@ You can also pass program names to install only them."
             os_name=${arg#"--os="}; os_name=${os_name#"-o="}
             ;;
 
-            -*)
-                echo "ERROR: Unknown option: $arg"
+        -*)
+            echo "ERROR: Unknown option: $arg"
 
             exit
             ;;
