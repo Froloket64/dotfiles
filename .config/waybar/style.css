@@ -67,21 +67,24 @@ window#waybar.hidden {
     padding: 0 0;
     margin: 4px 2px;
 
-    background-color: transparent;
+    background-color: #3c3836;
     color: #ebdbb2;
 
-    transition: background-color 0.2s ease,
-        color 0.2s ease;
+    transition: 0.2s ease;
 }
 
 #workspaces button:hover {
     background: #ebdbb2;
     color: #282828;
+
+    border-radius: 0;
 }
 
 #workspaces button.focused {
     background: #ebdbb2;
     color: #282828;
+
+    border-radius: 0;
 }
 
 #workspaces button.urgent {
