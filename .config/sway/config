@@ -43,14 +43,14 @@ set $gtk-schema org.gnome.desktop.interface
 # Displays
 output HDMI-A-1 resolution 1920x1080 position 0,0
 output eDP-1 resolution 1920x1080 position 0,0
-# output eDP-1 disable
+output eDP-1 disable
 
 # Wallpaper
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
 ## Idle configuration
-exec swayidle -w \
-         timeout 30 'swaylock -f -c 282828 && swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+# exec swayidle -w \
+#          timeout 120 'swaylock -f -c 282828 && swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
          # before-sleep 'swaylock -f -c 282828'
 
 ## Input configuration
