@@ -62,6 +62,13 @@ input "2385:5862:Kingston_HyperX_Alloy_Origins_Core" {
     xkb_variant "qwerty"
 }
 
+input "1:1:AT_Translated_Set_2_keyboard" {
+    xkb_layout us,ru
+    xkb_model "thinkpad"
+    xkb_options "grp:alt_shift_toggle"
+    xkb_variant "qwerty"
+}
+
 # Mouse
 input "1133:49291:Logitech_G502_HERO_Gaming_Mouse" {
     accel_profile "flat"
