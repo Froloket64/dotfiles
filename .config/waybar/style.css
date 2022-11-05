@@ -54,6 +54,10 @@ window#waybar.hidden {
     padding: 0 14px 0 10px;
 }
 
+#language {
+    min-width: 32px; /* So that it doesn't shrink when there are long widgets on the left */
+}
+
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left > widget:first-child > #workspaces {
     margin-left: 0;
