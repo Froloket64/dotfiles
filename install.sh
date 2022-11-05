@@ -197,7 +197,7 @@ output=$(stow -t ~ . 2>&1)
 
 # Process exceptions about existing files (if --force)
 if [[ $force ]]; then
-    echo Removing existing dotfiles...
+    echo "Removing existing dotfiles..."
     readarray -t lines <<< $output
 
     # Delete every known dotfile that was present
@@ -210,5 +210,5 @@ if [[ $force ]]; then
     stow -t ~ .
 fi
 
-echo DONE
-echo Enjoy the dotfiles!
+echo "DONE"
+echo "Enjoy the dotfiles!"
