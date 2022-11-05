@@ -74,7 +74,7 @@
         "timezone": "Europe/Moscow",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": "{:%H:%M} ",
-        "format-alt": "{:%d.%m.%Y}"
+        "format-alt": "{:%d.%m.%Y} "
     },
 
     "cpu": {
