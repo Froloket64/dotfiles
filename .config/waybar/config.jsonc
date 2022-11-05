@@ -7,7 +7,7 @@
 
     "spacing": 4, // Gaps between modules
 
-    "font": "JetBrainsMono Nerd Font",
+    "font": "", // Set in theme file
 
     "modules-left": ["sway/workspaces"],
     "modules-center": [],
