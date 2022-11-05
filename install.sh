@@ -164,7 +164,7 @@ if [[ $install ]] ||
 
     update
 
-    for pkg in ${pkgs[@]}; do
+    for pkg in ${to_install[@]}; do
         install $pkg
     done
 
