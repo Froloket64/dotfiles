@@ -131,7 +131,12 @@ Otherwise, all dotfiles are installed."
     esac
 done
 
-# If no packages were specified, default to all
+# Installing base dependencies
+# stow
+if ! command -v stow 2&>/dev/null; then
+    install stow || exit
+fi
+
 if ! [[ $to_install ]]; then
     to_install=${pkgs[@]}
 fi
@@ -187,11 +192,6 @@ for pkg in ${deps[@]}; do
 done
 
 # Symlinking
-# Install stow if needed
-if ! command -v stow; then
-    install stow
-fi
-
 # Try
 output=$(stow -t ~ . 2>&1)
 
@@ -200,7 +200,7 @@ if [[ $force ]]; then
     echo Removing existing dotfiles...
     readarray -t lines <<< $output
 
-    # Delete every dotfile that was present
+    # Delete every known dotfile that was present
     for ((i=1; i<${#lines[@]}-1; i++)); do
         file=$HOME/$(echo ${lines[i]} | awk "{print \$NF}")
 
