@@ -96,7 +96,7 @@ input "1133:49291:Logitech_G502_HERO_Gaming_Mouse" {
     bindsym $mod+Shift+r reload
 
     # Exit Sway
-    bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+q exec swaynag -t warning -m 'What to do?' -B 'Logout' 'swaymsg exit' -B 'Suspend' 'systemctl suspend'
 
     # Move your focus around
     bindsym $mod+$left focus left
