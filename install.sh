@@ -13,6 +13,9 @@ os_name=$(cat /etc/os-release)
 # All packages including deps (e.g. `stow` for symlinking the dots)
 pkgs=(alacritty dunst fish neovim qtile rofi hyprland polybar sway waybar wezterm)
 
+gum_choose_style=(--cursor.foreground="214" --selected.background="236" --selected.foreground="214")
+gum_confirm_style=(--selected.background="100" --selected.foreground="235" --unselected.background="239")
+
 # Install a package
 # IDEA: Check for OS by checking installed pkg manager
 install () {
@@ -94,8 +97,7 @@ Options:
     -o, --os=OS       Set \"OS\" as OS name
     -d, --dotfiles    Print all available dotfiles
 
-You can also pass program names to install only their dotfiles.
-Otherwise, all dotfiles are installed."
+You can also pass program names to install only them."
 
         exit
         ;;
@@ -137,13 +139,28 @@ if ! command -v stow 2&>/dev/null; then
     install stow || exit
 fi
 
+# gum
+if ! command -v gum 2&>/dev/null; then
+    install gum || exit
+fi
+
+# If no packages were specified, ask
 if ! [[ $to_install ]]; then
-    to_install=${pkgs[@]}
+    echo "Which dotfiles/packages to install? (Defaults to all)"
+    echo "Space to select, Enter to confirm"
+
+    to_install=$(gum choose ${pkgs[@]} --no-limit ${gum_choose_style[@]})
+
+    # If still none, select all
+    if ! [[ $to_install ]]; then
+        to_install=${pkgs[@]}
+    fi
 fi
 
 # Install all packages
-if [[ $install ]]; then
-    echo Installing packages...
+if [[ $install ]] ||
+       gum confirm "Install packages? (Otherwise, just copying configs)" ${gum_confirm_style[@]}; then
+    echo "Installing packages..."
 
     update
 
@@ -152,29 +169,12 @@ if [[ $install ]]; then
     done
 
     install_ext
-else
-    read -p "Install packages? (Otherwise, just copying configs) [y/n] " answer
-
-    # Make check case-insensitive
-    if [[ answer =~ (y|yes) ]]; then
-        echo "Installing packages..."
-
-    update
-
-        for pkg in ${pkgs[@]}; do
-            install $pkg
-        done
-
-        install_ext
-    fi
 fi
 
 # Ask if existing dotfiles should be overridden if unspecified
 if [[ -z $force ]]; then
-    read -p "Override existing dotfiles? [y/n] " answer
-
     # Make check case-insensitive
-    if [[ answer =~ (y|yes) ]]; then
+    if gum confirm "Override existing dotfiles?" ${gum_confirm_style[@]}; then
         force=1
     fi
 fi
