@@ -70,8 +70,8 @@ window#waybar.hidden {
     background-color: transparent;
     color: #ebdbb2;
 
-    transition: background-color 0.2s ease-in-out,
-        color 0.2s ease-in-out;
+    transition: background-color 0.2s ease,
+        color 0.2s ease;
 }
 
 #workspaces button:hover {
