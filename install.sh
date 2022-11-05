@@ -25,7 +25,7 @@ install () {
             ;;
 
         *arch*)
-            if command -v yay; then
+            if command -v yay 2&>/dev/null; then
                 yay -S --needed $1
             else
                 sudo pacman -S --needed $1
@@ -45,7 +45,7 @@ find_pkg () {
             ;;
 
         *arch*)
-            if command -v yay; then
+            if command -v yay 2&>/dev/null; then
                 yay -S --needed $1
             else
                 sudo pacman -S --needed $1
@@ -65,7 +65,7 @@ update () {
             ;;
 
         *arch*)
-            if command -v yay; then
+            if command -v yay 2&>/dev/null; then
                 yay -S --needed $1
             else
                 sudo pacman -S --needed $1
