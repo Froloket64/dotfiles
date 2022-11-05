@@ -178,10 +178,7 @@ input "1133:49291:Logitech_G502_HERO_Gaming_Mouse" {
 bindsym $mod+r mode "resize"
 
 mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
+    # With bound movement keys
     bindsym $left resize shrink width 10px
     bindsym $down resize grow height 10px
     bindsym $up resize shrink height 10px
@@ -209,9 +206,6 @@ bar {
 include /etc/sway/config.d/*
 
 ## Execs
-# Notifications
-exec dunst
-
 # Gtk FIXME, DEVS
 exec_always {
     gsettings set $gtk-schema gtk-theme 'Gruvbox-Material-Dark'
@@ -219,3 +213,9 @@ exec_always {
     gsettings set $gtk-schema cursor-theme 'Bibata-Original-Ice'
     gsettings set $gtk-schema font-name 'JetBrainsMono Nerd Font 10'
 }
+
+# Notifications
+exec dunst
+
+# Bluetooth
+exec blueman-applet
