@@ -21,7 +21,8 @@ gum_confirm_style=(--selected.background="100" --selected.foreground="235" --uns
 install () {
     case $os_name in
         *ubuntu* | *mint*)
-            sudo apt-get install $1
+            # Try apt then snap
+            sudo apt-get install $1 || snap install $1
             ;;
 
         *arch*)
@@ -38,26 +39,7 @@ install () {
     esac
 }
 
-find_pkg () {
-    case $os_name in
-        *ubuntu* | *mint*)
-            sudo apt-get list --installed $1 | grep $1
-            ;;
-
-        *arch*)
-            if command -v yay 2&>/dev/null; then
-                yay -S --needed $1
-            else
-                sudo pacman -S --needed $1
-            fi
-            ;;
-
-        *)
-            echo "Unknown distro"
-            exit
-    esac
-}
-
+# Update repositories
 update () {
     case $os_name in
         *ubuntu* | *mint*)
