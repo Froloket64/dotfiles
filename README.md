@@ -8,6 +8,7 @@
 
 ### Sway
 ![Some more terminals](/preview/sway/terminals.png)
+![Web browser](/preview/sway/browser.png)
 
 ## Installation
 ### Supported distros\*
