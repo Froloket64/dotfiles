@@ -63,7 +63,9 @@ update () {
 # Additional installations
 install_ext () {
     # Oh My Fish
-    curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+    if [[ " ${to_install[*]} " == *" fish "* ]]; then
+        curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+    fi
 }
 
 # Parsing args
@@ -162,7 +164,9 @@ if [[ -z $force ]]; then
 fi
 
 # Additional configuration
-fish -c "omf theme integral-froloket" 2&>/dev/null
+if [[ " ${to_install[*]} " == *" fish "* ]]; then
+    fish -c "omf theme integral-froloket" 2&>/dev/null
+fi
 
 # Dependency installation
 echo "Installing dependencies..."
