@@ -172,13 +172,6 @@ if [[ $install == 1 ]]; then
     install_ext
 fi
 
-# Ask if existing dotfiles should be overridden if unspecified
-if [[ -z $force ]]; then
-    if gum confirm "Override existing dotfiles?" ${gum_confirm_style[@]}; then
-        force=1
-    fi
-fi
-
 ## Additional configuration
 if [[ " ${to_install[*]} " == *" fish "* ]]; then
     fish -c "omf theme integral-froloket" 2&>/dev/null
@@ -197,8 +190,17 @@ done
 # Try
 output=$(stow -t ~ . 2>&1)
 
-# Process exceptions about existing files (if --force)
-if [[ $force ]]; then
+# Ask whether override if unset
+if [[ -z $force ]]; then
+    if gum confirm "Override existing dotfiles?" ${gum_confirm_style[@]}; then
+        force=1
+    else
+        force=0
+    fi
+fi
+
+# Override existing dotfiles (if --force'd)
+if [[ $force == 1 ]]; then
     echo "Removing existing dotfiles..."
     readarray -t lines <<< $output
 
