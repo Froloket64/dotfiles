@@ -177,14 +177,16 @@ if [[ " ${to_install[*]} " == *" fish "* ]]; then
     fish -c "omf theme integral-froloket" 2&>/dev/null
 fi
 
-echo "Installing dependencies..."
 ## Dependency installation
+if [[ $install == 1 ]]; then
+    echo "Installing dependencies..."
 
-readarray -t deps <<< `cat dependencies.txt`
+    readarray -t deps <<< `cat dependencies.txt`
 
-for pkg in ${deps[@]}; do
-    install pkg
-done
+    for pkg in ${deps[@]}; do
+        install pkg
+    done
+fi
 
 ## Symlinking
 # Try
