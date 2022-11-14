@@ -16,6 +16,7 @@ pkgs=(alacritty dunst fish neovim qtile rofi hyprland polybar sway waybar wezter
 gum_choose_style=(--cursor.foreground="11" --selected.background="236" --selected.foreground="3")
 gum_confirm_style=(--selected.background="2" --selected.foreground="0" --unselected.background="")
 
+## Definitions
 # Install a package
 # IDEA: Check for OS by checking installed pkg manager
 install () {
@@ -68,11 +69,11 @@ install_ext () {
     fi
 }
 
-# Parsing args
+## Parsing args
 for arg in $@; do
     case $arg in
-    -h | --help)
-        echo "Usage:  ./install.sh [OPTIONS] [DOTFILES]
+        -h | --help)
+            echo "Usage:  ./install.sh [OPTIONS] [DOTFILES]
 
 Options:
     -h, --help        Print this message
@@ -83,8 +84,8 @@ Options:
 
 You can also pass program names to install only them."
 
-        exit
-        ;;
+            exit
+            ;;
 
         -f | --force)
             force=1
@@ -118,6 +119,7 @@ You can also pass program names to install only them."
 done
 
 # Installing base dependencies
+## Installing base dependencies
 # stow
 if ! command -v stow 2&>/dev/null; then
     install stow || exit
@@ -138,6 +140,7 @@ if ! [[ $to_install ]]; then
     # If still none, select all
     if ! [[ $to_install ]]; then
         to_install=${pkgs[@]}
+## Installing packages
     fi
 fi
 
@@ -163,13 +166,13 @@ if [[ -z $force ]]; then
     fi
 fi
 
-# Additional configuration
+## Additional configuration
 if [[ " ${to_install[*]} " == *" fish "* ]]; then
     fish -c "omf theme integral-froloket" 2&>/dev/null
 fi
 
-# Dependency installation
 echo "Installing dependencies..."
+## Dependency installation
 
 readarray -t deps <<< `cat dependencies.txt`
 
@@ -177,7 +180,7 @@ for pkg in ${deps[@]}; do
     install pkg
 done
 
-# Symlinking
+## Symlinking
 # Try
 output=$(stow -t ~ . 2>&1)
 
@@ -186,7 +189,7 @@ if [[ $force ]]; then
     echo "Removing existing dotfiles..."
     readarray -t lines <<< $output
 
-    # Delete every known dotfile that was present
+    # Delete all conflicting dotfiles
     for ((i=1; i<${#lines[@]}-1; i++)); do
         file=$HOME/$(echo ${lines[i]} | awk "{print \$NF}")
 
