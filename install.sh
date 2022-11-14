@@ -125,7 +125,19 @@ You can also pass program names to install only them."
     esac
 done
 
-# Installing base dependencies
+# If no packages were specified, ask
+if ! [[ $to_install ]]; then
+    echo "Which dotfiles/packages to install/copy?"
+    echo "Space to select, Enter to confirm, Ctrl-C to select all"
+
+    to_install=$(gum choose ${pkgs[@]} --no-limit ${gum_choose_style[@]})
+
+    # If still none, select all
+    if ! [[ $to_install ]]; then
+        to_install=${pkgs[@]}
+    fi
+fi
+
 ## Installing base dependencies
 # stow
 if ! command -v stow 2&>/dev/null; then
@@ -137,16 +149,6 @@ if ! command -v gum 2&>/dev/null; then
     install gum || exit
 fi
 
-# If no packages were specified, ask
-if ! [[ $to_install ]]; then
-    echo "Which dotfiles/packages to install? (Defaults to all)"
-    echo "Space to select, Enter to confirm"
-
-    to_install=$(gum choose ${pkgs[@]} --no-limit ${gum_choose_style[@]})
-
-    # If still none, select all
-    if ! [[ $to_install ]]; then
-        to_install=${pkgs[@]}
 ## Installing packages
 # Ask whether install if unset
 if [[ -z $install ]]; then
@@ -172,7 +174,6 @@ fi
 
 # Ask if existing dotfiles should be overridden if unspecified
 if [[ -z $force ]]; then
-    # Make check case-insensitive
     if gum confirm "Override existing dotfiles?" ${gum_confirm_style[@]}; then
         force=1
     fi
