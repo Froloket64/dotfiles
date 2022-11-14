@@ -184,7 +184,7 @@ if [[ $install == 1 ]]; then
     readarray -t deps <<< `cat dependencies.txt`
 
     for pkg in ${deps[@]}; do
-        install pkg
+        install $pkg
     done
 fi
 
