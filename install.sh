@@ -5,8 +5,6 @@
 # - Add dependency installation
 # - Add more distros
 
-shopt -s nocasematch
-
 # Some OS information
 os_name=$(cat /etc/os-release)
 
@@ -95,6 +93,10 @@ You can also pass program names to install only them."
             install=1
             ;;
 
+        -I | --no-install)
+            install=0
+            ;;
+
         -d | --dotfiles)
             echo "Available dotfiles: ${pkgs[@]}"
 
@@ -141,12 +143,17 @@ if ! [[ $to_install ]]; then
     if ! [[ $to_install ]]; then
         to_install=${pkgs[@]}
 ## Installing packages
+# Ask whether install if unset
+if [[ -z $install ]]; then
+    if gum confirm "Install packages? (Otherwise, just copying configs)" ${gum_confirm_style[@]}; then
+        install=1
+    else
+        install=0
     fi
 fi
 
-# Install all packages
-if [[ $install ]] ||
-       gum confirm "Install packages? (Otherwise, just copying configs)" ${gum_confirm_style[@]}; then
+# Install
+if [[ $install == 1 ]]; then
     echo "Installing packages..."
 
     update
