@@ -115,7 +115,12 @@ You can also pass program names to install only them."
             ;;
 
         *)
-            to_install += $arg
+            if [[ " ${pkgs[*]} " == *" $arg "* ]]; then
+                to_install+=$arg
+            else
+                echo "Unknown argument: $arg"
+                exit
+            fi
             ;;
     esac
 done
