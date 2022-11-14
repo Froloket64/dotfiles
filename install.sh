@@ -13,8 +13,8 @@ os_name=$(cat /etc/os-release)
 # All packages including deps (e.g. `stow` for symlinking the dots)
 pkgs=(alacritty dunst fish neovim qtile rofi hyprland polybar sway waybar wezterm)
 
-gum_choose_style=(--cursor.foreground="214" --selected.background="236" --selected.foreground="214")
-gum_confirm_style=(--selected.background="100" --selected.foreground="235" --unselected.background="239")
+gum_choose_style=(--cursor.foreground="11" --selected.background="236" --selected.foreground="3")
+gum_confirm_style=(--selected.background="2" --selected.foreground="0" --unselected.background="")
 
 # Install a package
 # IDEA: Check for OS by checking installed pkg manager
