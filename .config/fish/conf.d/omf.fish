@@ -10,6 +10,7 @@ source $OMF_PATH/init.fish
 
 ## Env vars
 set -gx LC_ALL en_US.utf8
+set -gx SHELL /bin/fish
 
 # Manpager
 if command -vq bat
