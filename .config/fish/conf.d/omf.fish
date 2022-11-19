@@ -9,22 +9,22 @@ set -q XDG_DATA_HOME
 source $OMF_PATH/init.fish
 
 ## Env vars
-export LC_ALL=en_US.utf8
+set -gx LC_ALL en_US.utf8
 
 # Manpager
 if command -vq bat
-    export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+    set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
 end
 
 # LSColors
 if command -vq vivid
-    export LS_COLORS=(vivid generate gruvbox-dark-soft) # Needs `vivid`
+    set -gx LS_COLORS (vivid generate gruvbox-dark-soft) # Needs `vivid`
 end
 
 ## Other vars/overrides
 set fish_greeting # Disbale the startup intro message
 
-fish_vi_key_bindings # eVIl, am i right?
+fish_vi_key_bindings # Being eVIl
 
 ## Exec on startup
 neofetch # how d'ya live without it ;)
