@@ -36,6 +36,10 @@ from typing import List  # noqa: F401
 
 mod = "mod4"
 terminal = "alacritty"
+
+shell = "fish"
+shell_cmds = "-C neofetch"
+
 # terminal = guess_terminal() # Needs import ^
 
 # Key Binds
@@ -83,7 +87,7 @@ keys = [
     #     desc="Spawn a command using a prompt widget"),
 
     # Application start binds
-    Key([mod], "Return", lazy.spawn(f"{terminal} -e fish"), desc="Run terminal (defined by var)"),
+    Key([mod], "Return", lazy.spawn(f"{terminal} -e {shell} {shell_cmds}"), desc="Run terminal (defined by var)"),
     Key([mod], "d", lazy.spawn("rofi -show drun"), desc="Run app launcher (rofi here)"),
     Key([mod, "control"], "h", lazy.spawn(f"{terminal} -e htop"), desc="Run htop in the chosen terminal"),
     Key([mod], "s", lazy.spawn(["sh", "-c", "scrot -F ~/Pictures/screen.png"]), desc="Take a quick screenshot"),

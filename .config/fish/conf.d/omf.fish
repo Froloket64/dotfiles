@@ -26,6 +26,3 @@ end
 set fish_greeting # Disbale the startup intro message
 
 fish_vi_key_bindings # Being eVIl
-
-## Exec on startup
-neofetch # how d'ya live without it ;)
