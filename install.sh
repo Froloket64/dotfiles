@@ -190,10 +190,11 @@ fi
 
 ## Symlinking
 # Try
+echo "Symlinking dotfiles..."
 output=$(stow -t ~ . 2>&1)
 
 # Ask whether override if unset
-if [[ -z $force ]]; then
+if [[ $output ]] && [[ -z $force ]]; then
     if gum confirm "Override existing dotfiles?" ${gum_confirm_style[@]}; then
         force=1
     else
@@ -202,7 +203,9 @@ if [[ -z $force ]]; then
 fi
 
 # Override existing dotfiles (if --force'd)
-if [[ $force == 1 ]]; then
+if [[ $output ]] && [[ $force == 1 ]]; then
+    echo "Conflicts found."
+
     echo "Removing existing dotfiles..."
     readarray -t lines <<< $output
 
@@ -213,6 +216,7 @@ if [[ $force == 1 ]]; then
         rm -f $file
     done
 
+    echo "Symlinking dotfiles..."
     stow -t ~ .
 fi
 
