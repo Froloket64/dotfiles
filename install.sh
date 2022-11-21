@@ -165,10 +165,7 @@ if [[ $install == 1 ]]; then
 
     update
 
-    for pkg in ${to_install[@]}; do
-        install $pkg
-    done
-
+    install ${to_install[@]}
     install_ext
 fi
 
@@ -183,9 +180,7 @@ if [[ $install == 1 ]]; then
 
     readarray -t deps <<< `cat dependencies.txt`
 
-    for pkg in ${deps[@]}; do
-        install $pkg
-    done
+    install ${deps[@]}
 fi
 
 ## Symlinking
