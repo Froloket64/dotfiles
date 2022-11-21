@@ -21,14 +21,14 @@ install () {
     case $os_name in
         *ubuntu* | *mint*)
             # Try apt then snap
-            sudo apt-get install $1 || snap install $1
+            sudo apt-get install -y $1 || snap install $1
             ;;
 
         *arch*)
             if command -v yay 2&>/dev/null; then
-                yay -S --needed $1
+                yay -S --needed --noconfirm $1
             else
-                sudo pacman -S --needed $1
+                sudo pacman -S --needed --noconfirm $1
             fi
             ;;
 
