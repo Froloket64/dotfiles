@@ -108,7 +108,7 @@ element-icon {
 window {
     background-color: var(background);
     width: 50%;
-    height: 47%;
+    height: 48%;
     padding:          5;
     border:           0;
 }
