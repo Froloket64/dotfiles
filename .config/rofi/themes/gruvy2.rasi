@@ -26,16 +26,18 @@
     alternate-urgent-background: var(orange);
 
     separatorcolor:              transparent;
-    border-color:                var(orange);
+    border-color:                #3c3836;
     spacing:                     0;
 }
 
 element {
     cursor:  pointer;
     orientation: vertical;
+
     padding: 10px 0px;
     margin: 4px 8px;
     spacing: 5px;
+
     border-radius: 4px;
 }
 
@@ -110,7 +112,7 @@ window {
     width: 50%;
     height: 48%;
     padding:          5;
-    border:           0;
+    border:           1;
 }
 
 mainbox {
