@@ -15,6 +15,12 @@ smart_borders on
 
 gaps inner 6
 
+# -- Swayfx --
+smart_borders off
+
+corner_radius 4
+# -- END --
+
 # Cursor theme
 seat seat0 xcursor_theme Bibata-Original-Ice 10
 
@@ -208,7 +214,7 @@ bar {
 include /etc/sway/config.d/*
 
 ## Execs
-# Gtk FIXME, DEVS
+# Gtk
 exec_always {
     gsettings set $gtk-schema gtk-theme 'Gruvbox-Material-Dark'
     gsettings set $gtk-schema icon-theme 'Papirus-Dark'
