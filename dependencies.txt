@@ -3,3 +3,4 @@ lsd
 bat
 vivid
 neofetch
+nwg-dock
