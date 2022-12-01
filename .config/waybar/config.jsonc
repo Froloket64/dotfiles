@@ -1,3 +1,6 @@
+// Some optional features require external commands:
+// amixer, pavucontrol, mpc
+
 {
     "position": "top",
     "layer": "top", // Display on top of everything (except for fullscreen apps)
