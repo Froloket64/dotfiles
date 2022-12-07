@@ -8,4 +8,8 @@
 (package! vlang-mode
   :recipe (:host github :repo "Naheel-Azawy/vlang-mode"))
 
+;; Docs
+(package! devdocs-browser)
+
+;; Other
 (package! visual-regexp-steroids)
