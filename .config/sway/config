@@ -4,9 +4,9 @@ font "JetBrainsMono Nerd Font" 10
 
 # Colors
 # name                  border   background  text     indicator  child_border 
-client.focused          #a89984  #282828     #ebdbb2  #ebdbb2    #928374
-client.unfocused        #3c3836  #282828     #928374  #3c3836    #504945
-client.focused_inactive #a89984  #928374     #ebdbb2  #3c3836    #504945
+client.focused          #a89984  #282828     #ebdbb2  #928374    #928374
+client.unfocused        #3c3836  #282828     #928374  #504945    #504945
+client.focused_inactive #a89984  #928374     #ebdbb2  #504945    #504945
 client.urgent           #3c3836  #fb4934     #3c3836  #fb4934    #fb4934
 
 # Borders, gaps
