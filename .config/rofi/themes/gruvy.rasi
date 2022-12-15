@@ -32,9 +32,13 @@
 
 element {
     cursor:  pointer;
-    padding: 1px;
-    spacing: 5px;
+
+    padding: 2px;
+    margin: 2px 0;
+    spacing: 7px;
+
     border:  0;
+    border-radius: 2px;
 }
 
 element normal.normal {
@@ -101,7 +105,10 @@ element-icon {
 window {
     background-color: var(background);
     padding:          5;
-    border:           0;
+
+    border:           1px;
+    border-color:     #928374;
+    border-radius:    4px;
 }
 
 mainbox {

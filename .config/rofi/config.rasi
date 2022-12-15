@@ -17,4 +17,4 @@ configuration {
 	scroll-method: 0;
 }
 
-@theme "gruvy2"
+@theme "gruvy"
