@@ -14,7 +14,8 @@ set -gx SHELL /bin/fish
 
 # Manpager
 if command -vq bat
-    set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
+    set -l bat_theme "gruvbox-dark"
+    set -gx MANPAGER "sh -c 'col -bx | bat --theme $bat_theme -l man -p'"
 end
 
 # LSColors
