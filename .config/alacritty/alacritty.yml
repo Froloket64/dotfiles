@@ -13,23 +13,22 @@ window:
 # Fonts
 font:
   normal:
-    family: JetBrainsMono Nerd Font
+    family: CaskaydiaCove Nerd Font
     style: Regular
 
   bold:
-    family: JetBrainsMono Nerd Font
+    family: CaskaydiaCove Nerd Font
     style: Bold
 
   italic:
-    family: JetBrainsMono Nerd Font
+    family: CaskaydiaCove Nerd Font
     style: Italic
 
   bold_italic:
-    family: JetBrainsMono Nerd Font
-    #style: Bold Italic
-    style: Bold
+    family: CaskaydiaCove Nerd Font
+    style: Bold Italic
 
-  size: 10
+  size: 10.5
 
 # Colors
 colors:

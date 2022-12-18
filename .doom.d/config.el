@@ -6,8 +6,8 @@
       (load! "private.el"))
 
 ;; Font
-(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14 :weight 'normal)
-     doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font" :size 15)
+(setq doom-font (font-spec :family "CaskaydiaCove Nerd Font" :size 14 :weight 'normal)
+     doom-variable-pitch-font (font-spec :family "CaskaydiaCove Nerd Font" :size 15)
      doom-serif-font (font-spec :family "scientifica" :size 15))
 
 ;; Theme
