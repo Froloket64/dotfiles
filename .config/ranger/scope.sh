@@ -34,7 +34,7 @@ HIGHLIGHT_OPTIONS="--replace-tabs=${HIGHLIGHT_TABWIDTH} --style=${HIGHLIGHT_STYL
 PYGMENTIZE_STYLE=${PYGMENTIZE_STYLE:-autumn}
 OPENSCAD_IMGSIZE=${RNGR_OPENSCAD_IMGSIZE:-1000,1000}
 OPENSCAD_COLORSCHEME=${RNGR_OPENSCAD_COLORSCHEME:-Tomorrow Night}
-BAT_COLORSCHEME=gruvbox-dark # FIXME "gruvbox-dark" doesn't work for me for some reason...
+BAT_COLORSCHEME=ansi # FIXME Devs, add Truecolor support
 
 handle_extension() {
     case "${FILE_EXTENSION_LOWER}" in
@@ -255,11 +255,10 @@ handle_mime() {
                 exit 2
             fi
 
-            for theme in (ansi gruvbox-dark Dracula); do bat --style plain --theme $theme ${FILE_PATH}; done && exit 5
-            # bat --color always \
-            #     --style "plain" \
-            #     --theme "${BAT_COLORSCHEME}" \
-            #     -- "${FILE_PATH}" && exit 5
+            bat --color always \
+                --style "plain" \
+                --theme "${BAT_COLORSCHEME}" \
+                -- "${FILE_PATH}" && exit 5
 
             exit 2;;
 
