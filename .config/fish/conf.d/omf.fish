@@ -26,4 +26,10 @@ end
 ## Other vars/overrides
 set fish_greeting # Disbale the startup intro message
 
+# Cursor shape
+set fish_cursor_default block
+set fish_cursor_insert line blink
+set fish_cursor_visual block
+set fish_cursor_replace underscore
+
 fish_vi_key_bindings # Being eVIl
