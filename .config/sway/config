@@ -64,14 +64,7 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
 ## Input configuration
 # Keyboard
-input "2385:5862:Kingston_HyperX_Alloy_Origins_Core" {
-    xkb_layout us,ru
-    xkb_model "thinkpad"
-    xkb_options "grp:alt_shift_toggle"
-    xkb_variant "qwerty"
-}
-
-input "1:1:AT_Translated_Set_2_keyboard" {
+input type:keyboard {
     xkb_layout us,ru
     xkb_model "thinkpad"
     xkb_options "grp:alt_shift_toggle"
@@ -79,7 +72,7 @@ input "1:1:AT_Translated_Set_2_keyboard" {
 }
 
 # Mouse
-input "1133:49291:Logitech_G502_HERO_Gaming_Mouse" {
+input type:pointer {
     accel_profile "flat"
     pointer_accel -0.6
 }
