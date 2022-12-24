@@ -22,7 +22,9 @@ window#waybar.hidden {
 }
 
 /* -- Modules -- */
+/* Reset */
 #workspaces button,
+#gamemode,
 #language,
 #clock,
 #battery,
@@ -39,7 +41,8 @@ window#waybar.hidden {
     border-radius: 8px;
 }
 
-/* Additional modules adjustments */
+/* Invert foreground color */
+#gamemode,
 #language,
 #battery,
 #cpu,
@@ -57,7 +60,9 @@ window#waybar.hidden {
 #language {
     min-width: 32px; /* So that it doesn't shrink when there are long widgets on the left */
 }
+/* Reset END */
 
+/* LEFT */
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left > widget:first-child > #workspaces {
     margin-left: 0;
@@ -95,6 +100,11 @@ window#waybar.hidden {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+}
+
+/* RIGHT */
+#gamemode {
+    background-color: #fb4934;
 }
 
 #tray {
