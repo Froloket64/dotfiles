@@ -241,3 +241,6 @@ exec nwg-dock -d -mb 5 -i 48 -c $launcher
 
 # Autotiling
 exec autotiling
+
+# Emacs daemon
+exec emacs --daemon
