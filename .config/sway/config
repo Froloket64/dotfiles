@@ -48,11 +48,13 @@ set $launcher dmenu_path | rofi -show drun | xargs swaymsg exec --
 # Gtk
 set $gtk-schema org.gnome.desktop.interface
 
+# Outputs
+set $laptop_output eDP-1
+
 ## Output configuration
 # Displays
 output HDMI-A-1 resolution 1920x1080 position 0,0
 output eDP-1 resolution 1920x1080 position 0,0
-output eDP-1 disable
 
 # Wallpaper
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
@@ -78,6 +80,7 @@ input type:pointer {
 }
 
 ## Key bindings
+# [Container Navigation]
     # Launch terminal
     bindsym $mod+Return exec $term -e $shell $shell_cmds
 
@@ -174,6 +177,11 @@ input type:pointer {
 
     # Cycle through scratchpad windows
     bindsym $mod+minus scratchpad show
+
+# [Other]
+    # Turn laptop screen off when the lid is closed
+    bindswitch --reload --locked lid:on  output $laptop_output disable
+    bindswitch --reload --locked lid:off output $laptop_output enable
 
 # Resize mode
 # Swtich to resize mode
