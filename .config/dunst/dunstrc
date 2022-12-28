@@ -15,7 +15,7 @@
 
     markup = full
 
-    progress_bar = false
+    progress_bar = true
     follow = mouse
 
     mouse_left_click = close_current
