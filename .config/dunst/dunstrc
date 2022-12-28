@@ -27,7 +27,6 @@
     ellipsize = middle
     word_wrap = yes
     follow = mouse
-    shrink = no
     sort = true
 
     hide_duplicate_count = false
