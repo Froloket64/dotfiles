@@ -9,35 +9,14 @@
 
     padding = 10
     horizontal_padding = 10
-    text_icon_padding = 0
     corner_radius = 5
     frame_width = 1
     gap_size = 4
 
-    vertical_alignment = center
-    alignment = left
     markup = full
-    line_height = 0
-    icon_position = left
 
-    ignore_newline = false
-    show_indicators = yes
-    indicate_hidden = yes
     progress_bar = false
-    ellipsize = middle
-    word_wrap = yes
     follow = mouse
-    sort = true
-
-    hide_duplicate_count = false
-    stack_duplicates = true
-
-    sticky_history = yes
-    history_length = 20
-
-    always_run_script = true
-    ignore_dbusclose = false
-    force_xinerama = false
 
     mouse_left_click = close_current
     mouse_middle_click = do_action, close_current
