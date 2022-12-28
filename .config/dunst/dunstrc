@@ -32,8 +32,6 @@
 
     hide_duplicate_count = false
     stack_duplicates = true
-    idle_threshold = 120
-    show_age_threshold = 60
 
     sticky_history = yes
     history_length = 20
