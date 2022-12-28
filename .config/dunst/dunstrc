@@ -12,6 +12,7 @@
     text_icon_padding = 0
     corner_radius = 5
     frame_width = 1
+    gap_size = 4
 
     vertical_alignment = center
     alignment = left
