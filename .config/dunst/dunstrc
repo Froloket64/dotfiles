@@ -1,12 +1,10 @@
 [global]
     monitor = 0
     follow = mouse
-    geometry = "320x5-15+15"
     progress_bar = false
     indicate_hidden = yes
     shrink = no
     transparency = 10
-    notification_height = 0
     separator_height = 2
     padding = 10
     horizontal_padding = 10
@@ -32,13 +30,10 @@
     icon_position = left
     max_icon_size = 32
     icon_theme = "Papirus-Dark"
-    #icon_path = /usr/share/icons/Papirus-Dark/24x24/*
     icon_path = "/usr/share/icons/Papirus-Dark/24x24/status/:/usr/share/icons/Papirus-Dark/24x24/devices/:/usr/share/icons/Papirus-Dark/24x24/apps/"
     sticky_history = yes
     history_length = 20
     always_run_script = true
-    startup_notification = false
-    verbosity = mesg
     corner_radius = 5
     ignore_dbusclose = false
     force_xinerama = false
