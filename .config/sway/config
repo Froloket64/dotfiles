@@ -101,7 +101,8 @@ input type:pointer {
     bindsym $mod+Shift+r reload
 
     # Exit Sway
-    bindsym $mod+Shift+q exec swaynag -t warning -m 'What to do?' -B 'Logout' 'swaymsg exit' -B 'Suspend' 'systemctl suspend'
+    # bindsym $mod+Shift+q exec swaynag -t warning -m 'What to do?' -B 'Logout' 'swaymsg exit' -B 'Suspend' 'systemctl suspend'
+    bindsym $mod+Shift+q exec rofi -show shutdown -modes "shutdown:/home/froloket/.dotfiles-stow/.config/rofi/scripts/shutdown.sh" # NOTE: Requires `rofi`
 
     # Move your focus around
     bindsym $mod+$left focus left
