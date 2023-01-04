@@ -209,7 +209,7 @@ mode "resize" {
 assign [app_id="kitty"] 1
 # assign [class="Emacs"] 2
 assign [class="LibreWolf"] 3
-assign [title="qBittorrent*"] 5 # Excludes torrent adding dialog window
+assign [title="qBittorrent*"] 5
 assign [app_id="ario"] 6
 assign [app_id="org.telegram.desktop"] 7
 assign [app_id="pavucontrol"] 9
