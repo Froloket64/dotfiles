@@ -97,7 +97,7 @@ element-text {
 
 element-icon {
     background-color: transparent;
-    size:             1.0000em ;
+    size:             1em ;
     cursor:           inherit;
     text-color:       inherit;
 }
@@ -201,7 +201,7 @@ prompt {
 }
 
 textbox-prompt-colon {
-    margin:     0px 0.3000em 0.0000em 0.0000em ;
+    margin:     0px 0.3em 0.0em 0.0em ;
     expand:     false;
     str:        ":";
     text-color: inherit;
