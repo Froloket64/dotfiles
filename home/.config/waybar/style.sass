@@ -1,0 +1,162 @@
+// - Variables -
+$fonts: CaskaydiaCove Nerd Font, FontAwesome
+
+// Colors
+$background: #282828
+$background1: #3c3836
+$foreground: #ebdbb2
+
+// Normal
+$red: #cc241d 
+$blue: #458588 
+$purple: #b16286 
+
+// Bright
+$bred: #fb4934
+$byellow: #fabd2f 
+$bblue: #83a598
+$baqua: #8ec07c 
+$borange: #fe8019 
+
+// - Placeholders -
+// All visible containers
+// (buttons, info)
+%container
+    margin: 4px 1px
+    border-radius: 8px
+
+// - Mixins -
+// All visible containers
+=theme($padding, $color: inherit)
+    padding: $padding
+    color: $color
+
+// - CSS -
+*
+    font-family: $fonts
+    font-size: 12px
+
+window
+    &#waybar
+        background-color: $background
+        color: $foreground
+
+        &.hidden
+            opacity: 1
+
+#workspaces button,
+#tray,
+#mpd
+    @extend %container
+    +theme($padding: 0 10px 0 10px)
+
+#clock,
+#network,
+#memory
+    @extend %container
+    +theme($padding: 0 14px 0 10px)
+
+#gamemode,
+#battery,
+#cpu,
+#pulseaudio
+    @extend %container
+    +theme($padding: 0 10px 0 10px, $color: $background)
+
+#language
+    @extend %container
+    +theme($padding: 0 14px 0 10px, $color: $background)
+
+    min-width: 32px
+
+#workspaces 
+    button 
+        padding: 0 0 
+        margin: 4px 2px 
+        background-color: $background1
+        color: $foreground
+        font-weight: bold 
+        transition: 0.2s ease 
+
+        &:hover 
+            background: $foreground
+            color: $background
+            border-radius: 0 
+
+        &.focused 
+            background: $foreground
+            color: $background
+            border-radius: 0 
+
+        &.urgent 
+            background-color: $red
+            animation-name: blink 
+            animation-duration: .8s 
+            animation-timing-function: linear 
+            animation-iteration-count: infinite 
+            animation-direction: alternate 
+
+#gamemode 
+    background-color: $bred
+
+#tray 
+    background-color: $background
+
+    & > .passive 
+        -gtk-icon-effect: dim 
+
+    & > .needs-attention 
+        -gtk-icon-effect: highlight 
+        background-color: $bred
+
+#pulseaudio 
+    background-color: $byellow
+
+    &.muted 
+        background-color: $bblue
+        color: $background1
+
+#network 
+    background-color: $blue
+
+    &.disconnected 
+        background-color: $bblue
+
+#language 
+    background-color: $borange
+
+#cpu 
+    background-color: $baqua
+
+#memory 
+    background-color: $purple
+
+#clock 
+    background-color: $background1
+
+#battery 
+    background-color: $foreground
+    padding: 0 12px 0 8px 
+    margin-right: 4px 
+
+    &.low 
+        &:not(.charging) 
+            background-color: $foreground
+            color: $background
+            animation-name: blink 
+            animation-duration: 0.3s 
+            animation-timing-function: linear 
+            animation-iteration-count: infinite 
+            animation-direction: alternate 
+
+#mpd 
+    color: $background1
+
+    &.disconnected 
+        background-color: $bred
+
+    &.stopped 
+        background-color: $bblue
+
+    &.paused 
+        background-color: $bblue // subject to change
