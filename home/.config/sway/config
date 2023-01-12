@@ -1,29 +1,3 @@
-## General
-# Font
-font "JetBrainsMono Nerd Font" 10
-
-# Colors
-# name                  border   background  text     indicator  child_border 
-client.focused          #a89984  #282828     #ebdbb2  #928374    #928374
-client.unfocused        #3c3836  #282828     #928374  #504945    #504945
-client.focused_inactive #a89984  #928374     #ebdbb2  #504945    #504945
-client.urgent           #3c3836  #fb4934     #3c3836  #fb4934    #fb4934
-
-# Borders, gaps
-default_border pixel 2
-smart_borders on
-
-gaps inner 6
-
-# -- Swayfx --
-smart_borders off
-
-corner_radius 4
-# -- END --
-
-# Cursor theme
-seat seat0 xcursor_theme Bibata-Original-Ice 10
-
 ## Variables
 # Modifier
 set $mod Mod4
@@ -54,6 +28,32 @@ set $cursor-theme "Bibata-Original-Ice"
 
 # Outputs
 set $laptop_output eDP-1
+
+## General
+# Font
+font "JetBrainsMono Nerd Font" 10
+
+# Colors
+# name                  border   background  text     indicator  child_border 
+client.focused          #a89984  #282828     #ebdbb2  #928374    #928374
+client.unfocused        #3c3836  #282828     #928374  #504945    #504945
+client.focused_inactive #a89984  #928374     #ebdbb2  #504945    #504945
+client.urgent           #3c3836  #fb4934     #3c3836  #fb4934    #fb4934
+
+# Borders, gaps
+default_border pixel 2
+smart_borders on
+
+gaps inner 6
+
+# -- Swayfx --
+smart_borders off
+
+corner_radius 4
+# -- END --
+
+# Cursor theme
+seat seat0 xcursor_theme Bibata-Original-Ice 10
 
 ## Output configuration
 # Displays
