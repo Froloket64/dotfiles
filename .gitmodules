@@ -1,3 +1,6 @@
 [submodule ".local/share/omf/themes/integral-froloket"]
 	path = .local/share/omf/themes/integral-froloket
 	url = https://github.com/Froloket64/theme-integral.git
+[submodule "home/.local/share/omf/themes/integral-froloket"]
+	path = home/.local/share/omf/themes/integral-froloket
+	url = https://github.com/Froloket64/theme-integral.git
