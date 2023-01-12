@@ -186,7 +186,7 @@ fi
 ## Symlinking
 # Try
 echo "Symlinking dotfiles..."
-output=$(stow -t ~ . 2>&1)
+output=$(stow -t ~ home/ 2>&1)
 
 # Ask whether override if unset
 if [[ $output ]] && [[ -z $force ]]; then
@@ -212,7 +212,7 @@ if [[ $output ]] && [[ $force == 1 ]]; then
     done
 
     echo "Symlinking dotfiles..."
-    stow -t ~ .
+    stow -t ~ home/
 fi
 
 echo "DONE"

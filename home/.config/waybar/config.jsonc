@@ -14,7 +14,7 @@
 
     "modules-left": ["sway/workspaces"],
     "modules-center": [],
-    "modules-right": ["tray", "mpd", "pulseaudio", "network", "sway/language", "cpu", "memory", "clock", "battery"],
+    "modules-right": ["tray", "gamemode", "mpd", "pulseaudio", "network", "sway/language", "cpu", "memory", "clock", "battery"],
 
     // Modules configuration
     "sway/workspaces": {
@@ -109,7 +109,8 @@
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click-right": "kitty -e fish -C nmtui"
     },
 
     "pulseaudio": {
@@ -144,5 +145,16 @@
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+
+    "gamemode": {
+        "format": "{glyph} Gaming: {count}00%",
+        "glyph": "",
+        "use-icon": false,
+        "icon-spacing": 0,
+        "icon-size": 0,
+        "tooltip": true,
+        "tooltip-format": "gamemoderunning {count} games",
+        "hide-not-running": true,
     }
 }

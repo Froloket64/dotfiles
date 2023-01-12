@@ -24,7 +24,7 @@ if command -vq vivid
 end
 
 ## Other vars/overrides
-set fish_greeting # Disbale the startup intro message
+set fish_greeting # Disable the startup intro message
 
 # Cursor shape
 set fish_cursor_default block

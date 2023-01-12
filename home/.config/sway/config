@@ -57,12 +57,8 @@ output HDMI-A-1 resolution 1920x1080 position 0,0
 output eDP-1 resolution 1920x1080 position 0,0
 
 # Wallpaper
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-
-## Idle configuration
-# exec swayidle -w \
-#          timeout 120 'swaylock -f -c 282828 && swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
-         # before-sleep 'swaylock -f -c 282828'
+# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+# output * bg /home/froloket/Pictures/Wallpapers/sway-gruvy.png fill
 
 ## Input configuration
 # Keyboard
@@ -102,7 +98,7 @@ input type:pointer {
 
     # Exit Sway
     # bindsym $mod+Shift+q exec swaynag -t warning -m 'What to do?' -B 'Logout' 'swaymsg exit' -B 'Suspend' 'systemctl suspend'
-    bindsym $mod+Shift+q exec rofi -show shutdown -modes "shutdown:/home/froloket/.dotfiles-stow/.config/rofi/scripts/shutdown.sh" # NOTE: Requires `rofi`
+    bindsym $mod+Shift+q exec rofi -show shutdown -modes "shutdown:$HOME/.config/rofi/scripts/shutdown.sh" # NOTE: Requires `rofi`
 
     # Move your focus around
     bindsym $mod+$left focus left
@@ -228,7 +224,7 @@ exec_always {
     gsettings set $gtk-schema gtk-theme 'Gruvbox-Material-Dark'
     gsettings set $gtk-schema icon-theme 'Papirus-Dark'
     gsettings set $gtk-schema cursor-theme 'Bibata-Original-Ice'
-    gsettings set $gtk-schema font-name 'JetBrainsMono Nerd Font 10'
+    gsettings set $gtk-schema font-name 'CasckaydiaCove Nerd Font 10'
 }
 
 # Notifications
@@ -242,3 +238,7 @@ exec autotiling
 
 # Emacs daemon
 exec emacs --daemon
+
+# Animated Background
+exec swww init
+exec_always swww img /home/froloket/.config/sway/wallpapers/donut.gif
