@@ -237,7 +237,7 @@ exec blueman-applet
 exec autotiling
 
 # Emacs daemon
-exec emacs --daemon
+exec su \$USER -c "emacs --daemon"
 
 # Animated Background
 exec swww init
