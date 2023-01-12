@@ -48,6 +48,10 @@ set $launcher dmenu_path | rofi -show drun | xargs swaymsg exec --
 # Gtk
 set $gtk-schema org.gnome.desktop.interface
 
+set $gtk-theme    "Gruvbox-Material-Dark"
+set $icon-theme   "Papirus-Dark"
+set $cursor-theme "Bibata-Original-Ice"
+
 # Outputs
 set $laptop_output eDP-1
 
@@ -221,10 +225,10 @@ include /etc/sway/config.d/*
 ## Execs
 # Gtk
 exec_always {
-    gsettings set $gtk-schema gtk-theme 'Gruvbox-Material-Dark'
-    gsettings set $gtk-schema icon-theme 'Papirus-Dark'
-    gsettings set $gtk-schema cursor-theme 'Bibata-Original-Ice'
-    gsettings set $gtk-schema font-name 'CasckaydiaCove Nerd Font 10'
+    gsettings set $gtk-schema gtk-theme $gtk-theme
+    gsettings set $gtk-schema icon-theme $icon-theme
+    gsettings set $gtk-schema cursor-theme $cursor-theme
+    gsettings set $gtk-schema font-name "CaskaydiaCove Nerd Font 10"
 }
 
 # Notifications
