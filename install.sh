@@ -129,6 +129,15 @@ You can also pass program names to install only them."
     esac
 done
 
+# Ask to install if unset
+if [[ -z $install ]]; then
+    if gum confirm "Install packages? (Otherwise, just copy configs)" ${gum_confirm_style[@]}; then
+        install=1
+    else
+        install=0
+    fi
+fi
+
 # If packages should be installed, but none were specified, ask
 if [[ $install -eq 1 ]] && ! [[ $to_install ]]; then
     echo "Which packages to install?"
@@ -180,15 +189,6 @@ if ! command -v jinja 2&>/dev/null; then
 fi
 
 ## Installing packages
-# Ask whether install if unset
-if [[ -z $install ]]; then
-    if gum confirm "Install packages? (Otherwise, just copy configs)" ${gum_confirm_style[@]}; then
-        install=1
-    else
-        install=0
-    fi
-fi
-
 # Install
 if [[ $install == 1 ]]; then
     if ! [[ $quiet -eq 1 ]]; then
