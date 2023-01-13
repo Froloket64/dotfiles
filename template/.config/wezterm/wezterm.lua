@@ -17,9 +17,9 @@ end
 
 return {
     -- Visuals
-    color_scheme = "Gruvbox Dark",
+    color_scheme = "{{ theme }}",
     use_fancy_tab_bar = false,
-    font_size = 10,
+    font_size = {{ font.size }},
     window_background_opacity = 0.75,
     -- max_fps = 120,
     window_padding = {
@@ -56,5 +56,5 @@ return {
     },
 
     -- Other
-    default_prog = { "/bin/fish" }
+    default_prog = { "{{ shell }}" }
 }

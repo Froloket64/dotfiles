@@ -1,22 +1,22 @@
 // - Variables -
-$fonts: CaskaydiaCove Nerd Font, FontAwesome
+$fonts: {{ font.name }}, FontAwesome
 
 // Colors
-$background: #282828
-$background1: #3c3836
-$foreground: #ebdbb2
+$background:  {{ colors.background }}
+$background1: {{ colors.background1 }}
+$foreground:  {{ colors.foreground }}
 
 // Normal
-$red: #cc241d 
-$blue: #458588 
-$purple: #b16286 
+$red:     {{ colors.normal.red }} 
+$blue:    {{ colors.normal.blue }} 
+$magenta: {{ colors.normal.magenta }} 
 
 // Bright
-$bred: #fb4934
-$byellow: #fabd2f 
-$bblue: #83a598
-$baqua: #8ec07c 
-$borange: #fe8019 
+$bred:    {{ colors.bright.red }}
+$byellow: {{ colors.bright.yellow }} 
+$bblue:   {{ colors.bright.blue }}
+$bcyan:   {{ colors.bright.cyan }} 
+$borange: #fe8019 // FIXME
 
 // - Placeholders -
 // All visible containers
@@ -34,7 +34,7 @@ $borange: #fe8019
 // - CSS -
 *
     font-family: $fonts
-    font-size: 12px
+    font-size: {{ font.size + 2}}
 
 window
     &#waybar
@@ -126,10 +126,10 @@ window
     background-color: $borange
 
 #cpu 
-    background-color: $baqua
+    background-color: $bcyan
 
 #memory 
-    background-color: $purple
+    background-color: $magenta
 
 #clock 
     background-color: $background1

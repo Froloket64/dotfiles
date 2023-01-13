@@ -1,6 +1,6 @@
 configuration {
 	modi: "window,run,drun,ssh";
-	font: "JetBrainsMono Nerd Font 11";
+	font: "{{ font.name }} {{ font.size }}";
 	location: 0; // Location on the screen. Values are integers from 0 to 8,
 	// as described in the following table
 	//  1 2 3

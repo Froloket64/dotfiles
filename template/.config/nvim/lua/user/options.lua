@@ -33,7 +33,7 @@ local options = {
   scrolloff = 8,                           -- is one of my fav
   sidescrolloff = 8,
   -- guifont = "JetBrainsMono Nerd Font:h10",  -- the font used in GUI Neovim frontends
-  guifont = "Jet:h12",  -- the font used in GUI Neovim frontends
+  guifont = "{{ font.name }}:h{{ font.size }}",  -- the font used in GUI Neovim frontends
 }
 
 vim.opt.shortmess:append "c"

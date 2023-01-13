@@ -7,19 +7,19 @@
 
 ;; Transparency
 (defun transparency (value)
-     "Sets the transparency of the frame window. 0=transparent/100=opaque"
-     (interactive "nTransparency Value 0 - 100 opaque:")
+     "Sets the transparency of the frame window. Doesnt' work with some compositors."
+     (interactive "nTransparency value [0..100]:")
      (set-frame-parameter (selected-frame) 'alpha value))
 
 (transparency 90)
 
 ;; Font
-(setq doom-font (font-spec :family "CaskaydiaCove Nerd Font" :size 14 :weight 'normal)
-     doom-variable-pitch-font (font-spec :family "CaskaydiaCove Nerd Font" :size 15)
-     doom-serif-font (font-spec :family "scientifica" :size 15))
+(setq doom-font (font-spec :family "{{ font.name }}" :size {{ font.size + 4 }} :weight 'normal)
+     doom-variable-pitch-font (font-spec :family "{{ font.name }}" :size {{ font.size + 5 }})
+     doom-serif-font (font-spec :family "scientifica" :size {{ font.size + 5 }}))
 
 ;; Theme
-(setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'doom-{{ doomEmacsTheme }})
 
 ;; Line numbers
 (setq display-line-numbers-type 'relative)
@@ -37,4 +37,4 @@
 ;; (add-to-list 'dashboard-item-generators  '(custom . dashboard-insert-custom))
 ;; (add-to-list 'dashboard-items '(custom) t)
 
-(setq fancy-splash-image (concat doom-user-dir "doom-emacs-gray.svg"))
+;; (setq fancy-splash-image (concat doom-user-dir "doom-emacs-gray.svg"))

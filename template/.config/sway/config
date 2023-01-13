@@ -9,9 +9,9 @@ set $up k
 set $right l
 
 # Terminal
-set $term kitty
+set $term {{ terminal }}
 # Default shell
-set $shell fish
+set $shell {{ shell }}
 
 # Commands to run on shell startup
 set $shell_cmds -C neofetch
@@ -22,23 +22,20 @@ set $launcher dmenu_path | rofi -show drun | xargs swaymsg exec --
 # Gtk
 set $gtk-schema org.gnome.desktop.interface
 
-set $gtk-theme    "Gruvbox-Material-Dark"
-set $icon-theme   "Papirus-Dark"
-set $cursor-theme "Bibata-Original-Ice"
-
-# Outputs
-set $laptop_output eDP-1
+set $gtk-theme    "{{ gtk.theme }}"
+set $icon-theme   "{{ gtk.iconTheme }}"
+set $cursor-theme "{{ gtk.cursorTheme }}"
 
 ## General
 # Font
-font "JetBrainsMono Nerd Font" 10
+font "{{ font.name }}" {{ font.size }}
 
 # Colors
-# name                  border   background  text     indicator  child_border 
-client.focused          #a89984  #282828     #ebdbb2  #928374    #928374
-client.unfocused        #3c3836  #282828     #928374  #504945    #504945
-client.focused_inactive #a89984  #928374     #ebdbb2  #504945    #504945
-client.urgent           #3c3836  #fb4934     #3c3836  #fb4934    #fb4934
+# name                  border                    background              text                      indicator                 child_border 
+client.focused          {{ colors.normal.white }} {{ colors.background }} {{ colors.foreground }}   {{ colors.bright.black }} {{ colors.bright.black }}
+client.focused_inactive {{ colors.normal.white }} {{ colors.background }} {{ colors.foreground }}   {{ colors.bright.black }} {{ colors.bright.black }}
+client.unfocused        {{ colors.background1 }}  {{ colors.background }} {{ colors.bright.black }} {{ colors.background1 }}  {{ colors.background1 }}
+client.urgent           {{ colors.background1 }}  {{ colors.bright.red }} {{ colors.background1 }}  {{ colors.bright.red }}   {{ colors.bright.red }}
 
 # Borders, gaps
 default_border pixel 2
@@ -53,16 +50,16 @@ corner_radius 4
 # -- END --
 
 # Cursor theme
-seat seat0 xcursor_theme Bibata-Original-Ice 10
+seat seat0 xcursor_theme $gtk-cursor 10
 
 ## Output configuration
 # Displays
-output HDMI-A-1 resolution 1920x1080 position 0,0
-output eDP-1 resolution 1920x1080 position 0,0
+{%- for output in monitors %}
+output {{ output.name }} mode {{ output.resolution }} position 0,0@{{ output.rate }}Hz
+{%- endfor %}
 
 # Wallpaper
-# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-# output * bg /home/froloket/Pictures/Wallpapers/sway-gruvy.png fill
+output * bg {{ wallpaper }} fill
 
 ## Input configuration
 # Keyboard
@@ -180,9 +177,13 @@ input type:pointer {
     bindsym $mod+minus scratchpad show
 
 # [Other]
+{#- If there is a laptop screen #}
+{#- TODO: Only show the comment if there's such screens #}
     # Turn laptop screen off when the lid is closed
-    bindswitch --reload --locked lid:on  output $laptop_output disable
-    bindswitch --reload --locked lid:off output $laptop_output enable
+{%- for monitor in monitors if monitor.isLaptop %}
+    bindswitch --reload --locked lid:on  output {{ monitor.name }} disable
+    bindswitch --reload --locked lid:off output {{ monitor.name }} enable
+{%- endfor %}
 
 # Resize mode
 # Swtich to resize mode
@@ -206,7 +207,10 @@ mode "resize" {
 }
 
 ## Criteria
+# NOTE: $terminal value can be different from the app_id
+assign [app_id=$terminal] 1
 assign [app_id="kitty"] 1
+assign [app_id="Alacritty"] 1
 # assign [class="Emacs"] 2
 assign [class="LibreWolf"] 3
 assign [title="qBittorrent*"] 5
@@ -228,7 +232,7 @@ exec_always {
     gsettings set $gtk-schema gtk-theme $gtk-theme
     gsettings set $gtk-schema icon-theme $icon-theme
     gsettings set $gtk-schema cursor-theme $cursor-theme
-    gsettings set $gtk-schema font-name "CaskaydiaCove Nerd Font 10"
+    gsettings set $gtk-schema font-name "{{ font.name }} {{ font.size }}"
 }
 
 # Notifications
@@ -241,8 +245,8 @@ exec blueman-applet
 exec autotiling
 
 # Emacs daemon
-exec su \$USER -c "emacs --daemon"
+exec 'su $USER -c "emacs --daemon"' # FIXME
 
 # Animated Background
-exec swww init
-exec_always swww img /home/froloket/.config/sway/wallpapers/donut.gif
+#exec swww init
+#exec_always swww img /home/froloket/.config/sway/wallpapers/donut.gif

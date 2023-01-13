@@ -4,3 +4,4 @@ bat
 vivid
 neofetch
 nwg-dock
+python

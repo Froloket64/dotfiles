@@ -149,6 +149,11 @@ if ! command -v gum 2&>/dev/null; then
     install gum || exit
 fi
 
+# jinja
+if ! command -v jinja 2&>/dev/null; then
+    python -m pip install jinja-cli || exit
+fi
+
 ## Installing packages
 # Ask whether install if unset
 if [[ -z $install ]]; then
@@ -182,6 +187,19 @@ if [[ $install == 1 ]]; then
 
     install ${deps[@]}
 fi
+
+## Template processing
+echo "Generating dotfiles..."
+
+for file in $(find template/ -exec file {} \; | grep text | cut -d: -f1); do
+    dest_path=$(echo $file | sed -e "s/template/home/")
+    dest_dir=$(dirname $dest_path)
+
+    echo $file
+
+    mkdir -p $dest_dir
+    jinja -d settings.json $file -o $dest_path
+done
 
 ## Symlinking
 # Try
