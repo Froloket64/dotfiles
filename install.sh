@@ -198,8 +198,10 @@ for file in $(find template/ -exec file {} \; | grep text | cut -d: -f1); do
     echo $file
 
     mkdir -p $dest_dir
-    jinja -d settings.json $file -o $dest_path
+    jinja -d settings.json $file -o $dest_path &
 done
+
+wait
 
 ## Symlinking
 # Try
