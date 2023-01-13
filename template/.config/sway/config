@@ -59,7 +59,7 @@ output {{ output.name }} mode {{ output.resolution }} position 0,0@{{ output.rat
 {%- endfor %}
 
 # Wallpaper
-output * bg {{ wallpaper }} fill
+output * bg {{ "~/%s"|format(wallpaper) }} fill
 
 ## Input configuration
 # Keyboard

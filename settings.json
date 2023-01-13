@@ -50,6 +50,6 @@
             "isLaptop": true
         }
     ],
-    "wallpaper": "Pictures/Wallpapers/gruvy-astronaut.png",
+    "wallpaper": "Pictures/Wallpapers/gruvbox_astronaut.png",
     "doomEmacsTheme": "gruvbox"
 }
