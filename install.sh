@@ -125,9 +125,9 @@ You can also pass program names to install only them."
     esac
 done
 
-# If no packages were specified, ask
-if ! [[ $to_install ]]; then
-    echo "Which dotfiles/packages to install/copy?"
+# If packages should be installed, but none were specified, ask
+if [[ $install -eq 1 ]] && ! [[ $to_install ]]; then
+    echo "Which packages to install?"
     echo "Space to select, Enter to confirm, Ctrl-C to select all"
 
     to_install=$(gum choose ${pkgs[@]} --no-limit ${gum_choose_style[@]})
