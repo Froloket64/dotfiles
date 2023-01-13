@@ -31,11 +31,11 @@ set $cursor-theme "{{ gtk.cursorTheme }}"
 font "{{ font.name }}" {{ font.size }}
 
 # Colors
-# name                  border                    background              text                      indicator                 child_border 
-client.focused          {{ colors.normal.white }} {{ colors.background }} {{ colors.foreground }}   {{ colors.bright.black }} {{ colors.bright.black }}
-client.focused_inactive {{ colors.normal.white }} {{ colors.background }} {{ colors.foreground }}   {{ colors.bright.black }} {{ colors.bright.black }}
-client.unfocused        {{ colors.background1 }}  {{ colors.background }} {{ colors.bright.black }} {{ colors.background1 }}  {{ colors.background1 }}
-client.urgent           {{ colors.background1 }}  {{ colors.bright.red }} {{ colors.background1 }}  {{ colors.bright.red }}   {{ colors.bright.red }}
+# name border background text indicator child_border
+client.focused          {{ colors.bright.black }} {{ colors.background }} {{ colors.foreground }} {{ colors.bright.black }} {{ colors.bright.black }}
+client.focused_inactive {{ colors.background1 }} {{ colors.background }} {{ colors.foreground }} {{ colors.background1 }} {{ colors.background1 }}
+client.unfocused        {{ colors.background1 }} {{ colors.background }} {{ colors.bright.black }} {{ colors.background1 }} {{ colors.background1 }}
+client.urgent           {{ colors.background1 }} {{ colors.bright.red }} {{ colors.background1 }} {{ colors.bright.red }} {{ colors.bright.red }}
 
 # Borders, gaps
 default_border pixel 2
