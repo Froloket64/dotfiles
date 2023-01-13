@@ -55,7 +55,7 @@ seat seat0 xcursor_theme $gtk-cursor 10
 ## Output configuration
 # Displays
 {%- for output in monitors %}
-output {{ output.name }} mode {{ output.resolution }} position 0,0@{{ output.rate }}Hz
+output {{ output.name }} mode {{ output.resolution }}@{{ output.rate }}Hz
 {%- endfor %}
 
 # Wallpaper
