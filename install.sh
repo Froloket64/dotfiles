@@ -77,6 +77,7 @@ Options:
     -h, --help        Print this message
     -f, --force       Override dotfiles which are already present
     -i, --install     Install the packages along with dotfiles
+    -q, --quiet       Don't display anything (except for errors)
     -o, --os=OS       Set \"OS\" as OS name
     -d, --dotfiles    Print all available dotfiles
 
@@ -84,7 +85,6 @@ You can also pass program names to install only them."
 
             exit
             ;;
-
         -f | --force)
             force=1
             ;;
@@ -101,6 +101,10 @@ You can also pass program names to install only them."
             echo "Available dotfiles: ${pkgs[@]}"
 
             exit
+            ;;
+
+        -q | --quiet)
+            quiet=1 # FIXME: Make it useful
             ;;
 
         -o=* | --os=*)
@@ -141,28 +145,44 @@ fi
 ## Installing base dependencies
 # stow
 if ! command -v stow 2&>/dev/null; then
+    if ! [[ $quiet -eq 1 ]]; then
+        echo "stow not found, installing... "
+    fi
+
     install stow || exit
 fi
 
 # gum
 if ! command -v gum 2&>/dev/null; then
+    if ! [[ $quiet -eq 1 ]]; then
+        echo "gum not found, installing... "
+    fi
+
     install gum || exit
 fi
 
 # python
 if ! command -v python 2&>/dev/null; then
+    if ! [[ $quiet -eq 1 ]]; then
+        echo "python not found, installing... "
+    fi
+
     install python || exit
 fi
 
 # jinja
 if ! command -v jinja 2&>/dev/null; then
+    if ! [[ $quiet -eq 1 ]]; then
+        echo "jinja not found, installing... "
+    fi
+
     python -m pip install jinja-cli || exit
 fi
 
 ## Installing packages
 # Ask whether install if unset
 if [[ -z $install ]]; then
-    if gum confirm "Install packages? (Otherwise, just copying configs)" ${gum_confirm_style[@]}; then
+    if gum confirm "Install packages? (Otherwise, just copy configs)" ${gum_confirm_style[@]}; then
         install=1
     else
         install=0
@@ -171,7 +191,9 @@ fi
 
 # Install
 if [[ $install == 1 ]]; then
-    echo "Installing packages..."
+    if ! [[ $quiet -eq 1 ]]; then
+        echo "Installing packages..."
+    fi
 
     update
 
@@ -186,7 +208,9 @@ fi
 
 ## Dependency installation
 if [[ $install == 1 ]]; then
-    echo "Installing dependencies..."
+    if ! [[ $quiet -eq 1 ]]; then
+        echo "Installing dependencies..."
+    fi
 
     readarray -t deps <<< `cat dependencies.txt`
 
@@ -194,13 +218,17 @@ if [[ $install == 1 ]]; then
 fi
 
 ## Template processing
-echo "Generating dotfiles..."
+if ! [[ $quiet -eq 1 ]]; then
+    echo "Generating dotfiles..."
+fi
 
 for file in $(find template/ -exec file {} \; | grep text | cut -d: -f1); do
     dest_path=$(echo $file | sed -e "s/template/home/")
     dest_dir=$(dirname $dest_path)
 
-    echo $file
+    if ! [[ $quiet -eq 1 ]]; then
+        echo $file
+    fi
 
     mkdir -p $dest_dir
     jinja -d settings.json $file -o $dest_path &
@@ -210,7 +238,10 @@ wait
 
 ## Symlinking
 # Try
-echo "Symlinking dotfiles..."
+if ! [[ $quiet -eq 1 ]]; then
+    echo "Symlinking dotfiles..."
+fi
+
 output=$(stow -t ~ home/ 2>&1)
 
 # Ask whether override if unset
@@ -224,9 +255,11 @@ fi
 
 # Override existing dotfiles (if --force'd)
 if [[ $output ]] && [[ $force == 1 ]]; then
-    echo "Conflicts found."
+    if ! [[ $quiet -eq 1 ]]; then
+        echo "Conflicts found."
+        echo "Removing existing dotfiles..."
+    fi
 
-    echo "Removing existing dotfiles..."
     readarray -t lines <<< $output
 
     # Delete all conflicting dotfiles
@@ -236,9 +269,14 @@ if [[ $output ]] && [[ $force == 1 ]]; then
         rm -f $file
     done
 
-    echo "Symlinking dotfiles..."
+    if ! [[ $quiet -eq 1 ]]; then
+        echo "Symlinking dotfiles..."
+    fi
+
     stow -t ~ home/
 fi
 
-echo "DONE"
-echo "Enjoy the dotfiles!"
+if ! [[ $quiet -eq 1 ]]; then
+    echo "DONE"
+    echo "Enjoy the dotfiles!"
+fi
