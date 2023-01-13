@@ -149,6 +149,11 @@ if ! command -v gum 2&>/dev/null; then
     install gum || exit
 fi
 
+# python
+if ! command -v python 2&>/dev/null; then
+    install python || exit
+fi
+
 # jinja
 if ! command -v jinja 2&>/dev/null; then
     python -m pip install jinja-cli || exit
