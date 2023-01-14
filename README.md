@@ -16,24 +16,22 @@ As simple as that\*:
 ``` bash
 git clone https://github.com/Froloket64/dotfiles --depth 1 ~/.dotfiles # Clone the repo
 cd ~/.dotfiles
-bash install.sh # Run the installation script
+./install.sh # Run the installation script
 ```
 This will install all the packages and deploy the dotfiles.
 
 \* Currently supported distros:
-+ Arch Linux _(and -based)_\*\*
++ Arch Linux _(and -based)_
 + Ubuntu _(and -based)_
 
-\*\* But note the repository changes (i.e., in some \<your distro\>-based distros some package names can vary, or can be even absent)
+But note the repository changes (e.g. in some Ubuntu-based distros some package names can vary, or even be absent).
 
 ### Other distros
-If you're not using one of the supported distros, the operations are similar, except you need to replace the run of installation script with some manual work
+If you're not using one of the supported distros, the operations are the same, except for installation of the packages, you'll have to do that manually. Afterwards, the script can deploy all the dotfiles just fine (note the `-I` flag)
 ``` bash
 git clone https://github.com/Froloket64/dotfiles --depth 1 ~/.dotfiles # Clone the repo
 cd ~/.dotfiles
-stow -t ~ . # Symlink dotfiles using GNU Stow
+./install.sh -I # Deploy without installation
 ```
 
-If some of the dotfiles are already in your system, you will have to delete them. To do that, you might just run the above (specifically, the `stow` command) and look through the errors to figure out which files you have to delete.
-
-Contributions regarding other distros install script support are **welcome**.
+Contributions regarding other distro support are **welcome**.
