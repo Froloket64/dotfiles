@@ -236,6 +236,8 @@ for file in $(find template/ -exec file {} \; | grep text | cut -d: -f1); do
 
     mkdir -p $dest_dir
     jinja -d settings.json $file -o $dest_path &
+
+    chmod --reference=$file $dest_path
 done
 
 wait
@@ -285,9 +287,6 @@ fi
 if [[ " ${to_install[*]} " == *" fish "* ]]; then
     fish -c "omf theme integral-froloket" 2&>/dev/null
 fi
-
-# Make rofi scripts executable
-chmod +x home/.config/rofi/scripts/*
 
 # Compile Sass to CSS
 sass --no-source-map home/.config/waybar/style.sass home/.config/waybar/style.css
