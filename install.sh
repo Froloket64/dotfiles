@@ -201,11 +201,6 @@ if [[ $install == 1 ]]; then
     install_ext
 fi
 
-## Additional configuration
-if [[ " ${to_install[*]} " == *" fish "* ]]; then
-    fish -c "omf theme integral-froloket" 2&>/dev/null
-fi
-
 ## Dependency installation
 if [[ $install == 1 ]]; then
     if ! [[ $quiet -eq 1 ]]; then
@@ -275,6 +270,15 @@ if [[ $output ]] && [[ $force == 1 ]]; then
 
     stow -t ~ home/
 fi
+
+## Additional configuration
+# Oh My Fish
+if [[ " ${to_install[*]} " == *" fish "* ]]; then
+    fish -c "omf theme integral-froloket" 2&>/dev/null
+fi
+
+# Make rofi scripts executable
+chmod +x home/.config/rofi/scripts*
 
 if ! [[ $quiet -eq 1 ]]; then
     echo "DONE"
