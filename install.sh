@@ -287,7 +287,7 @@ if [[ " ${to_install[*]} " == *" fish "* ]]; then
 fi
 
 # Make rofi scripts executable
-chmod +x home/.config/rofi/scripts*
+chmod +x home/.config/rofi/scripts/*
 
 # Compile Sass to CSS
 sass --no-source-map home/.config/waybar/style.sass home/.config/waybar/style.css
