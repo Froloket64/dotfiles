@@ -188,6 +188,15 @@ if ! command -v jinja 2&>/dev/null; then
     python -m pip install jinja-cli || exit
 fi
 
+# sass
+if ! command -v sass 2&>/dev/null; then
+    if ! [[ $quiet -eq 1 ]]; then
+        echo "sass not found, installing..."
+    fi
+
+    install dart-sass || exit
+fi
+
 ## Installing packages
 # Install
 if [[ $install == 1 ]]; then
@@ -280,6 +289,10 @@ fi
 # Make rofi scripts executable
 chmod +x home/.config/rofi/scripts*
 
+# Compile Sass to CSS
+sass --no-source-map home/.config/waybar/style.sass home/.config/waybar/style.css
+
+# Outro
 if ! [[ $quiet -eq 1 ]]; then
     echo "DONE"
     echo "Enjoy the dotfiles!"
