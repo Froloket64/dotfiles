@@ -226,7 +226,9 @@ if ! [[ $quiet -eq 1 ]]; then
     echo "Generating dotfiles..."
 fi
 
-for file in $(find template/ -exec file {} \; | grep text | cut -d: -f1); do
+# Compile to home/
+files=$(find template/ -exec file {} \; | grep text | cut -d: -f1)
+for file in $files; do
     dest_path=$(echo $file | sed -e "s/template/home/")
     dest_dir=$(dirname $dest_path)
 
@@ -236,11 +238,16 @@ for file in $(find template/ -exec file {} \; | grep text | cut -d: -f1); do
 
     mkdir -p $dest_dir
     jinja -d settings.json $file -o $dest_path &
-
-    chmod --reference=$file $dest_path
 done
 
 wait
+
+# Copy permissions
+for file in $files; do
+    dest_path=$(echo $file | sed -e "s/template/home/")
+
+    chmod --reference=$file $dest_path
+done
 
 ## Symlinking
 # Try
