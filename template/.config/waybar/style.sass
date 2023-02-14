@@ -27,7 +27,7 @@ $borange: #fe8019 // FIXME
 
 // - Mixins -
 // All visible containers
-=theme($padding, $color: inherit)
+=moduleTheme($padding, $color: inherit)
     padding: $padding
     color: $color
 
@@ -48,24 +48,24 @@ window
 #tray,
 #mpd
     @extend %container
-    +theme($padding: 0 10px 0 10px)
+    +moduleTheme($padding: 0 10px 0 10px)
 
 #clock,
 #network,
 #memory
     @extend %container
-    +theme($padding: 0 14px 0 10px)
+    +moduleTheme($padding: 0 14px 0 10px)
 
 #gamemode,
 #battery,
 #cpu,
 #pulseaudio
     @extend %container
-    +theme($padding: 0 10px 0 10px, $color: $background)
+    +moduleTheme($padding: 0 10px 0 10px, $color: $background)
 
 #language
     @extend %container
-    +theme($padding: 0 14px 0 10px, $color: $background)
+    +moduleTheme($padding: 0 14px 0 10px, $color: $background)
 
     min-width: 32px
 
