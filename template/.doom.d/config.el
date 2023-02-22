@@ -11,7 +11,7 @@
      (interactive "nTransparency value [0..100]:")
      (set-frame-parameter (selected-frame) 'alpha value))
 
-(transparency 90)
+(transparency 100) ;; Unfortunately, this also makes the text transparent :(
 
 ;; Font
 (setq doom-font (font-spec :family "{{ font.name }}" :size {{ font.size + 4 }} :weight 'normal)
@@ -27,14 +27,5 @@
 ;; Org files directory
 (setq org-directory "~/org/")
 
-;; (add-hook 'vlang-mode-hook
-;;     (setq js-indent-align-list-continuation nil))
+;; File major mode associations
 (add-to-list 'auto-mode-alist '("\\.v\\'" . vlang-mode))
-
-;; (defun dashboard-insert-custom (list-size)
-;;   (insert "Custom text"))
-
-;; (add-to-list 'dashboard-item-generators  '(custom . dashboard-insert-custom))
-;; (add-to-list 'dashboard-items '(custom) t)
-
-;; (setq fancy-splash-image (concat doom-user-dir "doom-emacs-gray.svg"))
