@@ -248,5 +248,7 @@ exec autotiling
 exec 'su $USER -c "emacs --daemon"' # FIXME
 
 # Animated Background
-#exec swww init
-#exec_always swww img /home/froloket/.config/sway/wallpapers/donut.gif
+{%- if useAnimatedWallpaper %}
+exec swww init
+exec_always swww img {{ "~/%s"|format(animatedWallpaper) }}
+{%- endif %}
