@@ -2,24 +2,23 @@
 # This is an installation/deployment script for Arch Linux
 
 # TODO:
-# - Add dependency installation
 # - Add more distros
 
 # Some OS information
-os_name=$(cat /etc/os-release)
+OS_NAME=$(cat /etc/os-release)
 
 # All packages including deps (e.g. `stow` for symlinking the dots)
-pkgs=(alacritty dunst fish neovim qtile rofi hyprland polybar sway waybar wezterm)
+PKGS=(alacritty dunst fish neovim qtile rofi hyprland polybar sway waybar wezterm)
 
-gum_choose_style=(--cursor.foreground="11" --selected.background="236" --selected.foreground="3")
-gum_confirm_style=(--selected.background="2" --selected.foreground="0" --unselected.background="")
+GUM_CHOOSE_STYLE=(--cursor.foreground="11" --selected.background="236" --selected.foreground="3")
+GUM_CONFIRM_STYLE=(--selected.background="2" --selected.foreground="0" --unselected.background="")
 
 ## Definitions
 # Install a package
 # IDEA: Check for OS by checking installed pkg manager
 install () {
-    case $os_name in
-        *ubuntu* | *mint*)
+    case $OS_NAME in
+        *ubuntu*)
             # Try apt then snap
             sudo apt-get install -y $1 || snap install $1
             ;;
@@ -40,8 +39,8 @@ install () {
 
 # Update repositories
 update () {
-    case $os_name in
-        *ubuntu* | *mint*)
+    case $OS_NAME in
+        *ubuntu*)
             sudo apt-get update
             ;;
 
@@ -98,7 +97,7 @@ You can also pass program names to install only them."
             ;;
 
         -d | --dotfiles)
-            echo "Available dotfiles: ${pkgs[@]}"
+            echo "Available dotfiles: ${PKGS[@]}"
 
             exit
             ;;
@@ -109,7 +108,7 @@ You can also pass program names to install only them."
 
         -o=* | --os=*)
             # Strip off all --os='s
-            os_name=${arg#"--os="}; os_name=${os_name#"-o="}
+            OS_NAME=${arg#"--os="}; OS_NAME=${OS_NAME#"-o="}
             ;;
 
         -*)
@@ -119,7 +118,7 @@ You can also pass program names to install only them."
             ;;
 
         *)
-            if [[ " ${pkgs[*]} " == *" $arg "* ]]; then
+            if [[ " ${PKGS[*]} " == *" $arg "* ]]; then
                 to_install+=$arg
             else
                 echo "Unknown argument: $arg"
@@ -131,7 +130,7 @@ done
 
 # Ask to install if unset
 if [[ -z $install ]]; then
-    if gum confirm "Install packages? (Otherwise, just copy configs)" ${gum_confirm_style[@]}; then
+    if gum confirm "Install packages? (Otherwise, just copy configs)" ${GUM_CONFIRM_STYLE[@]}; then
         install=1
     else
         install=0
@@ -143,11 +142,11 @@ if [[ $install -eq 1 ]] && ! [[ $to_install ]]; then
     echo "Which packages to install?"
     echo "Space to select, Enter to confirm, Ctrl-C to select all"
 
-    to_install=$(gum choose ${pkgs[@]} --no-limit ${gum_choose_style[@]})
+    to_install=$(gum choose ${PKGS[@]} --no-limit ${GUM_CHOOSE_STYLE[@]})
 
     # If still none, select all
     if ! [[ $to_install ]]; then
-        to_install=${pkgs[@]}
+        to_install=${PKGS[@]}
     fi
 fi
 
@@ -259,7 +258,7 @@ output=$(stow -t ~ home/ 2>&1)
 
 # Ask whether override if unset
 if [[ $output ]] && [[ -z $force ]]; then
-    if gum confirm "Override existing dotfiles?" ${gum_confirm_style[@]}; then
+    if gum confirm "Override existing dotfiles?" ${GUM_CONFIRM_STYLE[@]}; then
         force=1
     else
         force=0
