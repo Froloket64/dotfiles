@@ -5,6 +5,7 @@
 # - Add more distros
 
 # Some OS information
+SASS_EXEC=sass
 OS_NAME=$(cat /etc/os-release)
 
 # All packages including deps (e.g. `stow` for symlinking the dots)
@@ -295,7 +296,7 @@ if [[ " ${to_install[*]} " == *" fish "* ]]; then
 fi
 
 # Compile Sass to CSS
-sass --no-source-map home/.config/waybar/style.sass home/.config/waybar/style.css
+SASS_EXEC --no-source-map home/.config/waybar/style.sass home/.config/waybar/style.css
 
 # Outro
 if ! [[ $quiet -eq 1 ]]; then

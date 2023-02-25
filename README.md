@@ -23,7 +23,7 @@ Normally, they should be taken care of by the installation script (see below), b
 - `gum`
 - `python`
 - `jinja-cli` (from [PyPI](https://pypi.org/project/jinja-cli/))
-- `dart-sass` (or other [Sass distribution](https://sass-lang.com/install))
+- `dart-sass` (or other [Sass distribution](https://sass-lang.com/install)) [1](#notes)
 
 ### Supported distros\*
 
@@ -55,3 +55,6 @@ cd ~/.dotfiles
 ```
 
 Contributions regarding other distro support are **welcome**.
+
+## Notes
+ 1. (**NOTE**: If you install a different package, ensure that the `SASS_EXEC` variable in the `install.sh` script is set to its path or its name if it's in the [PATH](https://www.howtogeek.com/658904/how-to-add-a-directory-to-your-path-in-linux/))
