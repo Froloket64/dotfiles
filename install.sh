@@ -242,6 +242,9 @@ done
 
 wait
 
+# Compile Sass to CSS
+$SASS_EXEC --no-source-map home/.config/waybar/style.sass home/.config/waybar/style.css
+
 # Copy permissions
 for file in $files; do
     dest_path=$(echo $file | sed -e "s/template/home/")
@@ -294,9 +297,6 @@ fi
 if [[ " ${to_install[*]} " == *" fish "* ]]; then
     fish -c "omf theme integral-froloket" 2&>/dev/null
 fi
-
-# Compile Sass to CSS
-SASS_EXEC --no-source-map home/.config/waybar/style.sass home/.config/waybar/style.css
 
 # Outro
 if ! [[ $quiet -eq 1 ]]; then
