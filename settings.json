@@ -53,5 +53,8 @@
     "wallpaper": "Pictures/Wallpapers/gruvbox_astronaut.png",
     "useAnimaterWallpaper": false,
     "animatedWallpaper": "Pictures/Wallpapers/donut.gif",
-    "doomEmacsTheme": "gruvbox"
+    "doomEmacsTheme": "gruvbox",
+    "patches": {
+        "swayfx": false
+    }
 }

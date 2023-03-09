@@ -42,9 +42,10 @@ default_border pixel 2
 
 gaps inner 6
 
-# -- Swayfx --
+{%- if patches.swayfx %}
+# Swayfx round corners/borders
 corner_radius 4
-# -- END --
+{%- endif %}
 
 # Cursor theme
 seat seat0 xcursor_theme $cursor-theme 10
