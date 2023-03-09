@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-# A simple rofi script with a shutdown, logout, etc. prompt
+# A simple rofi script with a shutdown, logout, etc. prompt for Sway
 
 echo -e "\0prompt\x1fChoose an option"
 echo -e "\0theme\x1felement-icon { size: 0.75em; }"
@@ -16,10 +16,12 @@ case x"$@" in
 
     x"Suspend")
         systemctl suspend
+        exit 0
         ;;
 
     x"Log out")
         swaymsg exit
+        exit 0
         ;;
 esac
 
