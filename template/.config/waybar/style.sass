@@ -26,25 +26,33 @@ $borange: #fe8019 // FIXME
 // All visible containers
 // (buttons, info)
 %container
-    margin: 4px 1px
+    margin: 6px 1px
     border-radius: 8px
+    color: $background
 
 // Background around modules
 // and workspaces
 %selectiveBackground
     background: $background
     border-radius: 10px
-    padding: 3px 6px
+    padding: 1px 5px
     margin:
-        top: 6px
-        left: 6px
-        right: 6px
+        top: 8px
+        right: 20px
+        left: 20px
+        bottom: 2px
 
 // - Mixins -
 // All visible containers
-=moduleTheme($padding, $color: inherit)
-    padding: $padding
-    color: $color
+%module
+    padding:
+        right: 10px
+        left: 10px
+
+%moduleWider // For modules with wider icons
+    padding:
+        right: 14px
+        left: 10px
 
 // - CSS -
 *
@@ -69,27 +77,37 @@ window
 
 #workspaces button,
 #tray,
-#mpd
-    @extend %container
-    +moduleTheme($padding: 0 10px 0 10px)
-
+#mpd,
 #clock,
 #network,
-#memory
+#memory,
+#gamemode,
+#battery,
+#cpu,
+#pulseaudio,
+#language
     @extend %container
-    +moduleTheme($padding: 0 14px 0 10px)
 
+#tray,
+#mpd,
 #gamemode,
 #battery,
 #cpu,
 #pulseaudio
-    @extend %container
-    +moduleTheme($padding: 0 10px 0 10px, $color: $background)
+    @extend %module
+
+#clock,
+#network,
+#memory,
+#language
+    @extend %moduleWider
+
+#network,
+#memory,
+#clock
+    color: $foreground
 
 #language
-    @extend %container
-    +moduleTheme($padding: 0 14px 0 10px, $color: $background)
-
     min-width: 32px
 
 #workspaces
@@ -98,21 +116,25 @@ window
 
     button 
         padding: 0 0 
-        margin: 4px 2px 
+        margin: 6px 3px
         background-color: $background1
         color: $foreground
         font-weight: bold 
-        transition: 0.2s ease 
+        transition: all 0.2s ease, border 0s, margin 0s
 
         &:hover 
             background: $foreground
             color: $background
-            border-radius: 0 
+            /* border: 2px solid $background */
+            /* box-shadow: 0 0 0 2px $foreground */
+            /* margin: 4px 1px */
 
         &.focused 
             background: $foreground
             color: $background
-            border-radius: 0 
+            border: 2px solid $background
+            box-shadow: 0 0 0 2px $foreground
+            margin: 4px 1px
 
         &.urgent 
             background-color: $red
