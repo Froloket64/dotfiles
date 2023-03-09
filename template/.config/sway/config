@@ -39,13 +39,10 @@ client.urgent           {{ colors.background1 }} {{ colors.bright.red }} {{ colo
 
 # Borders, gaps
 default_border pixel 2
-smart_borders on
 
 gaps inner 6
 
 # -- Swayfx --
-smart_borders off
-
 corner_radius 4
 # -- END --
 
