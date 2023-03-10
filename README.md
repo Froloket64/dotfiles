@@ -46,7 +46,7 @@ cd ~/.dotfiles
 Contributions regarding other distro support are **welcome**.
 
 ## Metaconfiguration
-Yes, there's configuration to this configuration. It consists of a [`settings.json`](/settings.json) file that contains all "settings" to the configuration such as your theme, your monitors, wallpaper and so on. All of that is compiled into plain config files using `jinja` and symlinked using `./install.sh -I`.
+Yes, there's configuration to this configuration. It consists of a [`settings.json`](/settings.json) file that contains all "settings" to the configuration such as your theme, your monitors, wallpaper and so on. All of that is compiled into plain config files using `jinja` (and symlinked) with `./install.sh -I`.
 
 ### Features
 In [`settings.json`](/settings.json) there's also a section labeled **"features"**. It provides a way to enable/disable certain additional features that are opinionated/require additional dependencies. To toggle features on and off just set their values to `true` or `false` respectively.
