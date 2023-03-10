@@ -13,16 +13,16 @@
 ## Installation
 ### Dependencies
 Normally, they should be taken care of by the installation script (see below), but it's a good idea to install them manually (or if the installation script fails to).
-- `stow`
-- `gum`
-- `python`
-- `jinja-cli` (from [PyPI](https://pypi.org/project/jinja-cli/))
-- `dart-sass` (or other [Sass distribution](https://sass-lang.com/install)) [1](#notes)
+ - `stow`
+ - `gum`
+ - `python`
+ - `jinja-cli` (from [PyPI](https://pypi.org/project/jinja-cli/))
+ - `dart-sass` (or other [Sass distribution](https://sass-lang.com/install)) [1](#notes)
 
 ### Supported distros
 Currently supported distros[2](#notes):
-+ Arch Linux _(and -based)_
-+ Ubuntu _(and -based)_
+ - Arch Linux _(and -based)_
+ - Ubuntu _(and -based)_
 
 To install the packages and deploy the dotfiles just do the following:
 
