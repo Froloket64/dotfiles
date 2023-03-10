@@ -17,10 +17,10 @@ Normally, they should be taken care of by the installation script (see below), b
  - `gum`
  - `python`
  - `jinja-cli` (from [PyPI](https://pypi.org/project/jinja-cli/))
- - `dart-sass` (or other [Sass distribution](https://sass-lang.com/install)) [1](#notes)
+ - `dart-sass` (or other [Sass distribution](https://sass-lang.com/install))[<sup>1</sup>](#notes)
 
 ### Supported distros
-Currently supported distros[2](#notes):
+Currently supported distros[<sup>2</sup>](#notes):
  - Arch Linux _(and -based)_
  - Ubuntu _(and -based)_
 
