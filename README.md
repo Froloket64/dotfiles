@@ -45,6 +45,9 @@ cd ~/.dotfiles
 
 Contributions regarding other distro support are **welcome**.
 
+## Metaconfiguration
+Yes, there's configuration to this configuration. It consists of a [`settings.json`](/settings.json) file that contains all "settings" to the configuration such as your theme, your monitors, wallpaper and so on. All of that is compiled into plain config files using `jinja` and symlinked using `./install.sh -I`.
+
 ## Notes
  1. (**NOTE**: If you install a different package, ensure that the `SASS_EXEC` variable in the `install.sh` script is set to its path or its name if it's in the [PATH](https://www.howtogeek.com/658904/how-to-add-a-directory-to-your-path-in-linux/))
  2. But note the package name changes for *N*-based (from above) distros which are not considered by the script.
