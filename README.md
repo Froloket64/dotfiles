@@ -48,6 +48,20 @@ Contributions regarding other distro support are **welcome**.
 ## Metaconfiguration
 Yes, there's configuration to this configuration. It consists of a [`settings.json`](/settings.json) file that contains all "settings" to the configuration such as your theme, your monitors, wallpaper and so on. All of that is compiled into plain config files using `jinja` and symlinked using `./install.sh -I`.
 
+### Features
+In [`settings.json`](/settings.json) there's also a section labeled **"features"**. It provides a way to enable/disable certain additional features that are opinionated/require additional dependencies. To toggle features on and off just set their values to `true` or `false` respectively.
+
+``` diff
+    "features": {
+-        "swayfx": false,
++        "swayfx": true,
+    }
+```
+
+Available features are:
+ - `swayfx` - Enables features unique to [Swayfx](https://github.com/WillPower3309/swayfx), a fork of Sway
+ - `lsSingleLine` - Makes `ls` ouput each file on a separate line (without `ls -l` info)
+
 ## Notes
  1. (**NOTE**: If you install a different package, ensure that the `SASS_EXEC` variable in the [`install.sh`](/install.sh) script is set to its path or its name if it's in the [PATH](https://www.howtogeek.com/658904/how-to-add-a-directory-to-your-path-in-linux/))
  2. But note the package name changes for *N*-based (from above) distros which are not considered by the script.
