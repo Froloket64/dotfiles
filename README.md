@@ -1,5 +1,5 @@
 <h1 align="center">~/.dotfiles</h1>
-<p align="right">-- powered by <a href="https://www.gnu.org/software/stow/">Stow</a></p>
+<p align="right">— powered by <a href="https://www.gnu.org/software/stow/">Stow</a></p>
 
 ## Previews
 ### QTile
