@@ -7,6 +7,11 @@ if command -vq lsd
     alias clt="clear; lsd --tree"
 end
 
+{%- if features.lsSingleLine %}
+# One file on each line
+alias ls="$ls_exec -1"
+{%- endif %}
+
 alias cl="clear; ls"
 alias new="$TERM --working-directory=\$PWD -e fish & test"
 
