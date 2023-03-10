@@ -4,7 +4,6 @@ if command -vq lsd
     alias clt="clear; lsd --tree"
 end
 
-alias ll="ls -l"
 alias cl="clear; ll"
 alias new="$TERM --working-directory=\$PWD -e fish & test"
 
