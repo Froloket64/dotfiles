@@ -1,4 +1,4 @@
-<h1 align="center">~/.dotfiles</h1>
+![dotfiles](https://socialify.git.ci/Froloket64/dotfiles/image?font=KoHo&logo=https%3A%2F%2Fsvgshare.com%2Fi%2Fr1Q.svg&name=1&owner=1&pattern=Plus&theme=Dark)
 <p align="right">— powered by <a href="https://www.gnu.org/software/stow/">Stow</a></p>
 
 ## Previews
