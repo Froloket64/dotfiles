@@ -1,10 +1,13 @@
 # Shell usage
+set ls_exec ls
+
 if command -vq lsd
-    alias ls="lsd"
+    set ls_exec lsd
+
     alias clt="clear; lsd --tree"
 end
 
-alias cl="clear; ll"
+alias cl="clear; ls"
 alias new="$TERM --working-directory=\$PWD -e fish & test"
 
 if command -vq ptsh
