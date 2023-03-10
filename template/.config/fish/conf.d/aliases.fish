@@ -14,22 +14,11 @@ if command -vq ptsh
 end
 
 # Daily routine
-if command -vq emacsclient
-    alias ec="emacsclient -nw"
-end
-
-if command -vq lazygit
-    alias lg="lazygit"
-end
+alias ec="emacsclient -nw"
+alias lg="lazygit"
 
 # Other
 alias logout="pkill -KILL -u $USER"
 alias myip="curl zx2c4.com/ip"
-
-if command -vq notify-send
-    alias alarm="notify-send --icon /usr/share/icons/{{ gtk.iconTheme }}/16x16/actions/dialog-error.svg 'Time is UP!'"
-end
-
-if command -vq flatpak
-   alias flatrun="flatpak run (flatpak list --columns=application | fzf --reverse --height=~10 | awk '{ print \$2 }')"
-end
+alias alarm="notify-send --icon /usr/share/icons/{{ gtk.iconTheme }}/16x16/actions/dialog-error.svg 'Time is UP!'"
+alias flatrun="flatpak run (flatpak list --columns=application | fzf --reverse --height=~10 | awk '{ print \$2 }')"
