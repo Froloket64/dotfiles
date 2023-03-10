@@ -13,6 +13,15 @@ if command -vq ptsh
     alias cp=ptcp
 end
 
+# Daily routine
+if command -vq emacsclient
+    alias ec="emacsclient -nw"
+end
+
+if command -vq lazygit
+    alias lg="lazygit"
+end
+
 # Other
 alias logout="pkill -KILL -u $USER"
 alias myip="curl zx2c4.com/ip"
