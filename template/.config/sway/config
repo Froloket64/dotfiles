@@ -42,7 +42,7 @@ default_border pixel 2
 
 gaps inner 6
 
-{%- if patches.swayfx %}
+{%- if features.swayfx %}
 # Swayfx round corners/borders
 corner_radius 4
 {%- endif %}

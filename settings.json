@@ -54,7 +54,7 @@
     "useAnimaterWallpaper": false,
     "animatedWallpaper": "Pictures/Wallpapers/donut.gif",
     "doomEmacsTheme": "gruvbox",
-    "patches": {
+    "features": {
         "swayfx": false
     }
 }
