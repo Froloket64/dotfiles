@@ -29,6 +29,7 @@ end
 ## Other vars/overrides
 set fish_greeting # Disable the startup intro message
 set -gx EDITOR {{ "emacsclient -nw" if editor == "emacs" else editor }}
+set -gx COLORTERM truecolor
 
 # Cursor shape
 set fish_cursor_default block
