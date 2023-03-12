@@ -4,6 +4,7 @@ set ls_exec ls
 if command -vq lsd
     set ls_exec lsd
 
+    alias lst="lsd --tree"
     alias clt="clear; lsd --tree"
 end
 
