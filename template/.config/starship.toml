@@ -1,0 +1,23 @@
+format = """
+ $directory$git_branch $git_status
+$character
+"""
+
+right_format = "$cmd_duration"
+
+[character]
+success_symbol = '[ ->](bold green)'
+error_symbol = '[ ->](bold red)'
+vimcmd_symbol = "[N->](bold white)"
+vimcmd_replace_one_symbol = "[N->](bold yellow)"
+vimcmd_replace_symbol = "[R->](bold yellow)"
+vimcmd_visual_symbol = "[V->](bold purple)"
+
+[git_branch]
+format = "on [$symbol$branch]($style)"
+
+[git_status]
+style = "bold yellow"
+
+up_to_date = ""
+modified = "~"
