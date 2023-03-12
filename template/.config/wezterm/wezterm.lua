@@ -17,7 +17,7 @@ end
 
 return {
     -- Visuals
-    color_scheme = "{{ theme }}",
+    color_scheme = "{{ weztermTheme }}",
     use_fancy_tab_bar = false,
     font_size = {{ font.size }},
     window_background_opacity = 0.75,

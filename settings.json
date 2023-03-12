@@ -1,11 +1,13 @@
 {
-    "theme": "Gruvbox Dark",
     "shell": "/bin/fish",
     "terminal": "kitty",
     "font": {
         "name": "JetBrainsMono Nerd Font",
         "size": 10
     },
+    "theme": "gruvbox-dark",
+    "doomEmacsTheme": "gruvbox",
+    "weztermTheme": "Gruvbox dark, medium (base16)"
     "colors": {
         "background": "#282828",
         "background1": "#3c3836",

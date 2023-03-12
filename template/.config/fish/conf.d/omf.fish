@@ -13,6 +13,7 @@ set -gx SHELL /bin/fish
 
 # Manpager
 if command -vq bat
+    set -gx BAT_THEME "{{ theme }}"
     set -gx MANPAGER "sh -c 'col -bx | bat --theme $bat_theme -l man -p'"
 end
 
@@ -25,7 +26,6 @@ end
 set fish_greeting # Disable the startup intro message
 set -gx EDITOR {{ "emacsclient -nw" if editor == "emacs" else editor }}
 set -gx COLORTERM truecolor
-set -gx BAT_THEME gruvbox-dark
 
 # Cursor shape
 set fish_cursor_default block
