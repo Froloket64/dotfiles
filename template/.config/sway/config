@@ -209,7 +209,6 @@ mode "resize" {
 assign [app_id=$terminal] 1
 assign [app_id="kitty"] 1
 assign [app_id="Alacritty"] 1
-# assign [class="Emacs"] 2
 assign [class="LibreWolf"] 3
 assign [title="qBittorrent*"] 5
 assign [app_id="ario"] 6
@@ -243,7 +242,9 @@ exec blueman-applet
 exec autotiling
 
 # Emacs daemon
-exec 'su $USER -c "emacs --daemon"' # FIXME
+# NOTE: Without COLORTERM=truecolor
+# emacsclient -nw will have 8 bit colors
+exec COLORTERM=truecolor emacs --daemon
 
 # Animated Background
 {%- if useAnimatedWallpaper %}
