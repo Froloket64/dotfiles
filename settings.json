@@ -57,6 +57,7 @@
     "doomEmacsTheme": "gruvbox",
     "features": {
         "swayfx": false,
-        "lsSingleLine": true
+        "lsSingleLine": true,
+        "starship": false
     }
 }

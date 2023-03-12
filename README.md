@@ -61,6 +61,7 @@ In [`settings.json`](/settings.json) there's also a section labeled **"features"
 Available features are:
  - `swayfx` - Enables features unique to [Swayfx](https://github.com/WillPower3309/swayfx), a fork of Sway
  - `lsSingleLine` - Makes `ls` ouput each file on a separate line (without `ls -l` info)
+ - `starship` - Use Starship prompt in all shells
 
 ## Notes
  1. (**NOTE**: If you install a different package, ensure that the `SASS_EXEC` variable in the [`install.sh`](/install.sh) script is set to its path or its name if it's in the [PATH](https://www.howtogeek.com/658904/how-to-add-a-directory-to-your-path-in-linux/))

@@ -37,3 +37,10 @@ set fish_cursor_visual block
 set fish_cursor_replace underscore
 
 fish_vi_key_bindings # Being eVIl
+
+{%- if features.starship %}
+
+# Starship prompt
+starship init fish | source
+
+{%- endif %}
