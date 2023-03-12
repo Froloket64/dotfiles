@@ -51,6 +51,7 @@
         }
     ],
     "wallpaper": "Pictures/Wallpapers/gruvbox_astronaut.png",
+    "editor": "emacs",
     "useAnimaterWallpaper": false,
     "animatedWallpaper": "Pictures/Wallpapers/donut.gif",
     "doomEmacsTheme": "gruvbox",
