@@ -1,8 +1,4 @@
 ###  Oh My Fish config  ###
-{# Format the theme name
-e.g. Gruvbox Dark -> gruvbox-dark -#}
-{%- set themeFmt = theme|lower|replace(' ', '-') -%}
-
 ## Path to OMF install.
 set -q XDG_DATA_HOME
   and set -gx OMF_PATH "$XDG_DATA_HOME/omf"
@@ -17,7 +13,6 @@ set -gx SHELL /bin/fish
 
 # Manpager
 if command -vq bat
-    set -l bat_theme "{{ themeFmt }}"
     set -gx MANPAGER "sh -c 'col -bx | bat --theme $bat_theme -l man -p'"
 end
 
