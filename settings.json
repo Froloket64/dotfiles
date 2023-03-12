@@ -7,7 +7,7 @@
     },
     "theme": "gruvbox-dark",
     "doomEmacsTheme": "gruvbox",
-    "weztermTheme": "Gruvbox dark, medium (base16)"
+    "weztermTheme": "Gruvbox dark, medium (base16)",
     "colors": {
         "background": "#282828",
         "background1": "#3c3836",
