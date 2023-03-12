@@ -19,7 +19,7 @@ end
 
 # LSColors
 if command -vq vivid
-    set -gx LS_COLORS (vivid generate {{ themeFmt }}) # Needs `vivid`
+    set -gx LS_COLORS (vivid generate {{ theme }}) # Needs `vivid`
 end
 
 ## Other vars/overrides
