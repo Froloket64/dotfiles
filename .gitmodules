@@ -3,4 +3,4 @@
 	url = https://github.com/Froloket64/theme-integral.git
 [submodule "template/.config/sway/scripts"]
 	path = template/.config/sway/scripts
-	url = https://github.com/user18130814200115-2/swayscrips.git
+	url = https://github.com/Froloket64/swayscripts.git
