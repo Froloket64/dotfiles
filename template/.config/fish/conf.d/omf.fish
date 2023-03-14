@@ -14,7 +14,7 @@ set -gx SHELL /bin/fish
 # Manpager
 if command -vq bat
     set -gx BAT_THEME "{{ theme }}"
-    set -gx MANPAGER "sh -c 'col -bx | bat --theme $bat_theme -l man -p'"
+    set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
 end
 
 # LSColors
