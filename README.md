@@ -60,6 +60,7 @@ In [`settings.json`](/settings.json) there's also a section labeled **"features"
 
 Available features are:
  - `swayfx` - Enables features unique to [Swayfx](https://github.com/WillPower3309/swayfx), a fork of Sway
+ - `swayFade` - Enables fade in/out for windows in Sway (uses [these scripts](https://github.com/user18130814200115-2/swayscrips/tree/main/fade) as a git submodule) **WIP**
  - `lsSingleLine` - Makes `ls` ouput each file on a separate line (without `ls -l` info)
  - `starship` - Use Starship prompt in all shells
 

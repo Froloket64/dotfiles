@@ -58,7 +58,8 @@
     "animatedWallpaper": "Pictures/Wallpapers/donut.gif",
     "doomEmacsTheme": "gruvbox",
     "features": {
-        "swayfx": false,
+        "swayfx": true,
+        "swayFade": true,
         "lsSingleLine": true,
         "starship": false
     }

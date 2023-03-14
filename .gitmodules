@@ -1,3 +1,6 @@
 [submodule "template/.local/share/omf/themes/integral-froloket"]
 	path = template/.local/share/omf/themes/integral-froloket
 	url = https://github.com/Froloket64/theme-integral.git
+[submodule "template/.config/sway/scripts"]
+	path = template/.config/sway/scripts
+	url = https://github.com/user18130814200115-2/swayscrips.git

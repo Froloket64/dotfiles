@@ -79,8 +79,10 @@ input type:pointer {
     # Launch terminal
     bindsym $mod+Return exec $term -e $shell $shell_cmds
 
+    {%- if not features.swayFade %}
     # Kill focused window
     bindsym $mod+w kill
+    {% endif %}
 
     # Start app launcher
     bindsym $mod+d exec $launcher
@@ -250,4 +252,20 @@ exec COLORTERM=truecolor emacs --daemon
 {%- if useAnimatedWallpaper %}
 exec swww init
 exec_always swww img {{ "~/%s"|format(animatedWallpaper) }}
+
+{%- endif %}
+
+{%- if features.swayFade %}
+
+# Fade in
+for_window [app_id=.*] opacity 0
+for_window [app_id=.*] exec /home/froloket/.config/sway/scripts/fade/fadein.sh
+for_window [app_id=.*] mark fade
+
+# Fade out
+bindsym $mod+w mark quit; exec /home/froloket/.config/sway/scripts/fade/fadeout.sh
+
+# Fadefix (uncoment if necessary)
+exec /home/froloket/.config/sway/scripts/fade/fadefix.sh
+
 {%- endif %}
