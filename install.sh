@@ -227,19 +227,26 @@ if ! [[ $quiet -eq 1 ]]; then
 fi
 
 # Compile to home/
+rm -rf home/ # Clean up all previous results ("cache")
+
+copy_perms() { chmod --reference=$1 $2; }
+
 for file in $(find template/ -type f); do
-    dest_path=$(echo $file | sed -e "s/template/home/" | xargs -0 dirname)
+    dest_dir=$(echo $file | sed -e "s/template/home/" | xargs -0 dirname)
+    filename=$(basename $file)
 
     if ! [[ $quiet -eq 1 ]]; then
         echo $file
     fi
 
-    mkdir -p $dest_path
+    mkdir -p $dest_dir
 
     if file $file | grep text >/dev/null; then
-        jinja -d settings.json $file -o $dest_path/$(basename $file) &
+        (jinja -d settings.json $file -o $dest_dir/$filename &&
+            copy_perms $file $dest_dir/$filename) &
     else
-        cp $file $dest_path
+        (cp $file $dest_dir/$filename &&
+            copy_perms $file $dest_dir/$filename) &
     fi
 done
 
@@ -252,7 +259,6 @@ $SASS_EXEC --no-source-map home/.config/waybar/style.sass home/.config/waybar/st
 for file in $files; do
     dest_path=$(echo $file | sed -e "s/template/home/")
 
-    chmod --reference=$file $dest_path
 done
 
 ## Symlinking
