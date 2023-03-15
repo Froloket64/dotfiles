@@ -63,6 +63,7 @@ Available features are:
  - `swayFade` - Enables fade in/out for windows in Sway (uses [these scripts](https://github.com/Froloket64/swayscripts/tree/main/fade) as a git submodule) **WIP**
  - `lsSingleLine` - Makes `ls` ouput each file on a separate line (without `ls -l` info)
  - `starship` - Use Starship prompt in all shells
+ - `animatedWallpaper` - Use the animated wallpaper which path should is specified in `animatedWallpaper` variable
 
 ## Notes
  1. (**NOTE**: If you install a different package, ensure that the `SASS_EXEC` variable in the [`install.sh`](/install.sh) script is set to its path or its name if it's in the [PATH](https://www.howtogeek.com/658904/how-to-add-a-directory-to-your-path-in-linux/))

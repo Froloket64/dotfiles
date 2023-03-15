@@ -54,13 +54,13 @@
     ],
     "wallpaper": "Pictures/Wallpapers/gruvbox_astronaut.png",
     "editor": "emacs",
-    "useAnimaterWallpaper": false,
     "animatedWallpaper": "Pictures/Wallpapers/donut.gif",
     "doomEmacsTheme": "gruvbox",
     "features": {
         "swayfx": true,
         "swayFade": true,
         "lsSingleLine": true,
-        "starship": false
+        "starship": false,
+        "animatedWallpaper": false
     }
 }

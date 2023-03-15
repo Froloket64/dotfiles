@@ -248,8 +248,9 @@ exec autotiling
 # emacsclient -nw will have 8 bit colors
 exec COLORTERM=truecolor emacs --daemon
 
+{%- if features.animatedWallpaper %}
+
 # Animated Background
-{%- if useAnimatedWallpaper %}
 exec swww init
 exec_always swww img {{ "~/%s"|format(animatedWallpaper) }}
 
