@@ -230,6 +230,7 @@ fi
 rm -rf home/ # Clean up all previous results ("cache")
 
 copy_perms() { chmod --reference=$1 $2; }
+sass_files=()
 
 for file in $(find template/ -type f); do
     dest_dir=$(echo $file | sed -e "s/template/home/" | xargs -0 dirname)
@@ -242,8 +243,19 @@ for file in $(find template/ -type f); do
     mkdir -p $dest_dir
 
     if file $file | grep text >/dev/null; then
+        filename_base=${filename%.*}
+        filename_ext=${filename#$filename_base.}
+
         (jinja -d settings.json $file -o $dest_dir/$filename &&
-            copy_perms $file $dest_dir/$filename) &
+             copy_perms $file $dest_dir/$filename) &
+
+        # Compile Sass to CSS
+        case $filename_ext in
+            sass | scss)
+                # TODO: Move the compilation here
+                sass_files+=($dest_dir/$filename)
+                ;;
+        esac
     else
         (cp $file $dest_dir/$filename &&
             copy_perms $file $dest_dir/$filename) &
@@ -252,13 +264,10 @@ done
 
 wait
 
-# Compile Sass to CSS
-$SASS_EXEC --no-source-map home/.config/waybar/style.sass home/.config/waybar/style.css
+for file in $sass_files; do
+    file_base=${file%.*}
 
-# Copy permissions
-for file in $files; do
-    dest_path=$(echo $file | sed -e "s/template/home/")
-
+    $SASS_EXEC --no-source-map $file $file_base.css
 done
 
 ## Symlinking
