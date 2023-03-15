@@ -67,6 +67,8 @@ install_ext () {
     fi
 }
 
+copy_perms() { chmod --reference=$1 $2; }
+
 ## Parsing args
 for arg in $@; do
     case $arg in
@@ -229,7 +231,6 @@ fi
 # Compile to home/
 rm -rf home/ # Clean up all previous results ("cache")
 
-copy_perms() { chmod --reference=$1 $2; }
 sass_files=()
 
 for file in $(find template/ -type f); do
@@ -237,7 +238,7 @@ for file in $(find template/ -type f); do
     filename=$(basename $file)
 
     if ! [[ $quiet -eq 1 ]]; then
-        echo $file
+        echo -n "$file... "
     fi
 
     mkdir -p $dest_dir
@@ -259,6 +260,10 @@ for file in $(find template/ -type f); do
     else
         (cp $file $dest_dir/$filename &&
             copy_perms $file $dest_dir/$filename) &
+    fi
+
+    if ! [[ $quiet -eq 1 ]]; then
+        echo done
     fi
 done
 
@@ -318,6 +323,6 @@ fi
 
 # Outro
 if ! [[ $quiet -eq 1 ]]; then
-    echo "DONE"
+    echo "Done"
     echo "Enjoy the dotfiles!"
 fi
