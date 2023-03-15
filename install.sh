@@ -227,17 +227,20 @@ if ! [[ $quiet -eq 1 ]]; then
 fi
 
 # Compile to home/
-files=$(find template/ -exec file {} \; | grep text | cut -d: -f1)
-for file in $files; do
-    dest_path=$(echo $file | sed -e "s/template/home/")
-    dest_dir=$(dirname $dest_path)
+for file in $(find template/ -type f); do
+    dest_path=$(echo $file | sed -e "s/template/home/" | xargs -0 dirname)
 
     if ! [[ $quiet -eq 1 ]]; then
         echo $file
     fi
 
-    mkdir -p $dest_dir
-    jinja -d settings.json $file -o $dest_path &
+    mkdir -p $dest_path
+
+    if file $file | grep text >/dev/null; then
+        jinja -d settings.json $file -o $dest_path/$(basename $file) &
+    else
+        cp $file $dest_path
+    fi
 done
 
 wait
