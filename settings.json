@@ -56,7 +56,7 @@
     "editor": "emacs",
     "animatedWallpaper": "Pictures/Wallpapers/donut.gif",
     "features": {
-        "swayfx": true,
+        "swayfx": false,
         "swayFade": true,
         "lsSingleLine": true,
         "starship": false,
