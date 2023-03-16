@@ -40,7 +40,7 @@ client.urgent           {{ colors.background1 }} {{ colors.bright.red }} {{ colo
 # Borders, gaps
 default_border pixel 2
 
-gaps inner 6
+gaps inner 8
 
 {%- if features.swayfx %}
 # Swayfx round corners/borders
