@@ -43,8 +43,19 @@ default_border pixel 2
 gaps inner 8
 
 {%- if features.swayfx %}
-# Swayfx round corners/borders
+
+# Round corners/borders
 corner_radius 4
+
+# Shadows
+shadows on
+
+shadow_color "#000000aa"
+shadow_blur_radius 10
+
+# Dim unfocused windows
+default_dim_inactive 0.05
+
 {%- endif %}
 
 # Cursor theme
