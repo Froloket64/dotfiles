@@ -218,10 +218,6 @@ mode "resize" {
 }
 
 ## Criteria
-# NOTE: $terminal value can be different from the app_id
-assign [app_id=$terminal] 1
-assign [app_id="kitty"] 1
-assign [app_id="Alacritty"] 1
 assign [class="LibreWolf"] 3
 assign [title="qBittorrent*"] 5
 assign [app_id="ario"] 6
