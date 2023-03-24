@@ -9,20 +9,17 @@ vim.g.mapleader = " "
 local opts = { silent = true }
 
 -- Finding files
-function find_file(dir)
+local function find_file(dir)
     local opts = "hidden=true"
 
-    if (dir)
-    then
-        cmd = ":Telescope find_files "..opts.." cwd="..dir.."<cr>"
-    else
-        cmd = ":Telescope find_files "..opts.."<cr>"
+    if (not dir) then
+        dir = "%:p:h"
     end
 
-    return cmd
+    return ":Telescope find_files "..opts.." cwd="..dir.."<cr>"
 end
 
-vim.keymap.set("n", "<leader>ff", find_file(), opts) -- FIXME: Use the file's working directory
+vim.keymap.set("n", "<leader>ff", find_file(), opts)
 vim.keymap.set("n", "<leader>fp", find_file("$XDG_CONFIG_HOME/nvim"), opts)
 vim.keymap.set("n", "<leader>fa", find_file("$HOME"), opts)
 
