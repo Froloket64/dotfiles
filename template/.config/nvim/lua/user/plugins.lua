@@ -138,4 +138,11 @@ return require("packer").startup(function(use)
         requires = { "nvim-treesitter/nvim-treesitter" },
         -- Config in after/
     }
+
+    -- Neogit
+    use {
+        "TimUntersberger/neogit",
+        requires = "nvim-lua/plenary.nvim",
+        config = function() require("neogit").setup() end,
+    }
 end)
