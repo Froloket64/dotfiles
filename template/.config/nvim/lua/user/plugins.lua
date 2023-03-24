@@ -100,11 +100,7 @@ return require("packer").startup(function(use)
     -- Which-key
     use {
         "folke/which-key.nvim",
-        config = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 300
-            require("which-key").setup()
-        end
+        config = function() require("which-key").setup() end
     }
 
     -- Better escape
