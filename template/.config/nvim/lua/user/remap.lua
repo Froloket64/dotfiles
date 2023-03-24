@@ -23,6 +23,9 @@ vim.keymap.set("n", "<leader>ff", find_file(), opts)
 vim.keymap.set("n", "<leader>fp", find_file("$XDG_CONFIG_HOME/nvim"), opts)
 vim.keymap.set("n", "<leader>fa", find_file("$HOME"), opts)
 
+-- Fuzzy file explorer/browser
+vim.keymap.set("n", "<leader>fe", ":Telescope file_browser hidden=true<cr>", opts)
+
 -- Project tree
 vim.keymap.set("n", "<leader>op", ":NvimTreeToggle<cr>", opts)
 
