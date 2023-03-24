@@ -37,10 +37,17 @@ vim.keymap.set("n", "<leader>tv", ":VTerm<cr>", opts)
 -- Window management
 vim.keymap.set("n", "<leader>w", "<C-w>", opts)
 
--- Buffer management
-vim.keymap.set("n", "<C-l>", ":BufferNext<cr>", opts)
+vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
+vim.keymap.set("n", "<C-j>", "<C-w>j", opts)
+vim.keymap.set("n", "<C-k>", "<C-w>k", opts) -- FIXME: Interferes with LSP binding
+vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
 
-vim.keymap.set("n", "<C-h>", ":BufferPrevious<cr>", opts)
+-- Buffer management
+vim.keymap.set("n", "<A-l>", ":BufferNext<cr>", opts)
+vim.keymap.set("n", "<A-h>", ":BufferPrevious<cr>", opts)
+
+vim.keymap.set("n", "<leader>bl", ":BufferNext<cr>", opts)
+vim.keymap.set("n", "<leader>bh", ":BufferPrevious<cr>", opts)
 
 vim.keymap.set("n", "<leader>bk", ":BufferClose<cr>", opts)
 
