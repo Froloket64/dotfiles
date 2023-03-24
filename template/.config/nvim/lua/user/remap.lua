@@ -3,6 +3,7 @@
 --   o - Open
 --   f - find
 --   t - Terminal
+--   b - Buffer
 
 vim.g.mapleader = " "
 
@@ -29,8 +30,7 @@ vim.keymap.set("n", "<leader>fe", ":Telescope file_browser hidden=true<cr>", opt
 -- Project tree
 vim.keymap.set("n", "<leader>op", ":NvimTreeToggle<cr>", opts)
 
--- terminal
--- vim.keymap.set("n", "<leader>ot", ":vsplit<cr> :terminal<cr>")
+-- Terminal
 vim.keymap.set("n", "<leader>ts", ":Term<cr>", opts)
 vim.keymap.set("n", "<leader>tv", ":VTerm<cr>", opts)
 
@@ -38,12 +38,8 @@ vim.keymap.set("n", "<leader>tv", ":VTerm<cr>", opts)
 vim.keymap.set("n", "<leader>w", "<C-w>", opts)
 
 -- Buffer management
--- vim.keymap.set("n", "<leader>b]", ":BufferNext<cr>", opts)
--- vim.keymap.set("n", "<leader>bl", ":BufferNext<cr>", opts)
 vim.keymap.set("n", "<C-l>", ":BufferNext<cr>", opts)
 
--- vim.keymap.set("n", "<leader>b[", ":BufferPrevious<cr>", opts)
--- vim.keymap.set("n", "<leader>bh", ":BufferPrevious<cr>", opts)
 vim.keymap.set("n", "<C-h>", ":BufferPrevious<cr>", opts)
 
 vim.keymap.set("n", "<leader>bk", ":BufferClose<cr>", opts)
