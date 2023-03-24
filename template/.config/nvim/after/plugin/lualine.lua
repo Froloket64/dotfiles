@@ -23,7 +23,7 @@ require("lualine").setup {
     },
     sections = {
         lualine_a = {"mode"},
-        lualine_b = {"branch", "diff", "diagnostics"},
+        lualine_b = {"branch", "diff"},
         lualine_c = {"filename"},
 
         lualine_x = {"diagnostics"},
