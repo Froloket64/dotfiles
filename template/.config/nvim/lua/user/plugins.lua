@@ -1,18 +1,22 @@
 local function ensure_packer()
     local fn = vim.fn
     local install_path = fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
+    local is_installed = fn.empty(fn.glob(install_path)) == 0
 
-    if fn.empty(fn.glob(install_path)) > 0 then
-        fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
-        vim.cmd("packadd packer.nvim")
-        return true
+    if is_installed then
+        return
     end
 
-    return false
+    fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
+    vim.cmd("packadd packer.nvim")
+
+    -- Automatically set up your configuration after cloning packer.nvim
+    require("packer").sync()
 end
 
+ensure_packer()
+
 return require("packer").startup(function(use)
-    -- Plugins
     -- Packer itself
     use "wbthomason/packer.nvim"
 
@@ -38,6 +42,7 @@ return require("packer").startup(function(use)
             {"L3MON4D3/LuaSnip"},
             {"rafamadriz/friendly-snippets"},
         }
+        -- Config in after/
     }
 
     -- Colorscheme
@@ -46,7 +51,8 @@ return require("packer").startup(function(use)
     -- Treesitter
     use {
         "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate"
+        run = ":TSUpdate",
+        -- Config in after/
     }
 
     -- Telescope
@@ -63,7 +69,7 @@ return require("packer").startup(function(use)
     }
 
     -- Autopairs
-    use { 
+    use {
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup() end
     }
@@ -113,8 +119,4 @@ return require("packer").startup(function(use)
     -- Split term
     use "vimlab/split-term.vim"
 
-    -- Automatically set up your configuration after cloning packer.nvim
-    if ensure_packer() then
-        require("packer").sync()
-    end
 end)
