@@ -132,4 +132,10 @@ return require("packer").startup(function(use)
     -- Split term
     use "vimlab/split-term.vim"
 
+    -- Org
+    use {
+        "nvim-orgmode/orgmode",
+        requires = { "nvim-treesitter/nvim-treesitter" },
+        -- Config in after/
+    }
 end)
