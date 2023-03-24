@@ -1,7 +1,8 @@
 vim.opt.background = "dark"
-vim.cmd([[colorscheme gruvbox]])
+vim.cmd("colorscheme gruvbox")
 
 vim.opt.termguicolors = true
+vim.o.guifont = "{{ font.name }}:h{{ font.size }}"
 
 vim.opt.number = true
 vim.opt.relativenumber = true
