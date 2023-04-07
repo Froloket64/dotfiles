@@ -18,3 +18,11 @@ vim.opt.scrolloff = 8
 vim.opt.updatetime = 1000
 vim.opt.ignorecase = true
 vim.opt.wrap = true
+
+-- Neovide
+if vim.g.neovide then
+    vim.g.neovide_cursor_animation_length = 0.2
+    vim.g.neovide_cursor_trail_size = 0.1
+    vim.g.neovide_refresh_rate = {{ monitors[0].rate }}
+    vim.g.neovide_refresh_rate_idle = 5
+end
