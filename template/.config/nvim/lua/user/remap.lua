@@ -4,6 +4,7 @@
 --   f - find
 --   t - Terminal
 --   b - Buffer
+--   g - Git
 
 vim.g.mapleader = " "
 
@@ -61,3 +62,6 @@ vim.keymap.set("n", "<esc>", ":noh<cr>", opts)
 -- Increment/decrement number
 vim.keymap.set("n", "+", "<C-a>")
 vim.keymap.set("n", "-", "<C-x>")
+
+-- Git
+vim.keymap.set("n", "<leader>gg", ":Neogit cwd="..vim.fn.expand("%:p:h").."<cr>")
