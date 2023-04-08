@@ -145,4 +145,11 @@ return require("packer").startup(function(use)
         "ecthelionvi/NeoColumn.nvim",
         -- Config in after/
     }
+
+    -- Trouble
+    use {
+        "folke/trouble.nvim",
+        requires = "nvim-tree/nvim-web-devicons",
+        config = function() require("trouble").setup {} end
+    }
 end)
