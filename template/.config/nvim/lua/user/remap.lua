@@ -27,7 +27,7 @@ vim.keymap.set("n", "<leader>fa", find_file("$HOME"), opts)
 vim.keymap.set("n", "<leader>fr", ":Telescope oldfiles<cr>")
 
 -- Fuzzy file explorer/browser
-vim.keymap.set("n", "<leader>fe", ":Telescope file_browser hidden=true<cr>", opts)
+vim.keymap.set("n", "<leader>fe", ":Telescope file_browser hidden=true cwd=%:p:h<cr>", opts)
 
 -- Project tree
 vim.keymap.set("n", "<leader>op", ":NvimTreeToggle<cr>", opts)
