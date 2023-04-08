@@ -7,7 +7,8 @@ local lsp = require("lsp-zero").preset {
 
 lsp.ensure_installed {
     "rust_analyzer",
-    "lua_ls"
+    "lua_ls",
+    "marksman",
 }
 
 lsp.setup()
