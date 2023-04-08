@@ -123,12 +123,6 @@ return require("packer").startup(function(use)
         -- Config in after/
     }
 
-    -- Barbar
-    use {
-        "romgrk/barbar.nvim",
-        requires = "nvim-web-devicons"
-    }
-
     -- Split term
     use "vimlab/split-term.vim"
 
