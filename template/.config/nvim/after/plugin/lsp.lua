@@ -1,3 +1,4 @@
+local lspconfig = require("lspconfig")
 local lsp = require("lsp-zero").preset {
     name = "recommended",
     set_lsp_keymaps = false,
@@ -27,4 +28,14 @@ vim.diagnostic.config {
     virtual_text = true,
     signs = false,
     update_in_insert = true,
+}
+
+lspconfig.lua_ls.setup {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { "vim" }
+            }
+        }
+    }
 }
