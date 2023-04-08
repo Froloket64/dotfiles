@@ -43,13 +43,13 @@ vim.keymap.set("n", "<C-k>", "<C-w>k", opts) -- FIXME: Interferes with LSP bindi
 vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
 
 -- Buffer management
-vim.keymap.set("n", "<A-l>", ":BufferNext<cr>", opts)
-vim.keymap.set("n", "<A-h>", ":BufferPrevious<cr>", opts)
+vim.keymap.set("n", "<A-l>", ":bn<cr>", opts)
+vim.keymap.set("n", "<A-h>", ":bp<cr>", opts)
 
-vim.keymap.set("n", "<leader>bl", ":BufferNext<cr>", opts)
-vim.keymap.set("n", "<leader>bh", ":BufferPrevious<cr>", opts)
+vim.keymap.set("n", "<leader>bl", ":bn<cr>", opts)
+vim.keymap.set("n", "<leader>bh", ":bp<cr>", opts)
 
-vim.keymap.set("n", "<leader>bk", ":BufferClose<cr>", opts)
+vim.keymap.set("n", "<leader>bk", ":bd<cr>", opts)
 
 -- Clear highlight with ESC
 vim.keymap.set("n", "<esc>", ":noh<cr>", opts)
