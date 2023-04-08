@@ -21,7 +21,7 @@ local function find_file(dir)
 end
 
 vim.keymap.set("n", "<leader>ff", find_file(), opts)
-vim.keymap.set("n", "<leader>fp", find_file("$XDG_CONFIG_HOME/nvim"), opts)
+vim.keymap.set("n", "<leader>fp", find_file("$HOME/.dotfiles/template/.config/nvim"), opts)
 vim.keymap.set("n", "<leader>fa", find_file("$HOME"), opts)
 
 vim.keymap.set("n", "<leader>fr", ":Telescope oldfiles<cr>")
