@@ -24,6 +24,8 @@ vim.keymap.set("n", "<leader>ff", find_file(), opts)
 vim.keymap.set("n", "<leader>fp", find_file("$XDG_CONFIG_HOME/nvim"), opts)
 vim.keymap.set("n", "<leader>fa", find_file("$HOME"), opts)
 
+vim.keymap.set("n", "<leader>fr", ":Telescope oldfiles<cr>")
+
 -- Fuzzy file explorer/browser
 vim.keymap.set("n", "<leader>fe", ":Telescope file_browser hidden=true<cr>", opts)
 
@@ -50,6 +52,8 @@ vim.keymap.set("n", "<leader>bl", ":bn<cr>", opts)
 vim.keymap.set("n", "<leader>bh", ":bp<cr>", opts)
 
 vim.keymap.set("n", "<leader>bk", ":bd<cr>", opts)
+
+vim.keymap.set("n", "<leader>bb", ":Telescope buffers<cr>", opts)
 
 -- Clear highlight with ESC
 vim.keymap.set("n", "<esc>", ":noh<cr>", opts)
