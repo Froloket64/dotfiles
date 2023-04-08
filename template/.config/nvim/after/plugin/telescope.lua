@@ -1,5 +1,7 @@
 local telescope = require("telescope")
+
 local actions = require("telescope.actions")
+local fb_actions = telescope.extensions.file_browser.actions
 
 telescope.setup {
     defaults = {
@@ -21,8 +23,17 @@ telescope.setup {
         file_browser = {
             theme = "ivy",
             hijack_netrw = true,
-        }
-    },
+            mappings = {
+                ["n"] = {
+                    ["a"] = fb_actions.create,
+                    ["r"] = fb_actions.rename,
+                    ["P"] = fb_actions.move,
+                    ["p"] = fb_actions.copy,
+                    ["x"] = fb_actions.remove,
+                },
+            },
+        },
+    }
 }
 
 telescope.load_extension("fzf")
