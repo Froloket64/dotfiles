@@ -18,6 +18,7 @@ vim.opt.scrolloff = 8
 vim.opt.updatetime = 1000
 vim.opt.ignorecase = true
 vim.opt.wrap = true
+vim.opt.timeoutlen = 1000
 
 -- Neovide
 if vim.g.neovide then
