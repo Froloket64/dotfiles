@@ -100,7 +100,7 @@ return require("packer").startup(function(use)
     -- Which-key
     use {
         "folke/which-key.nvim",
-        config = function() require("which-key").setup() end
+        -- Config in after/
     }
 
     -- Better escape
