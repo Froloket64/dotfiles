@@ -152,4 +152,11 @@ return require("packer").startup(function(use)
         requires = "nvim-tree/nvim-web-devicons",
         config = function() require("trouble").setup {} end
     }
+
+    -- Hop
+    use {
+        "phaazon/hop.nvim",
+        branch = "v2",
+        -- Config in after/
+    }
 end)
