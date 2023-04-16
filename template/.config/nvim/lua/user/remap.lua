@@ -11,18 +11,23 @@ vim.g.mapleader = " "
 local opts = { silent = true }
 
 -- Finding files
-local function find_file(dir)
-    local opts = "hidden=true"
-
-    if (not dir) then
+local function find_file(dir, opts)
+    if dir == "" then
         dir = "%:p:h"
+    end
+
+    if not opts then
+        opts = ""
     end
 
     return ":Telescope find_files "..opts.." cwd="..dir.."<cr>"
 end
 
-vim.keymap.set("n", "<leader>ff", find_file(), opts)
-vim.keymap.set("n", "<leader>fp", find_file("$HOME/.dotfiles/template/.config/nvim"), opts)
+-- local find_opts = "hidden=true"
+local hidden = "hidden=true"
+
+vim.keymap.set("n", "<leader>ff", find_file("", hidden), opts)
+vim.keymap.set("n", "<leader>fp", find_file("$HOME/.dotfiles/template/.config/nvim", hidden), opts)
 vim.keymap.set("n", "<leader>fa", find_file("$HOME"), opts)
 
 vim.keymap.set("n", "<leader>fr", ":Telescope oldfiles<cr>")
