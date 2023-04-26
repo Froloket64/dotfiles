@@ -10,6 +10,9 @@ lsp.ensure_installed {
     "rust_analyzer",
     "lua_ls",
     "marksman",
+    "pyright",
+    "bashls",
+    "vimls",
 }
 
 lsp.on_attach(function(_, bufnr)
