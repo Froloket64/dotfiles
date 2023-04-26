@@ -12,7 +12,7 @@ lsp.ensure_installed {
     "marksman",
 }
 
-lsp.on_attach(function(client, bufnr)
+lsp.on_attach(function(_, bufnr)
     local opts = {buffer = bufnr, remap = false}
 
     vim.keymap.set("n", "<leader>ci", vim.lsp.buf.implementation, opts)

@@ -51,7 +51,7 @@ return require("packer").startup(function(use)
     -- Treesitter
     use {
         "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate",
+        run = ":TSUpdate", -- FIXME: Displays an error on first install
         -- Config in after/
     }
 
