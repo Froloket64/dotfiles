@@ -4,7 +4,6 @@
 # TODO:
 # - Add more distros
 
-SASS_EXEC=sass
 
 # All packages including deps (e.g. `stow` for symlinking the dots)
 PKGS=(alacritty dunst fish neovim qtile rofi hyprland polybar sway waybar wezterm)
@@ -161,107 +160,61 @@ if [[ $install == 1 ]]; then
 
     readarray -t deps <<< `cat dependencies.txt`
 
-## Template processing
-if ! [[ $quiet -eq 1 ]]; then
-    echo "Generating dotfiles..."
     yay -S --needed ${deps[@]}
 fi
 
-# Compile to home/
-rm -rf home/ # Clean up all previous results ("cache")
+# Template processing
+log "Generating dotfiles"
 
-sass_files=()
+dest_dir=$(mktemp -d)
 
 for file in $(find template/ -type f); do
-    dest_dir=$(echo $file | sed -e "s/template/home/" | xargs -0 dirname)
-    filename=$(basename $file)
+    file_stripped=$(echo "$file" | cut -d / -f 2-)
+    dest_file="$dest_dir/$file_stripped"
 
-    if ! [[ $quiet -eq 1 ]]; then
-        echo -n "$file... "
-    fi
+    file_basename=$(basename "$file")
 
-    mkdir -p $dest_dir
+    file_ext=$(echo $file_basename | rev | cut -d . -f 1 | rev)
+    file_no_ext=$(echo $file_basename | rev | cut -d . -f 2- | rev)
 
-    if file $file | grep text >/dev/null; then
-        filename_base=${filename%.*}
-        filename_ext=${filename#$filename_base.}
+    log -n "$file_stripped... "
 
-        (jinja -d settings.json $file -o $dest_dir/$filename &&
-             copy_perms $file $dest_dir/$filename) &
+    mkdir -p $(dirname $dest_file)
 
-        # Compile Sass to CSS
-        case $filename_ext in
-            sass | scss)
-                # TODO: Move the compilation here
-                sass_files+=($dest_dir/$filename)
-                ;;
-        esac
+    # Detect if a file is text or binary
+    if file "$file" | grep text >/dev/null; then
+        (j2 "$file" settings.json -o "$dest_file" &&
+             copy_perms "$file" "$dest_file") &
+
+        # Compile Sass/SCSS to CSS
+        if [[ "$file_ext" =~ s[a|c]ss ]]; then
+            wait
+
+            sass --no-source-map $dest_file $(dirname $dest_file)/"$file_no_ext".css
+            rm $dest_file
+        fi
     else
-        (cp $file $dest_dir/$filename &&
-            copy_perms $file $dest_dir/$filename) &
+        (cp $file $dest_file &&
+            copy_perms $file $dest_file) &
     fi
 
-    if ! [[ $quiet -eq 1 ]]; then
-        echo done
-    fi
+    log "done"
 done
 
 wait
 
-for file in $sass_files; do
-    file_base=${file%.*}
+# Symlinking
+log "Copying dotfiles"
 
-    $SASS_EXEC --no-source-map $file $file_base.css
+for file in $(find $dest_dir -mindepth 1 -maxdepth 1); do
+    cp -r $file $HOME
 done
 
-## Symlinking
-# Try
-if ! [[ $quiet -eq 1 ]]; then
-    echo "Symlinking dotfiles..."
-fi
-
-output=$(stow -t ~ home/ 2>&1)
-
-# Ask whether override if unset
-if [[ $output ]] && [[ -z $force ]]; then
-    if gum confirm "Override existing dotfiles?" ${GUM_CONFIRM_STYLE[@]}; then
-        force=1
-    else
-        force=0
-    fi
-fi
-
-# Override existing dotfiles (if --force'd)
-if [[ $output ]] && [[ $force == 1 ]]; then
-    if ! [[ $quiet -eq 1 ]]; then
-        echo "Conflicts found."
-        echo "Removing existing dotfiles..."
-    fi
-
-    readarray -t lines <<< $output
-
-    # Delete all conflicting dotfiles
-    for ((i=1; i<${#lines[@]}-1; i++)); do
-        file=$HOME/$(echo ${lines[i]} | awk "{print \$NF}")
-
-        rm -f $file
-    done
-
-    if ! [[ $quiet -eq 1 ]]; then
-        echo "Symlinking dotfiles..."
-    fi
-
-    stow -t ~ home/
-fi
-
-## Additional configuration
+# Additional configuration
 # Oh My Fish
-if [[ " ${to_install[*]} " == *" fish "* ]]; then
+if [[ $install == 1 ]] && [[ " ${to_install[*]} " == *" fish "* ]]; then
     fish -c "omf theme integral-froloket" 2&>/dev/null
 fi
 
 # Outro
-if ! [[ $quiet -eq 1 ]]; then
-    echo "Done"
-    echo "Enjoy the dotfiles!"
-fi
+log "Done"
