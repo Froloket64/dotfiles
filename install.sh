@@ -9,6 +9,7 @@
 # - Rename `to_install` to `dotfiles` and start using it for the dotfiles to generate
 # - Check for conflicts
 
+set -e
 
 PKGS=(alacritty dunst fish neovim qtile rofi hyprland polybar sway waybar wezterm)
 
