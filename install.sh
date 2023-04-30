@@ -2,12 +2,17 @@
 # This is an installation/deployment script for Arch Linux
 
 # TODO:
-# - Add more distros
+# - Add colors and the ">" symbols
+# - Implement generating dotfiles to /tmp/, then copying to .config and erasing
+# the tmp dir
+# - Add an intro
+# - Rename `to_install` to `dotfiles` and start using it for the dotfiles to generate
+# - Check for conflicts
 
 
-# All packages including deps (e.g. `stow` for symlinking the dots)
 PKGS=(alacritty dunst fish neovim qtile rofi hyprland polybar sway waybar wezterm)
 
+# Gum menus style
 GUM_CHOOSE_STYLE=(--cursor.foreground="11" --selected.background="236" --selected.foreground="3")
 GUM_CONFIRM_STYLE=(--selected.background="2" --selected.foreground="0" --unselected.background="")
 
@@ -29,9 +34,10 @@ log() {
     fi
 }
 
+# Copy file permissions between files
 copy_perms() { chmod --reference=$1 $2; }
 
-## Parsing args
+# Parsing args
 for arg in $@; do
     case $arg in
         -h | --help)
@@ -93,7 +99,7 @@ You can also pass program names to install only them."
     esac
 done
 
-# Ask to install if unset
+# Ask to install if option isn't set
 if [[ -z $install ]]; then
     if gum confirm "Install packages? (Otherwise, just copy configs)" ${GUM_CONFIRM_STYLE[@]}; then
         install=1
