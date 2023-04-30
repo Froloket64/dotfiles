@@ -4,9 +4,7 @@
 # TODO:
 # - Add more distros
 
-# Some OS information
 SASS_EXEC=sass
-OS_NAME=$(cat /etc/os-release)
 
 # All packages including deps (e.g. `stow` for symlinking the dots)
 PKGS=(alacritty dunst fish neovim qtile rofi hyprland polybar sway waybar wezterm)
@@ -14,56 +12,21 @@ PKGS=(alacritty dunst fish neovim qtile rofi hyprland polybar sway waybar wezter
 GUM_CHOOSE_STYLE=(--cursor.foreground="11" --selected.background="236" --selected.foreground="3")
 GUM_CONFIRM_STYLE=(--selected.background="2" --selected.foreground="0" --unselected.background="")
 
-## Definitions
-# Install a package
-# IDEA: Check for OS by checking installed pkg manager
-install () {
-    case $OS_NAME in
-        *ubuntu*)
-            # Try apt then snap
-            sudo apt-get install -y $1 || snap install $1
-            ;;
+# Return whether command exists
+command_exists() {
+    local cmd=$1
 
-        *arch*)
-            if command -v yay 2&>/dev/null; then
-                yay -S --needed --noconfirm $1
-            else
-                sudo pacman -S --needed --noconfirm $1
-            fi
-            ;;
-
-        *)
-            echo "Unknown distro"
-            exit
-    esac
+    if command -v $cmd 2&>/dev/null; then
+        true
+    else
+        false
+    fi
 }
 
-# Update repositories
-update () {
-    case $OS_NAME in
-        *ubuntu*)
-            sudo apt-get update
-            ;;
-
-        *arch*)
-            if command -v yay 2&>/dev/null; then
-                yay -S --needed $1
-            else
-                sudo pacman -S --needed $1
-            fi
-            ;;
-
-        *)
-            echo "Unknown distro"
-            exit
-    esac
-}
-
-# Additional installations
-install_ext () {
-    # Oh My Fish
-    if [[ " ${to_install[*]} " == *" fish "* ]]; then
-        curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+# Log a message
+log() {
+    if ! [[ $quiet -eq 1 ]]; then
+        echo $@
     fi
 }
 
@@ -106,7 +69,7 @@ You can also pass program names to install only them."
             ;;
 
         -q | --quiet)
-            quiet=1 # FIXME: Make it useful
+            quiet=1
             ;;
 
         -o=* | --os=*)
@@ -153,79 +116,55 @@ if [[ $install -eq 1 ]] && ! [[ $to_install ]]; then
     fi
 fi
 
-## Installing base dependencies
-# stow
-if ! command -v stow 2&>/dev/null; then
-    if ! [[ $quiet -eq 1 ]]; then
-        echo "stow not found, installing... "
-    fi
-
-    install stow || exit
-fi
-
-# gum
-if ! command -v gum 2&>/dev/null; then
-    if ! [[ $quiet -eq 1 ]]; then
-        echo "gum not found, installing... "
-    fi
-
-    install gum || exit
-fi
-
-# python
-if ! command -v python 2&>/dev/null; then
-    if ! [[ $quiet -eq 1 ]]; then
-        echo "python not found, installing... "
-    fi
-
-    install python || exit
-fi
-
-# jinja
-if ! command -v jinja 2&>/dev/null; then
-    if ! [[ $quiet -eq 1 ]]; then
-        echo "jinja not found, installing... "
-    fi
-
-    python -m pip install jinja-cli || exit
-fi
-
-# sass
-if ! command -v sass 2&>/dev/null; then
-    if ! [[ $quiet -eq 1 ]]; then
-        echo "sass not found, installing..."
-    fi
-
-    install dart-sass || exit
-fi
-
-## Installing packages
-# Install
 if [[ $install == 1 ]]; then
-    if ! [[ $quiet -eq 1 ]]; then
-        echo "Installing packages..."
+    # Install base dependencies
+    if ! command_exists sudo; then
+        log "sudo not found. Aborting."
+        exit 1
     fi
 
-    update
+    if ! command_exists yay; then
+        install_dir=$(mktemp -d)
 
-    install ${to_install[@]}
-    install_ext
-fi
+        log -n "yay not found, installing... "
 
-## Dependency installation
-if [[ $install == 1 ]]; then
-    if ! [[ $quiet -eq 1 ]]; then
-        echo "Installing dependencies..."
+        sudo pacman -S --needed git base-devel
+
+        git clone https://aur.archlinux.org/yay.git --depth 1 $install_dir
+
+        cd $install_dir
+        makepkg -si
+        cd - >/dev/null
+        rm -rf $install_dir
+
+        log "done"
     fi
+
+    yay -S --needed stow gum python python-j2cli dart-sass
+
+    # Install packages
+    log "Installing packages"
+
+    yay -Sy
+
+    yay -S --needed ${to_install[@]}
+
+    # Oh My Fish
+    # curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish -c exit
+    fish_install_script=$(mktemp)
+
+    curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install -o $fish_install_script
+    fish -c ". $fish_install_script; exit"
+
+    # Install optional dependencies
+    log "Installing optional dependencies"
 
     readarray -t deps <<< `cat dependencies.txt`
-
-    install ${deps[@]}
-fi
 
 ## Template processing
 if ! [[ $quiet -eq 1 ]]; then
     echo "Generating dotfiles..."
+    yay -S --needed ${deps[@]}
 fi
 
 # Compile to home/
