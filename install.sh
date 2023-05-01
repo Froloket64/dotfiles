@@ -186,11 +186,14 @@ if [[ $install == 1 ]]; then
     yay -S --needed ${to_install[@]}
 
     # Oh My Fish
-    # curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish -c exit
-    fish_install_script=$(mktemp)
+    if ! command_exists omf; then
+        fish_install_script=$(mktemp)
 
-    curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install -o $fish_install_script
-    fish -c ". $fish_install_script; exit"
+        curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install -o $fish_install_script
+        fish -c ". $fish_install_script; exit"
+
+        rm $fish_install_script
+    fi
 
     # Install optional dependencies
     log "Installing optional dependencies"
