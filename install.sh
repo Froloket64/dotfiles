@@ -30,8 +30,38 @@ command_exists() {
 
 # Log a message
 log() {
-    if ! [[ $quiet -eq 1 ]]; then
-        echo $@
+    if [[ $quiet -eq 1 ]]; then
+        return
+    fi
+
+    msg=$1
+    msg_type=$2
+
+    if [[ -z $3 ]]; then
+        str_end="\n"
+    else
+        str_end=$3
+    fi
+
+    escape="\033"
+    reset="$escape[0m"
+
+    case "$msg_type" in
+        warning | warn)
+            color="$escape[38;5;11m"
+            ;;
+        error | err)
+            color="$escape[38;5;9m"
+            ;;
+        *)
+            color="$escape[38;5;8m"
+            ;;
+    esac
+
+    if [[ "$msg_type" == none ]]; then
+        printf $msg$str_end
+    else
+        printf "$color>$reset $msg$str_end"
     fi
 }
 
@@ -84,17 +114,17 @@ You can also pass program names to install only them."
             ;;
 
         -*)
-            echo "ERROR: Unknown option: $arg"
+            log "Unknown option: $arg" err
 
-            exit
+            exit 1
             ;;
 
         *)
             if [[ " ${PKGS[*]} " == *" $arg "* ]]; then
                 to_install+=$arg
             else
-                echo "Unknown argument: $arg"
-                exit
+                log "Unknown argument: $arg" err
+                exit 1
             fi
             ;;
     esac
@@ -111,8 +141,8 @@ fi
 
 # If packages should be installed, but none were specified, ask
 if [[ $install -eq 1 ]] && ! [[ $to_install ]]; then
-    echo "Which packages to install?"
-    echo "Space to select, Enter to confirm, Ctrl-C to select all"
+    log "Which packages to install?" msg
+    log "Space to select, Enter to confirm, Ctrl-C to select all" msg
 
     to_install=$(gum choose ${PKGS[@]} --no-limit ${GUM_CHOOSE_STYLE[@]})
 
@@ -125,14 +155,14 @@ fi
 if [[ $install == 1 ]]; then
     # Install base dependencies
     if ! command_exists sudo; then
-        log "sudo not found. Aborting."
+        log "sudo not found. Aborting." err
         exit 1
     fi
 
     if ! command_exists yay; then
         install_dir=$(mktemp -d)
 
-        log -n "yay not found, installing... "
+        log "yay not found, installing... " warn ""
 
         sudo pacman -S --needed git base-devel
 
@@ -143,7 +173,7 @@ if [[ $install == 1 ]]; then
         cd - >/dev/null
         rm -rf $install_dir
 
-        log "done"
+        log "done" none
     fi
 
     yay -S --needed stow gum python python-j2cli dart-sass
@@ -184,7 +214,7 @@ for file in $(find template/ -type f); do
     file_ext=$(echo $file_basename | rev | cut -d . -f 1 | rev)
     file_no_ext=$(echo $file_basename | rev | cut -d . -f 2- | rev)
 
-    log -n "$file_stripped... "
+    log "$file_stripped... " none ""
 
     mkdir -p $(dirname $dest_file)
 
@@ -205,7 +235,7 @@ for file in $(find template/ -type f); do
             copy_perms $file $dest_file) &
     fi
 
-    log "done"
+    log "done" none
 done
 
 wait
