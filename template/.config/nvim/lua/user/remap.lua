@@ -5,6 +5,7 @@
 --   t - Terminal
 --   b - Buffer
 --   g - Git
+--   r - Replace
 
 vim.g.mapleader = " "
 
@@ -62,6 +63,15 @@ vim.keymap.set("n", "<leader>bb", ":Telescope buffers<cr>", opts)
 
 -- [[ Git ]]
 vim.keymap.set("n", "<leader>gg", ":Neogit cwd="..vim.fn.expand("%:p:h").."<cr>")
+
+-- [[ Editing ]]
+-- Replace all ' with "
+vim.keymap.set("n", "<leader>r\'", ":%s/'/\"/g<cr>")
+vim.keymap.set("v", "<leader>r\'", ":s/'/\"/g<cr>")
+
+-- Replace all " with '
+vim.keymap.set("n", "<leader>r\"", ":%s/\"/'/g<cr>")
+vim.keymap.set("v", "<leader>r\"", ":s/\"/'/g<cr>")
 
 -- Increment/decrement number
 vim.keymap.set("n", "+", "<C-a>")
