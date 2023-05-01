@@ -10,7 +10,7 @@ vim.g.mapleader = " "
 
 local opts = { silent = true }
 
--- Finding files
+-- [[ File management ]]
 local function find_file(dir, opts)
     if dir == "" then
         dir = "%:p:h"
@@ -23,7 +23,6 @@ local function find_file(dir, opts)
     return ":Telescope find_files "..opts.." cwd="..dir.."<cr>"
 end
 
--- local find_opts = "hidden=true"
 local hidden = "hidden=true"
 
 vim.keymap.set("n", "<leader>ff", find_file("", hidden), opts)
@@ -38,11 +37,11 @@ vim.keymap.set("n", "<leader>fe", ":Telescope file_browser hidden=true cwd=%:p:h
 -- Project tree
 vim.keymap.set("n", "<leader>op", ":NvimTreeToggle<cr>", opts)
 
--- Terminal
+-- [[ Terminal ]]
 vim.keymap.set("n", "<leader>ts", ":Term<cr>", opts)
 vim.keymap.set("n", "<leader>tv", ":VTerm<cr>", opts)
 
--- Window management
+-- [[ Window management ]]
 vim.keymap.set("n", "<leader>w", "<C-w>", opts)
 
 vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
@@ -50,7 +49,7 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", opts)
 vim.keymap.set("n", "<C-k>", "<C-w>k", opts) -- FIXME: Interferes with LSP binding
 vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
 
--- Buffer management
+-- [[ Buffer management ]]
 vim.keymap.set("n", "<A-l>", ":bn<cr>", opts)
 vim.keymap.set("n", "<A-h>", ":bp<cr>", opts)
 
@@ -61,12 +60,13 @@ vim.keymap.set("n", "<leader>bk", ":bd<cr>", opts)
 
 vim.keymap.set("n", "<leader>bb", ":Telescope buffers<cr>", opts)
 
--- Clear highlight with ESC
-vim.keymap.set("n", "<esc>", ":noh<cr>", opts)
+-- [[ Git ]]
+vim.keymap.set("n", "<leader>gg", ":Neogit cwd="..vim.fn.expand("%:p:h").."<cr>")
 
 -- Increment/decrement number
 vim.keymap.set("n", "+", "<C-a>")
 vim.keymap.set("n", "-", "<C-x>")
 
--- Git
-vim.keymap.set("n", "<leader>gg", ":Neogit cwd="..vim.fn.expand("%:p:h").."<cr>")
+-- [[ Other ]]
+-- Clear highlight with ESC
+vim.keymap.set("n", "<esc>", ":noh<cr>", opts)
