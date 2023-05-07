@@ -148,7 +148,7 @@
     },
 
     "gamemode": {
-        "format": "{glyph} Gaming: {count}00%",
+        "format": "{glyph} Gaming",
         "glyph": "",
         "use-icon": false,
         "icon-spacing": 0,
