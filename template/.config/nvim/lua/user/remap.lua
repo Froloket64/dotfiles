@@ -62,16 +62,16 @@ vim.keymap.set("n", "<leader>bk", ":bd<cr>", opts)
 vim.keymap.set("n", "<leader>bb", ":Telescope buffers<cr>", opts)
 
 -- [[ Git ]]
-vim.keymap.set("n", "<leader>gg", ":Neogit cwd="..vim.fn.expand("%:p:h").."<cr>")
+vim.keymap.set("n", "<leader>gg", ":Neogit cwd="..vim.fn.expand("%:p:h").."<cr>", opts)
 
 -- [[ Editing ]]
 -- Replace all ' with "
-vim.keymap.set("n", "<leader>r\'", ":%s/'/\"/g<cr>")
-vim.keymap.set("v", "<leader>r\'", ":s/'/\"/g<cr>")
+vim.keymap.set("n", "<leader>r\'", ":%s/'/\"/g<cr>", opts)
+vim.keymap.set("v", "<leader>r\'", ":s/'/\"/g<cr>", opts)
 
 -- Replace all " with '
-vim.keymap.set("n", "<leader>r\"", ":%s/\"/'/g<cr>")
-vim.keymap.set("v", "<leader>r\"", ":s/\"/'/g<cr>")
+vim.keymap.set("n", "<leader>r\"", ":%s/\"/'/g<cr>", opts)
+vim.keymap.set("v", "<leader>r\"", ":s/\"/'/g<cr>", opts)
 
 -- Increment/decrement number
 vim.keymap.set("n", "+", "<C-a>")
