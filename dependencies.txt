@@ -3,7 +3,6 @@ lsd
 bat
 vivid
 neofetch
-nwg-dock
 swww
 dunst
 autotiling
