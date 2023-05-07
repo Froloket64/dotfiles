@@ -77,6 +77,9 @@ vim.keymap.set("v", "<leader>r\"", ":s/\"/'/g<cr>")
 vim.keymap.set("n", "+", "<C-a>")
 vim.keymap.set("n", "-", "<C-x>")
 
+-- Navbuddy
+vim.keymap.set("n", "g.", ":Navbuddy<cr>", opts)
+
 -- [[ Other ]]
 -- Clear highlight with ESC
 vim.keymap.set("n", "<esc>", ":noh<cr>", opts)

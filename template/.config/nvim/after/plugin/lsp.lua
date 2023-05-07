@@ -1,3 +1,4 @@
+local navbuddy = require("nvim-navbuddy")
 local lspconfig = require("lspconfig")
 local lsp = require("lsp-zero").preset {
     name = "recommended",
@@ -15,7 +16,8 @@ lsp.ensure_installed {
     "vimls",
 }
 
-lsp.on_attach(function(_, bufnr)
+lsp.on_attach(function(client, bufnr)
+    -- Remaps
     local opts = {buffer = bufnr, remap = false}
 
     vim.keymap.set("n", "<leader>ci", vim.lsp.buf.implementation, opts)
@@ -23,6 +25,9 @@ lsp.on_attach(function(_, bufnr)
     vim.keymap.set("n", "<leader>ct", vim.lsp.buf.type_definition, opts)
     vim.keymap.set("n", "<leader>cr", vim.lsp.buf.references, opts)
     vim.keymap.set("n", "<leader>cs", vim.lsp.buf.signature_help, opts)
+
+    -- Navbuddy
+    navbuddy.attach(client, bufnr)
 end)
 
 lsp.setup()

@@ -159,4 +159,12 @@ return require("packer").startup(function(use)
         branch = "v2",
         -- Config in after/
     }
+
+    use {
+        "SmiteshP/nvim-navbuddy",
+        requires = {
+            "SmiteshP/nvim-navic",
+            "MunifTanjim/nui.nvim"
+        }
+    }
 end)
