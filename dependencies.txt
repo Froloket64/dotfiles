@@ -6,3 +6,6 @@ neofetch
 swww
 dunst
 autotiling
+lazygit
+neovim-remote
+broot
