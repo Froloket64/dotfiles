@@ -52,14 +52,13 @@
             "isLaptop": true
         }
     ],
-    "wallpaper": "Pictures/Wallpapers/gruvbox_astronaut.png",
-    "editor": "emacs",
-    "animatedWallpaper": "Pictures/Wallpapers/donut.gif",
+    "wallpaper": {
+        "path": "Pictures/Wallpapers/cave_astronaut.jpg",
+        "animated": false
     "features": {
         "swayfx": false,
         "swayFade": true,
         "lsSingleLine": true,
         "starship": false,
-        "animatedWallpaper": false
     }
 }

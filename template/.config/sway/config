@@ -67,8 +67,12 @@ seat seat0 xcursor_theme $cursor-theme 10
 output {{ output.name }} mode {{ output.resolution }}@{{ output.rate }}Hz
 {%- endfor %}
 
+{%- if not wallpaper.animated %}
+
 # Wallpaper
-output * bg {{ "~/%s"|format(wallpaper) }} fill
+output * bg {{ "~/%s"|format(wallpaper.path) }} fill
+
+{%- endif %}
 
 ## Input configuration
 # Keyboard
@@ -265,11 +269,11 @@ exec nvim --listen /tmp/nvimsocket
 
 {%- endif %}
 
-{%- if features.animatedWallpaper %}
+{%- if wallpaper.animated %}
 
 # Animated Background
 exec swww init
-exec_always swww img {{ "~/%s"|format(animatedWallpaper) }}
+exec_always swww img {{ "~/%s"|format(wallpaper.path) }}
 
 {%- endif %}
 
