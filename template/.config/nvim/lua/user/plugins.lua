@@ -124,7 +124,7 @@ return require("packer").startup(function(use)
     }
 
     -- Split term
-    use "vimlab/split-term.vim"
+    -- use "vimlab/split-term.vim"
 
     -- Org
     use {
@@ -170,4 +170,10 @@ return require("packer").startup(function(use)
 
     -- Indent blankline
     use "lukas-reineke/indent-blankline.nvim";
+
+    -- Toggleterm
+    use {
+        "akinsho/toggleterm.nvim",
+        config = function() require("toggleterm").setup() end
+    }
 end)
