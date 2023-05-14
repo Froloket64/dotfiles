@@ -55,10 +55,12 @@
     "wallpaper": {
         "path": "Pictures/Wallpapers/cave_astronaut.jpg",
         "animated": false
+    },
+    "editor": "nvim",
     "features": {
         "swayfx": false,
         "swayFade": true,
         "lsSingleLine": true,
-        "starship": false,
+        "starship": false
     }
 }
