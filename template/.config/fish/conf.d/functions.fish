@@ -26,3 +26,14 @@ function gclone -a repo
     git clone $repo --depth 1 $dir_name
     cd $dir_name
 end
+
+# TODO: To be generalized (?); Add scp flags/options
+# Put a file on an MY local ssh server
+function sput -w scp -a source target
+    scp "$source" "ssh-server@192.168.0.10:ssh-dump/$target"
+end
+
+# Get a file from MY local ssh server
+function sget -w scp -a source target
+    scp "ssh-server@192.168.0.10:ssh-dump/$source" "$target"
+end
