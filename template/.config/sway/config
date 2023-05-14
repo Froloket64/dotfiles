@@ -250,10 +250,20 @@ exec blueman-applet
 # Autotiling
 exec autotiling
 
+{%- if editor == "emacs" %}
+
 # Emacs daemon
 # NOTE: Without COLORTERM=truecolor
 # emacsclient -nw will have 8 bit colors
 exec COLORTERM=truecolor emacs --daemon
+
+{%- elif editor == "nvim" %}
+
+# Neovim server
+# NOTE: Requires neovim-remote (as for now)
+exec nvim --listen /tmp/nvimsocket
+
+{%- endif %}
 
 {%- if features.animatedWallpaper %}
 
