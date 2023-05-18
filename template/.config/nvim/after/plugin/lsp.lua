@@ -14,6 +14,7 @@ lsp.ensure_installed {
     "pyright",
     "bashls",
     "vimls",
+    "cssls",
 }
 
 lsp.on_attach(function(client, bufnr)
