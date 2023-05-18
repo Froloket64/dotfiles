@@ -3,6 +3,7 @@ vim.cmd("colorscheme gruvbox")
 
 vim.opt.termguicolors = true
 vim.o.guifont = "{{ font.name }}:h{{ font.size }}"
+vim.o.guicursor = "i:block"
 
 vim.opt.number = true
 vim.opt.relativenumber = true

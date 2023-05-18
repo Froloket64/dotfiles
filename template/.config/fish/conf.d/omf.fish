@@ -29,7 +29,7 @@ set -gx COLORTERM truecolor
 
 # Cursor shape
 set fish_cursor_default block
-set fish_cursor_insert line blink
+set fish_cursor_insert block
 set fish_cursor_visual block
 set fish_cursor_replace underscore
 
