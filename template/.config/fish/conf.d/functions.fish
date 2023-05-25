@@ -29,11 +29,19 @@ end
 
 # TODO: To be generalized (?); Add scp flags/options
 # Put a file on an MY local ssh server
-function sput -w scp -a source target
-    scp "$source" "ssh-server@192.168.0.10:ssh-dump/$target"
+function sput -w scp -a source target opts
+    if test -n "$opts"
+        scp $opts "$source" "ssh-server@192.168.0.10:ssh-dump/$target"
+    else
+        scp "$source" "ssh-server@192.168.0.10:ssh-dump/$target"
+    end
 end
 
 # Get a file from MY local ssh server
-function sget -w scp -a source target
-    scp "ssh-server@192.168.0.10:ssh-dump/$source" "$target"
+function sget -w scp -a source target opts
+    if test -n "$opts"
+        scp $opts "ssh-server@192.168.0.10:ssh-dump/$source" "$target"
+    else
+        scp "$source" "ssh-server@192.168.0.10:ssh-dump/$target"
+    end
 end
