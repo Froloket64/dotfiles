@@ -94,7 +94,7 @@ return require("packer").startup(function(use)
     -- Comment.nvim
     use {
         "numToStr/Comment.nvim",
-        config = function() require("Comment").setup() end
+        -- Config in after/
     }
 
     -- Which-key
