@@ -180,4 +180,10 @@ return require("packer").startup(function(use)
         "akinsho/toggleterm.nvim",
         config = function() require("toggleterm").setup() end
     }
+
+    -- Surround
+    use({
+        "kylechui/nvim-surround",
+        config = function() require("nvim-surround").setup{} end
+    })
 end)
