@@ -99,3 +99,5 @@ vim.keymap.set("n", "g.", ":Navbuddy<cr>", opts)
 -- [[ Other ]]
 -- Clear highlight with ESC
 vim.keymap.set("n", "<esc>", ":noh<cr>", opts)
+
+vim.keymap.set("n", "<leader>ce", ":Trouble<cr>", opts)
