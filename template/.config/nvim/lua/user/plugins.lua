@@ -186,4 +186,6 @@ return require("packer").startup(function(use)
         "kylechui/nvim-surround",
         config = function() require("nvim-surround").setup{} end
     })
+
+    use "ThePrimeagen/vim-be-good"
 end)
