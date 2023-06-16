@@ -160,6 +160,10 @@ return require("packer").startup(function(use)
         -- Config in after/
     }
 
+    -- ts-rainbow2
+    use "HiPhish/nvim-ts-rainbow2"
+
+    -- Navbuddy
     use {
         "SmiteshP/nvim-navbuddy",
         requires = {
