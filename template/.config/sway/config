@@ -103,7 +103,7 @@ input type:pointer {
     bindsym $mod+d exec $launcher
 
     # Take a screenshot
-    bindsym $mod+Shift+s exec slurp | GRIM_DEFAULT_DIR=~/Pictures/ grim -g -
+    bindsym $mod+Shift+s exec slurp | GRIM_DEFAULT_DIR=~/Pictures/Screenshots grim -g -
 
     # Drag windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
