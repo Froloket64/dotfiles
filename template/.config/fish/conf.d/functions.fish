@@ -21,7 +21,7 @@ end
 
 # Clone a git repo to $HOME/git and cd into it
 function gclone -a repo
-    set -l dir_name $HOME/git/(echo $repo | rev | cut -d / -f 1 | rev | cut -d . -f 1)
+    set -l dir_name $HOME/git/(echo $repo | rev | cut -d / -f 1 | cut -d . -f 2- | rev )
 
     git clone $repo --depth 1 $dir_name
     cd $dir_name
