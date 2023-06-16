@@ -261,12 +261,6 @@ exec autotiling
 # emacsclient -nw will have 8 bit colors
 exec COLORTERM=truecolor emacs --daemon
 
-{%- elif editor == "nvim" %}
-
-# Neovim server
-# NOTE: Requires neovim-remote (as for now)
-exec nvim --listen /tmp/nvimsocket
-
 {%- endif %}
 
 {%- if wallpaper.animated %}
