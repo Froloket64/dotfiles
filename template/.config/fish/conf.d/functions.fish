@@ -42,6 +42,6 @@ function sget -w scp -a source target opts
     if test -n "$opts"
         scp $opts "ssh-server@192.168.0.10:ssh-dump/$source" "$target"
     else
-        scp "$source" "ssh-server@192.168.0.10:ssh-dump/$target"
+        scp "ssh-server@192.168.0.10:ssh-dump/$source" "$target"
     end
 end
