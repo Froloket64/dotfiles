@@ -35,4 +35,5 @@ alias q "exit"
 alias ranger 'ranger --choosedir=$HOME/.rangerdir; set LASTDIR (cat $HOME/.rangerdir); cd "$LASTDIR"'
 {%- if editor == "nvim" %}
 alias vim "nvim"
+alias nvs "nvim --listen /tmp/nvimsocket"
 {%- endif %}
