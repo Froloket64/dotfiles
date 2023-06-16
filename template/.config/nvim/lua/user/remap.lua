@@ -39,8 +39,16 @@ vim.keymap.set("n", "<leader>fe", ":Telescope file_browser hidden=true cwd=%:p:h
 vim.keymap.set("n", "<leader>op", ":NvimTreeToggle<cr>", opts)
 
 -- [[ Terminal ]]
-vim.keymap.set("n", "<leader>ts", ":Term<cr>", opts)
-vim.keymap.set("n", "<leader>tv", ":VTerm<cr>", opts)
+vim.keymap.set("n", "<leader>ts", ":ToggleTerm direction=horizontal<cr>", opts)
+vim.keymap.set("n", "<leader>tv", ":ToggleTerm direction=vertical<cr>", opts)
+
+-- NOTE: Breaks certain commands (e.g. lazygit)
+-- vim.keymap.set("t", "jk", "<C-\\><C-n>", opts)
+
+vim.keymap.set("t", "<C-h>", "<Cmd>wincmd h<cr>", opts)
+vim.keymap.set("t", "<C-j>", "<Cmd>wincmd j<cr>", opts)
+vim.keymap.set("t", "<C-k>", "<Cmd>wincmd k<cr>", opts)
+vim.keymap.set("t", "<C-l>", "<Cmd>wincmd l<cr>", opts)
 
 -- [[ Window management ]]
 vim.keymap.set("n", "<leader>w", "<C-w>", opts)
@@ -60,9 +68,6 @@ vim.keymap.set("n", "<leader>bh", ":bp<cr>", opts)
 vim.keymap.set("n", "<leader>bk", ":bd<cr>", opts)
 
 vim.keymap.set("n", "<leader>bb", ":Telescope buffers<cr>", opts)
-
--- [[ Git ]]
-vim.keymap.set("n", "<leader>gg", ":Neogit cwd="..vim.fn.expand("%:p:h").."<cr>", opts)
 
 -- [[ Editing ]]
 -- Replace all ' with "
