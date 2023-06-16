@@ -82,6 +82,17 @@ vim.keymap.set("v", "<leader>r\"", ":s/\"/'/g<cr>", opts)
 vim.keymap.set("n", "+", "<C-a>")
 vim.keymap.set("n", "-", "<C-x>")
 
+-- Replace all occurences
+function ReplaceAll()
+    local word = vim.fn.expand("<cword>")
+    local replacement = vim.fn.input("Replace with: ")
+
+    vim.cmd(":%s/"..word.."/"..replacement.."/g")
+    -- vim.cmd("normal <CTRL-O>") -- FIXME Jump back
+end
+
+vim.keymap.set("n", "<leader>ro", ReplaceAll)
+
 -- Navbuddy
 vim.keymap.set("n", "g.", ":Navbuddy<cr>", opts)
 
