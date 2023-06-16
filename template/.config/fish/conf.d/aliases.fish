@@ -32,6 +32,7 @@ alias alarm "notify-send --icon /usr/share/icons/{{ gtk.iconTheme }}/16x16/actio
 alias flatrun "flatpak run (flatpak list --columns=application | fzf --reverse --height=~10 | awk '{ print \$2 }')"
 alias zel "zellij"
 alias q "exit"
+alias ranger 'ranger --choosedir=$HOME/.rangerdir; set LASTDIR (cat $HOME/.rangerdir); cd "$LASTDIR"'
 {%- if editor == "nvim" %}
 alias vim "nvim"
 {%- endif %}
