@@ -65,7 +65,6 @@ vim.keymap.set("n", "<A-h>", ":bp<cr>", opts)
 vim.keymap.set("n", "<leader>bl", ":bn<cr>", opts)
 vim.keymap.set("n", "<leader>bh", ":bp<cr>", opts)
 
-vim.keymap.set("n", "<leader>bk", ":bd<cr>", opts)
 
 vim.keymap.set("n", "<leader>bb", ":Telescope buffers<cr>", opts)
 
@@ -92,9 +91,6 @@ function ReplaceAll()
 end
 
 vim.keymap.set("n", "<leader>ro", ReplaceAll)
-
--- Navbuddy
-vim.keymap.set("n", "g.", ":Navbuddy<cr>", opts)
 
 -- [[ Other ]]
 -- Clear highlight with ESC
