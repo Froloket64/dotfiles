@@ -45,3 +45,27 @@ function sget -w scp -a source target opts
         scp "ssh-server@192.168.0.10:ssh-dump/$source" "$target"
     end
 end
+
+# Pop the current dir off the stack (see `pushd` and `popd`)
+function popd_func
+    popd
+    commandline -f repaint
+end
+
+# Push the current dir on the stack
+function pushd_func
+    pushd .
+    commandline -f repaint
+end
+
+# Cycle to the next dir on the stack
+function pushd_next
+    pushd +1 >/dev/null
+    commandline -f repaint
+end
+
+# Swap the top two dirs on the stack
+function pushd_swap
+    pushd >/dev/null
+    commandline -f repaint
+end
