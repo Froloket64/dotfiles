@@ -23,7 +23,6 @@ return require("packer").startup(function(use)
     -- LSP
     use {
         "VonHeikemen/lsp-zero.nvim",
-        branch = "v1.x",
         requires = {
             -- LSP Support
             {"neovim/nvim-lspconfig"},
@@ -41,6 +40,7 @@ return require("packer").startup(function(use)
             -- Snippets
             {"L3MON4D3/LuaSnip"},
             {"rafamadriz/friendly-snippets"},
+            {"SirVer/ultisnips"},
         }
         -- Config in after/
     }
