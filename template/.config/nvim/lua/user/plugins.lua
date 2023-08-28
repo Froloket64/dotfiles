@@ -98,31 +98,31 @@ return require("packer").startup(function(use)
         requires = { "nvim-tree/nvim-web-devicons" }
     }
 
-    -- Autopairs
+    -- Automatically complete delimiter pairs
     use {
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup() end
     }
 
-    -- Comment.nvim
+    -- Comment based on TS
     use {
         "numToStr/Comment.nvim",
         -- Config in after/
     }
 
-    -- Which-key
+    -- Keymaps help
     use {
         "folke/which-key.nvim",
         -- Config in after/
     }
 
-    -- Better escape
+    -- Use `jk` to exit to Normal mode
     use {
         "max397574/better-escape.nvim",
         -- Config in after/
     }
 
-    -- Colortils
+    -- Coloring utilities
     use {
         "max397574/colortils.nvim",
         cmd = "Colortils",
@@ -136,13 +136,10 @@ return require("packer").startup(function(use)
         -- Config in after/
     }
 
-    -- Split term
-    -- use "vimlab/split-term.vim"
-
-    -- Org
+    -- Org mode
     use {
         "nvim-orgmode/orgmode",
-        requires = { "nvim-treesitter/nvim-treesitter" },
+        requires = "nvim-treesitter/nvim-treesitter",
         -- Config in after/
     }
 
@@ -163,10 +160,10 @@ return require("packer").startup(function(use)
     use {
         "folke/trouble.nvim",
         requires = "nvim-tree/nvim-web-devicons",
-        config = function() require("trouble").setup {} end
+        config = function() require("trouble").setup() end
     }
 
-    -- Hop
+    -- Better `f` and `t`
     use {
         "phaazon/hop.nvim",
         branch = "v2",
@@ -176,7 +173,7 @@ return require("packer").startup(function(use)
     -- ts-rainbow2
     use "HiPhish/nvim-ts-rainbow2"
 
-    -- Navbuddy
+    -- Jump between classes, functions, etc. (requires LSP)
     use {
         "SmiteshP/nvim-navbuddy",
         requires = {
@@ -185,20 +182,21 @@ return require("packer").startup(function(use)
         }
     }
 
-    -- Indent blankline
+    -- Show indentation guides
     use "lukas-reineke/indent-blankline.nvim";
 
-    -- Toggleterm
+    -- Terminals
     use {
         "akinsho/toggleterm.nvim",
         config = function() require("toggleterm").setup() end
     }
 
-    -- Surround
+    -- Surround text with delimiters
     use({
         "kylechui/nvim-surround",
-        config = function() require("nvim-surround").setup{} end
+        config = function() require("nvim-surround").setup() end
     })
 
+    -- Practising Vim motions
     use "ThePrimeagen/vim-be-good"
 end)
