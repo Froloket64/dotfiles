@@ -259,6 +259,9 @@ exec blueman-applet
 # Autotiling
 exec autotiling
 
+# Break notifier
+exec ianny
+
 {%- if editor == "emacs" %}
 
 # Emacs daemon
