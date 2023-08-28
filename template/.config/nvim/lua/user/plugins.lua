@@ -55,6 +55,19 @@ return require("packer").startup(function(use)
         -- Config in after/
     }
 
+    -- Treesitter Playground
+    use {
+        "nvim-treesitter/playground",
+        run = ":TSInstall query"
+    }
+
+    -- Treesitter textobjects
+    use {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        after = "nvim-treesitter",
+        -- Confif in after/
+    }
+
     -- Telescope
     use {
         "nvim-telescope/telescope.nvim",
