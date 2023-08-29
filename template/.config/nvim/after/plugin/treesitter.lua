@@ -44,4 +44,18 @@ require("nvim-treesitter.configs").setup {
         enable = true,
         updatetime = 25,
     },
+
+    -- Textobjects
+    textobjects = {
+        select = {
+            enable = true,
+            lookahead = true,
+            keymaps = {
+                ["af"] = { query = "@function.outer", desc = "function declaration" },
+                ["if"] = { query = "@function.inner", desc = "function body" },
+                ["ab"] = { query = "@block.outer", desc = "inner-most block" },
+                ["ib"] = { query = "@block.inner", desc = "inner-most block's body" },
+            },
+        },
+    },
 }
