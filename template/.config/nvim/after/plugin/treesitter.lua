@@ -38,4 +38,10 @@ require("nvim-treesitter.configs").setup {
 
         additional_vim_regex_highlighting = false
     },
+
+    -- Treesitter Playground
+    playground = {
+        enable = true,
+        updatetime = 25,
+    },
 }
