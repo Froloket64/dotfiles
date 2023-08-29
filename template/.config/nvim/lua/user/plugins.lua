@@ -202,6 +202,12 @@ return require("packer").startup(function(use)
     -- Rust Tools
     use "simrat39/rust-tools.nvim"
 
+    -- DAP
+    use {
+        "mfussenegger/nvim-dap",
+        config = function() require("dap") end
+    }
+
     -- Git signs
     use {
         "lewis6991/gitsigns.nvim",

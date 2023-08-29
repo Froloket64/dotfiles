@@ -75,4 +75,11 @@ rust_tools.setup {
             other_hints_prefix = ": ",
         },
     },
+    dap = {
+        adapter = {
+            type = "executable",
+            command = "lldb-vscode",
+            name = "rt_debug",
+        },
+    },
 }
