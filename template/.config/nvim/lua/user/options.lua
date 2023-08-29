@@ -21,6 +21,9 @@ vim.opt.ignorecase = true
 vim.opt.wrap = true
 vim.opt.timeoutlen = 1000
 
+-- Always show sign column
+vim.wo.signcolumn = "yes"
+
 -- Neovide
 if vim.g.neovide then
     vim.g.neovide_cursor_animation_length = 0.2

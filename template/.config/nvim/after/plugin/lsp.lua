@@ -20,7 +20,7 @@ lsp.ensure_installed {
 }
 
 lsp.on_attach(function(client, bufnr)
-    -- Remaps
+    -- Maps
     local opts = {buffer = bufnr, remap = false}
 
     vim.keymap.set("n", "<leader>ci", vim.lsp.buf.implementation, opts)
@@ -37,8 +37,10 @@ lsp.setup()
 
 vim.diagnostic.config {
     virtual_text = true,
-    signs = false,
+    signs = true,
+    underline = true,
     update_in_insert = true,
+    severity_sort = true,
 }
 
 lspconfig.lua_ls.setup {
