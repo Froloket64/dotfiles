@@ -1,3 +1,8 @@
+require("toggleterm").setup {
+    on_open = function(_) vim.cmd("ToggleNeoColumn") end,
+    on_close = function(_) vim.cmd("ToggleNeoColumn") end,
+}
+
 local Terminal = require('toggleterm.terminal').Terminal
 
 local lazygit = Terminal:new {
