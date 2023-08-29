@@ -120,12 +120,7 @@ You can also pass program names to install only them."
             ;;
 
         *)
-            if [[ " ${PKGS[*]} " == *" $arg "* ]]; then
-                to_install+=$arg
-            else
-                log "Unknown argument: $arg" err
-                exit 1
-            fi
+            to_install+=("$arg")
             ;;
     esac
 done
@@ -208,7 +203,33 @@ log "Generating dotfiles"
 
 dest_dir=$(mktemp -d)
 
-for file in $(find template/ -type f); do
+for dir in $(ls -a template); do
+    if [[ "$dir" != ".config" && "$dir" != "." && "$dir" != ".." ]]; then
+        for file in $(find "template/$dir" -type f); do
+            files+=("$file")
+        done
+    fi
+done
+
+if [[ -n $to_install ]]; then
+    dirs=$(ls template/.config)
+
+    for dot in $to_install; do
+        for dir in $dirs; do # OPTIM?: Could use a hash map
+            if [[ "$dot" == "$dir" ]]; then
+                for file in $(find template/.config/$dir -type f); do
+                    files+=("$file")
+                done
+
+                break
+            fi
+        done
+    done
+else
+    files=$(find template/ -type f)
+fi
+
+for file in ${files[@]}; do
     file_stripped=$(echo "$file" | cut -d / -f 2-)
     dest_file="$dest_dir/$file_stripped"
 
