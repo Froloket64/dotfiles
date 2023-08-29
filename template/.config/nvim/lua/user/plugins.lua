@@ -207,4 +207,10 @@ return require("packer").startup(function(use)
         "lewis6991/gitsigns.nvim",
         -- Config in after/
     }
+
+    -- Highlight word uses
+    use {
+        "RRethy/vim-illuminate",
+        -- Config in after/
+    }
 end)

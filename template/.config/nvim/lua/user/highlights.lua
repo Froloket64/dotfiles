@@ -67,3 +67,6 @@ clear_hl_attrs("DiagnosticSignError", remove)
 clear_hl_attrs("DiagnosticSignWarn",  remove)
 clear_hl_attrs("DiagnosticSignInfo",  remove)
 clear_hl_attrs("DiagnosticSignHint",  remove)
+
+-- Illuminate
+set_hl("IlluminatedWordText", { bg="#444444", bold=true })
