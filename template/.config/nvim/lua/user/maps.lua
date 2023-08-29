@@ -65,6 +65,7 @@ vim.keymap.set("n", "<A-h>", ":bp<cr>", opts)
 vim.keymap.set("n", "<leader>bl", ":bn<cr>", opts)
 vim.keymap.set("n", "<leader>bh", ":bp<cr>", opts)
 
+vim.keymap.set("n", "<leader>bk", ":BufDel<cr>", opts)
 
 vim.keymap.set("n", "<leader>bb", ":Telescope buffers<cr>", opts)
 

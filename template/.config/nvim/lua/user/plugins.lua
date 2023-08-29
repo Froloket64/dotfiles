@@ -195,4 +195,7 @@ return require("packer").startup(function(use)
 
     -- Code assistant (Codeium)
     use "Exafunction/codeium.vim"
+
+    -- Buffer deletion
+    use "ojroques/nvim-bufdel"
 end)
