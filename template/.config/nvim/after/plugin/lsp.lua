@@ -16,6 +16,7 @@ lsp.ensure_installed {
     "bashls",
     "vimls",
     "cssls",
+    "hls",
 }
 
 lsp.on_attach(function(client, bufnr)
