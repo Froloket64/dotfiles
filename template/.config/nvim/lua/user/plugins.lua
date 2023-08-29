@@ -201,4 +201,10 @@ return require("packer").startup(function(use)
 
     -- Rust Tools
     use "simrat39/rust-tools.nvim"
+
+    -- Git signs
+    use {
+        "lewis6991/gitsigns.nvim",
+        -- Config in after/
+    }
 end)
