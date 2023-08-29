@@ -92,6 +92,33 @@ end
 
 vim.keymap.set("n", "<leader>ro", ReplaceAll)
 
+-- Code assistant (Codeium)
+vim.keymap.set(
+    "i",
+    "<C-\\>",
+    vim.fn["codeium#Complete"],
+    -- require("codeium").complete(),
+    { expr = true }
+)
+vim.keymap.set(
+    "i",
+    "<C-Space>",
+    vim.fn["codeium#Accept"](),
+    { expr = true }
+)
+vim.keymap.set(
+    "i",
+    "<C-;>",
+    function() return vim.fn["codeium#CycleCompletions"](1) end,
+    { expr = true }
+)
+vim.keymap.set(
+    "i",
+    "<C-,>",
+    function() return vim.fn["codeium#CycleCompletions"](-1) end,
+    { expr = true }
+)
+
 -- [[ Other ]]
 -- Clear highlight with ESC
 vim.keymap.set("n", "<esc>", ":noh<cr>", opts)

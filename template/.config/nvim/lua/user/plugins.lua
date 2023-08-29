@@ -192,4 +192,7 @@ return require("packer").startup(function(use)
 
     -- Practising Vim motions
     use "ThePrimeagen/vim-be-good"
+
+    -- Code assistant (Codeium)
+    use "Exafunction/codeium.vim"
 end)
