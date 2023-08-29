@@ -198,4 +198,7 @@ return require("packer").startup(function(use)
 
     -- Buffer deletion
     use "ojroques/nvim-bufdel"
+
+    -- Rust Tools
+    use "simrat39/rust-tools.nvim"
 end)

@@ -1,5 +1,6 @@
 local navbuddy = require("nvim-navbuddy")
 local lspconfig = require("lspconfig")
+local rust_tools = require("rust-tools")
 local lsp = require("lsp-zero").preset {
     name = "recommended",
     set_lsp_keymaps = false,
@@ -47,4 +48,15 @@ lspconfig.lua_ls.setup {
             }
         }
     }
+}
+
+rust_tools.setup {
+    tools = {
+        inlay_hints = {
+            auto = true,
+            show_parameter_hints = false,
+            parameter_hints_prefix = ": ",
+            other_hints_prefix = ": ",
+        },
+    },
 }
