@@ -143,13 +143,6 @@ return require("packer").startup(function(use)
         -- Config in after/
     }
 
-    -- Neogit
-    use {
-        "TimUntersberger/neogit",
-        requires = "nvim-lua/plenary.nvim",
-        config = function() require("neogit").setup() end,
-    }
-
     -- NeoColumn
     use {
         "ecthelionvi/NeoColumn.nvim",
