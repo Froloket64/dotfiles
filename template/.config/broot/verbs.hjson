@@ -1,0 +1,117 @@
+verbs: [
+    ## Info
+    # Git status
+    # FIXME: Doesn't seem to work for me...
+    {
+        key: alt-g
+        execution: ":toggle_git_status"
+    }
+
+    ## Navigation
+    # Get back `$HOME`!
+    {
+        invocation: home
+        key: ctrl-h
+        execution: ":focus ~"
+    }
+
+    # Previous file
+    {
+        key: ctrl-k
+        execution: ":line_up"
+    }
+
+    # Next file
+    {
+        key: ctrl-j
+        execution: ":line_down"
+    }
+
+    # Scroll up
+    {
+        key: ctrl-u
+        execution: ":page_up"
+    }
+
+    # Scroll down
+    {
+        key: ctrl-d
+        execution: ":page_down"
+    }
+
+    ## File manipulation
+    # Open the file in $EDITOR
+    {
+        invocation: edit
+        shortcut: e
+        execution: "$EDITOR +{line} {file}"
+        leave_broot: false
+    }
+
+    # Create new file and open it in $EDITOR
+    {
+        invocation: create {subpath}
+        execution: "$EDITOR {directory}/{subpath}"
+        leave_broot: false
+    }
+
+    # Git diff
+    {
+        invocation: git_diff
+        shortcut: gd
+        leave_broot: false
+        execution: "git difftool -y {file}"
+    }
+
+    # Execute command
+    {
+        invocation: exec {executable}
+        shortcut: x
+        execution: "{executable} {file}"
+        leave_broot: false
+    }
+
+    # Execute command and exit
+    {
+        invocation: exec_leave {executable}
+        shortcut: X
+        execution: "{executable} {file}"
+        set_working_dir: true
+        leave_broot: true
+    }
+
+    # Launch shell (terminal) in the directory
+    {
+        invocation: terminal
+        key: ctrl-t
+        execution: "$SHELL"
+        set_working_dir: true
+        leave_broot: false
+    }
+
+    # Copy file path
+    # NOTE: Only works on Wayland (cause fuck Xorg)
+    {
+        invocation: yank_path
+        shortcut: yp
+        execution: "wl-copy {file}"
+        leave_broot: false
+    }
+
+    # Copy file name
+    {
+        invocation: yank_name
+        shortcut: yn
+        execution: "echo {file} | rev | cut -d '/' -f 1 | rev | wl-copy"
+        leave_broot: false
+    }
+
+    # Echo file name (used for Neovim)
+    {
+        invocation: echo_file
+        shortcut: ec
+        key: ctrl-enter
+        execution: "echo {file}"
+        leave_broot: true
+    }
+]
