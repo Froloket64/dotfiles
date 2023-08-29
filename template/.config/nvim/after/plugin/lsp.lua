@@ -50,6 +50,19 @@ lspconfig.lua_ls.setup {
     }
 }
 
+lspconfig.rust_analyzer.setup {
+    settings = {
+        ["rust_analyzer"] = {
+            inlayHints = {
+                parameterHints = {
+                    enable = true
+                },
+            },
+            context_support = true,
+        }
+    }
+}
+
 rust_tools.setup {
     tools = {
         inlay_hints = {
