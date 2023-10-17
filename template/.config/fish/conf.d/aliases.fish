@@ -37,3 +37,4 @@ alias ranger 'ranger --choosedir=$HOME/.rangerdir; set LASTDIR (cat $HOME/.range
 alias vim "nvim"
 alias nvs "nvim --listen /tmp/nvimsocket"
 {%- endif %}
+alias waysudo "sudo env HOME=$HOME"
