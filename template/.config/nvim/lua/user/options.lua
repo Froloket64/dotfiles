@@ -24,6 +24,9 @@ vim.opt.timeoutlen = 1000
 -- Always show sign column
 vim.wo.signcolumn = "yes"
 
+vim.opt.conceallevel = 2
+vim.opt.concealcursor = "nc"
+
 -- Neovide
 if vim.g.neovide then
     vim.g.neovide_cursor_animation_length = 0.2
