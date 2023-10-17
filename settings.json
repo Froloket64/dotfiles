@@ -4,6 +4,8 @@
     "font": {
         "name": "JetBrainsMono Nerd Font",
         "size": 10
+        "name": "Cascadia Code",
+        "size": 15
     },
     "theme": "gruvbox-dark",
     "doomEmacsTheme": "gruvbox",
@@ -41,15 +43,9 @@
     "monitors": [
         {
             "name": "HDMI-A-1",
-            "resolution": "1920x1080",
-            "rate": 120,
+            "resolution": "2560x1440",
+            "rate": 144,
             "isLaptop": false
-        },
-        {
-            "name": "eDP-1",
-            "resolution": "1920x1080",
-            "rate": 60,
-            "isLaptop": true
         }
     ],
     "wallpaper": {
