@@ -10,6 +10,8 @@ require("nvim-treesitter.configs").setup {
         "vimdoc",
         "query",
         "markdown",
+        "haskell",
+        "org",
     },
 
     -- Install parsers synchronously
