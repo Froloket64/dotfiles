@@ -206,6 +206,14 @@ return require("packer").startup(function(use)
     -- Rust Tools
     use "simrat39/rust-tools.nvim"
 
+    -- Haskell Tools
+    use {
+        "mrcjkb/haskell-tools.nvim",
+        -- branch = "2.x.x",
+        requires = "nvim-lua/plenary.nvim",
+        -- ft = { "haskell", "lhaskell", "cabal", "cabalproject" },
+    }
+
     -- DAP
     use {
         "mfussenegger/nvim-dap",

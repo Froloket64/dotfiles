@@ -66,6 +66,14 @@ lspconfig.rust_analyzer.setup {
     }
 }
 
+lspconfig.hls.setup {
+    filetypes = {
+        "haskell",
+        "lhaskell",
+        "cabal",
+    },
+}
+
 rust_tools.setup {
     tools = {
         inlay_hints = {
