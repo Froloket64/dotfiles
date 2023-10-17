@@ -49,7 +49,7 @@
         }
     ],
     "wallpaper": {
-        "path": "Pictures/Wallpapers/cave_astronaut.jpg",
+        "path": "Pictures/Wallpapers/sky.png",
         "animated": false
     },
     "editor": "nvim",
