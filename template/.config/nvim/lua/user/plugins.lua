@@ -223,4 +223,6 @@ return require("packer").startup(function(use)
         "RRethy/vim-illuminate",
         -- Config in after/
     }
+
+    use "kmonad/kmonad-vim"
 end)
