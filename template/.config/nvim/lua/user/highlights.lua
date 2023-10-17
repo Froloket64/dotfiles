@@ -69,4 +69,12 @@ clear_hl_attrs("DiagnosticSignInfo",  remove)
 clear_hl_attrs("DiagnosticSignHint",  remove)
 
 -- Illuminate
-set_hl("IlluminatedWordText", { bg="#444444", bold=true })
+set_hl("IlluminatedWordText", { bg = "#444444", bold = true })
+
+-- Org
+clear_hl_attrs("Conceal", { "bg" })
+clear_hl_attrs("Folded", { "bg" })
+
+override_hl_attrs("OrgTSCheckboxHalfChecked", { fg = "#83a598", bold = true })
+override_hl_attrs("OrgDone", { fg = "#b8bb26", bold = true })
+set_hl("OrgBulletsDash", { fg = "#b8bb26", bold = false })

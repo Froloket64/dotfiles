@@ -138,9 +138,13 @@ return require("packer").startup(function(use)
 
     -- Org mode
     use {
-        "nvim-orgmode/orgmode",
-        requires = "nvim-treesitter/nvim-treesitter",
-        -- Config in after/
+        {
+            "nvim-orgmode/orgmode",
+            requires = "nvim-treesitter/nvim-treesitter",
+            -- Config in after/
+        },
+        "akinsho/org-bullets.nvim",
+        "lukas-reineke/headlines.nvim",
     }
 
     -- NeoColumn
