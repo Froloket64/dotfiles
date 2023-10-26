@@ -2,8 +2,6 @@
     "shell": "/bin/fish",
     "terminal": "kitty",
     "font": {
-        "name": "JetBrainsMono Nerd Font",
-        "size": 10,
         "name": "Cascadia Code",
         "size": 15
     },
