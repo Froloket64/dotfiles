@@ -69,3 +69,11 @@ function pushd_swap
     pushd >/dev/null
     commandline -f repaint
 end
+
+function ranger -w ranger -a dir
+    set -l ranger_cmd (which ranger)
+    $ranger_cmd $dir --choosedir=$HOME/.rangerdir
+
+    set LASTDIR (cat $HOME/.rangerdir)
+    cd "$LASTDIR"
+end
