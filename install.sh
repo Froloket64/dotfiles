@@ -80,6 +80,7 @@ Options:
     -h, --help           Print this message
     -f, --force          Override dotfiles which are already present
     -i, --install        Install the packages along with dotfiles
+    -I, --no-install     Don't install packages, only dotfiles
     -q, --quiet          Don't display anything (except for errors)
     -o, --os=OS          Set \"OS\" as OS name
     -d, --dotfiles       Print all available dotfiles
