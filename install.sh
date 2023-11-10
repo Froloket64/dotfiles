@@ -17,6 +17,8 @@ PKGS=(alacritty dunst fish neovim qtile rofi hyprland polybar sway waybar wezter
 GUM_CHOOSE_STYLE=(--cursor.foreground="11" --selected.background="236" --selected.foreground="3")
 GUM_CONFIRM_STYLE=(--selected.background="2" --selected.foreground="0" --unselected.background="")
 
+sync_submodules=1
+
 # Return whether command exists
 command_exists() {
     local cmd=$1
@@ -75,17 +77,19 @@ for arg in $@; do
             echo "Usage:  ./install.sh [OPTIONS] [DOTFILES]
 
 Options:
-    -h, --help        Print this message
-    -f, --force       Override dotfiles which are already present
-    -i, --install     Install the packages along with dotfiles
-    -q, --quiet       Don't display anything (except for errors)
-    -o, --os=OS       Set \"OS\" as OS name
-    -d, --dotfiles    Print all available dotfiles
+    -h, --help           Print this message
+    -f, --force          Override dotfiles which are already present
+    -i, --install        Install the packages along with dotfiles
+    -q, --quiet          Don't display anything (except for errors)
+    -o, --os=OS          Set \"OS\" as OS name
+    -d, --dotfiles       Print all available dotfiles
+    -G, --no-submodules  Don't sync git submodules
 
 You can also pass program names to install only them."
 
             exit
             ;;
+
         -f | --force)
             force=1
             ;;
@@ -108,6 +112,10 @@ You can also pass program names to install only them."
             quiet=1
             ;;
 
+        -G | --no-submodules)
+            sync_submodules=0
+            ;;
+
         -o=* | --os=*)
             # Strip off all --os='s
             OS_NAME=${arg#"--os="}; OS_NAME=${OS_NAME#"-o="}
@@ -124,6 +132,13 @@ You can also pass program names to install only them."
             ;;
     esac
 done
+
+# Sync git submodules
+if [[ $sync_submodules -eq 1 ]]; then
+    git submodule init
+    git submodule sync
+    git submodule update
+fi
 
 # Ask to install if option isn't set
 if [[ -z $install ]]; then

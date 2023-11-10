@@ -1,7 +1,7 @@
 # Shortcut to recompile dotfiles
 function recomp_dots
     cd ~/.dotfiles
-    ./install.sh -I $argv
+    ./install.sh -I -G $argv
     cd -
 end
 
