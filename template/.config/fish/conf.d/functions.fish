@@ -77,3 +77,11 @@ function ranger -w ranger -a dir
     set LASTDIR (cat $HOME/.rangerdir)
     cd "$LASTDIR"
 end
+
+function waysudo -w sudo -a cmd
+    xhost si:localuser:root
+
+    sudo env HOME=$HOME $cmd
+
+    xhost -si:localuser:root
+end

@@ -36,4 +36,3 @@ alias q "exit"
 alias vim "nvim"
 alias nvs "nvim --listen /tmp/nvimsocket"
 {%- endif %}
-alias waysudo "sudo env HOME=$HOME"
