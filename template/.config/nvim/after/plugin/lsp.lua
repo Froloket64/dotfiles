@@ -18,6 +18,8 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>cr", vim.lsp.buf.references, opts)
     vim.keymap.set("n", "<leader>cs", vim.lsp.buf.signature_help, opts)
 
+    vim.keymap.set("n", "<leader>g.", function() vim.cmd [[Navbuddy]] end, opts)
+
     lsp.default_keymaps()
 
     -- Navbuddy
