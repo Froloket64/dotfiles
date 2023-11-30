@@ -1,0 +1,418 @@
+$bg: {{ colors.background }};
+$bg1: {{ colors.background1 }};
+$fg: {{ colors.foreground }};
+
+$red: {{ colors.normal.red }};
+$green: {{ colors.normal.green }};
+$yellow: {{ colors.normal.yellow }};
+$purple: {{ colors.normal.magenta }};
+$cyan: {{ colors.normal.cyan }};
+$blue: {{ colors.normal.blue }};
+
+$textsize: 16px;
+
+*{
+    all: unset;
+    font-family: "Cascadia Code";
+}
+
+.popup {
+    color: $fg;
+    background-color: $bg;
+
+    padding: 10px;
+
+    border-radius: 10px;
+}
+
+.bar,tooltip{
+    background-color: $bg;
+    color: $fg;
+
+    border-radius: 10px;
+}
+
+.right {
+    border-radius: 16px;
+}
+
+.time-text {
+    color: $fg;
+    font-size: $textsize;
+}
+
+.reboot-button {
+    font-size: 28px;
+    
+    color: $blue;
+}
+// .sleep-button {
+//     font-size: 28px;
+
+//     color: $darkblue;
+// }
+// .exit-button {
+//     font-size: 28px;
+
+//     color: $darkblue;
+// }
+
+.power-button {
+    font-size: 28px;
+
+    color: $red;
+}
+
+.power-box {
+}
+
+.power-box-expand {
+}
+
+.system-confirm {
+    color: $green;
+}
+
+// Common slider settings
+trough {
+    border-radius: 3px;
+    border-width: 1px;
+    border-style: none;
+    background-color: $bg1;
+    // margin-top: 2px;
+    min-width: 4px;
+    min-height: 4px;
+}
+
+slider {
+    // Controls the size of the control area (set border-style to solid to see)
+    border-radius: 0%;
+    border-width: 1px;
+    border-style: none;
+    margin: -9px -9px -9px -9px;
+    min-width: 16px;
+    min-height: 16px;
+    background-color: transparent;
+}
+
+highlight {
+    border-radius: 3px;
+    border-width: 1px;
+    border-style: none;
+    // For vertical we need width, for horizontal we need height
+    // Both can coexist though
+    min-width: 6px;
+    min-height: 6px;
+}
+
+.audio-icon {
+    font-size: 24px;
+    color: $yellow;
+}
+
+.audio-volume {
+    trough {
+        background-color: $bg1;
+    }
+
+    slider {
+        background-color: transparent;
+    }
+
+    highlight {
+        background-color: $yellow;
+    }
+
+    font-size: 16px;
+    color: $yellow;
+}
+
+.mic-icon {
+    font-size: 24px;
+    color: $purple;
+    // margin-right: 0px;
+}
+
+.mic-volume {
+    trough {
+        background-color: $bg1;
+    }
+
+    slider {
+        background-color: transparent;
+    }
+
+    highlight {
+        background-color: $purple;
+    }
+
+    font-size: 16px;
+    color: $purple;
+}
+
+.package-outofdate {
+    margin: -5px -5px -5px -5px;
+    font-size: 24px;
+    color: $red;
+}
+
+.bt-num {
+    font-size: $textsize;
+    color: $blue;
+}
+.bt-label-on {
+    font-size: 20px;
+    color: $blue;
+}
+.bt-label-off {
+    font-size: 24px;
+    color: $blue;
+}
+.bt-label-connected {
+    font-size: 28px;
+    color: $blue;
+}
+
+.disk-util-progress {
+    color: $purple;
+    background-color: $bg1;
+    font-size: $textsize;
+}
+.disk-data-text {
+    color: $purple;
+    font-size: $textsize;
+}
+
+.vram-util-progress {
+    color: $blue;
+    background-color: $bg1;
+}
+.vram-data-text {
+    color: $blue;
+    font-size: $textsize;
+}
+
+.ram-util-progress {
+    color: $yellow;
+    background-color: $bg1;
+}
+.ram-data-text {
+    color: $yellow;
+    font-size: $textsize;
+}
+
+.gpu-util-progress {
+    color: $cyan;
+    background-color: $bg1;
+}
+.gpu-data-text {
+    color: $cyan;
+    font-size: $textsize;
+}
+
+.cpu-util-progress {
+    color: $green;
+    background-color: $bg1;
+    font-size: $textsize;
+}
+.cpu-data-text {
+    color: $green;
+    font-size: $textsize;
+}
+
+// .battery-util-progress {
+//     color: $pink;
+//     background-color: $bg1;
+//     font-size: $textsize;
+// }
+
+// .battery-data-text {
+//     color: $pink;
+//     font-size: $textsize;
+// }
+
+// .battery-charging {
+//     color: $yellow
+// }
+
+.network-data-text {
+    color: $green;
+    font-size: $textsize;
+}
+
+// <= 0% (Below MinUploadBytes)
+.network-up-under {
+    color: $bg1;
+}
+// <= 25%
+.network-up-low {
+    color: $green;
+}
+// <= 50%
+.network-up-mid-low {
+    color: $yellow;
+}
+// <= 75%
+// .network-up-mid-high {
+//     color: $yellow;
+// }
+// <= 100%
+.network-up-high {
+    color: $purple;
+}
+// > 100% (Above MaxUploadBytes)
+.network-up-over {
+    color: $red;
+}
+
+// <= 0% (Below MinDownloadBytes)
+.network-down-under {
+    color: $bg1;
+}
+// <= 25%
+.network-down-low {
+    color: $green;
+}
+// <= 50%
+.network-down-mid-low {
+    color: $yellow;
+}
+// <= 75%
+// .network-down-mid-high {
+//     color: $yellow;
+// }
+// <= 100%
+.network-down-high {
+    color: $purple;
+}
+// > 100% (Above MaxDownloadBytes)
+.network-down-over {
+    color: $red;
+}
+
+.ws-dead {
+    color: $bg1;
+    font-size: $textsize;
+}
+// .ws-bg1 {
+//     color: $fg;
+//     font-size: $textsize;
+// }
+.ws-visible {
+    color: $cyan;
+    font-size: $textsize;
+}
+.ws-current {
+    color: $yellow;
+    font-size: $textsize;
+}
+.ws-active {
+    color: $green;
+    font-size: $textsize;
+}
+
+// Bluetooth Widget
+@keyframes connectanim {
+    from {
+        background-image: radial-gradient(circle farthest-side at center, $blue 0%, transparent 0%, transparent 100%)
+    }
+    to {
+        background-image: radial-gradient(circle farthest-side at center, $blue 0%, $blue 100%, transparent 100%)
+    }
+}
+@keyframes disconnectanim {
+    from {
+        background-image: radial-gradient(circle farthest-side at center, transparent 0%, $blue 0%, $blue 100%)
+    }
+    to {
+        background-image: radial-gradient(circle farthest-side at center, transparent 0%, transparent 100%, $blue 100%)
+    }
+}
+
+@keyframes scanonanim {
+    from {
+        color: $yellow;
+    }
+    to {
+        color: $green;
+    }
+}
+@keyframes scanoffanim {
+    from {
+        color: $green;
+    }
+    to {
+        color: $yellow;
+    }
+}
+
+.bt-bg {
+    background-color: $bg;
+    border-radius: 16px;
+}
+.bt-header-box {
+    margin-top: 4px;
+    margin-right: 8px;
+    margin-left: 8px;
+    font-size: 24px;
+    color: $blue;
+} 
+.bt-body-box {
+    margin-right: 8px;
+    margin-left: 8px;
+}
+.bt-button {
+    &.active {
+        animation-name: connectanim;
+        animation-duration: 50ms;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+    }
+    &.bg1 {
+        animation-name: disconnectanim;
+        animation-duration: 50ms;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+    }
+    &.failed {
+        color: $red;
+    }
+    border-radius: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+    margin-bottom: 4px;
+    margin-top: 4px;
+
+    font-size: 16px;
+    // color: $green;
+}
+.bt-close {
+    color: $red;
+    background-color: $bg1;
+    border-radius: 16px;
+	padding: 0px 8px 0px 7px;
+	margin: 0px 0px 0px 8px;
+}
+.bt-scan {
+    &.active {
+        animation-name: scanonanim;
+        animation-duration: 50ms;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+    }
+    &.bg1 {
+        animation-name: scanoffanim;
+        animation-duration: 50ms;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+    }
+    color: $yellow;
+    background-color: $bg1;
+    border-radius: 16px;
+    padding: 2px 11px 0px 7px;
+	margin: 0px 0px 0px 10px;
+    font-size: 18px;
+}
