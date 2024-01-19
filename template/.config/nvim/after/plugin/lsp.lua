@@ -1,6 +1,7 @@
 local navbuddy = require("nvim-navbuddy")
 local lspconfig = require("lspconfig")
 local rust_tools = require("rust-tools")
+local lsp_format = require("lsp-format")
 local lsp = require("lsp-zero").preset {
     name = "recommended",
     set_lsp_keymaps = false,
@@ -8,9 +9,13 @@ local lsp = require("lsp-zero").preset {
     suggest_lsp_servers = false,
 }
 
+lsp_format.setup()
+
 lsp.on_attach(function(client, bufnr)
     -- Maps
     local opts = {buffer = bufnr, remap = false}
+
+    lsp_format.on_attach(client, bufnr)
 
     vim.keymap.set("n", "<leader>ci", vim.lsp.buf.implementation, opts)
     vim.keymap.set("n", "<leader>cd", vim.lsp.buf.definition, opts)

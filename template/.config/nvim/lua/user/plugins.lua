@@ -236,4 +236,6 @@ return require("packer").startup(function(use)
     }
 
     use "kmonad/kmonad-vim"
+
+    use "lukas-reineke/lsp-format.nvim"
 end)
