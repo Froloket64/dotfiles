@@ -1,13 +1,13 @@
 local function ensure_packer()
     local fn = vim.fn
-    local install_path = fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
+    local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
     local is_installed = fn.empty(fn.glob(install_path)) == 0
 
     if is_installed then
         return
     end
 
-    fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
+    fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
     vim.cmd("packadd packer.nvim")
 
     -- Automatically set up your configuration after cloning packer.nvim
@@ -25,25 +25,25 @@ return require("packer").startup(function(use)
         "VonHeikemen/lsp-zero.nvim",
         requires = {
             -- LSP Support
-            {"neovim/nvim-lspconfig"},
+            { "neovim/nvim-lspconfig" },
             {
                 "williamboman/mason.nvim",
                 config = function() require("mason").setup() end,
             },
-            {"williamboman/mason-lspconfig.nvim"},
+            { "williamboman/mason-lspconfig.nvim" },
 
             -- Autocompletion
-            {"hrsh7th/nvim-cmp"},
-            {"hrsh7th/cmp-nvim-lsp"},
-            {"hrsh7th/cmp-buffer"},
-            {"hrsh7th/cmp-path"},
-            {"saadparwaiz1/cmp_luasnip"},
-            {"hrsh7th/cmp-nvim-lua"},
+            { "hrsh7th/nvim-cmp" },
+            { "hrsh7th/cmp-nvim-lsp" },
+            { "hrsh7th/cmp-buffer" },
+            { "hrsh7th/cmp-path" },
+            { "saadparwaiz1/cmp_luasnip" },
+            { "hrsh7th/cmp-nvim-lua" },
 
             -- Snippets
-            {"L3MON4D3/LuaSnip"},
-            {"rafamadriz/friendly-snippets"},
-            {"SirVer/ultisnips"},
+            { "L3MON4D3/LuaSnip" },
+            { "rafamadriz/friendly-snippets" },
+            { "SirVer/ultisnips" },
         }
         -- Config in after/
     }
