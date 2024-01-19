@@ -238,4 +238,9 @@ return require("packer").startup(function(use)
     use "kmonad/kmonad-vim"
 
     use "lukas-reineke/lsp-format.nvim"
+
+    use {
+        "folke/todo-comments.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+    }
 end)
