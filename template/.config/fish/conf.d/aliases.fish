@@ -1,12 +1,14 @@
 # Shell usage
 set ls_exec ls
 
-if command -vq lsd
+if command -vq exa
+    set ls_exec "exa --icons"
+else if command -vq lsd
     set ls_exec lsd
-
-    alias lst "lsd --tree"
-    alias clt "clear; lsd --tree"
 end
+
+alias lst "$ls_exec --tree"
+alias clt "clear; $ls_exec --tree"
 
 {%- if features.lsSingleLine %}
 # One file on each line
