@@ -283,13 +283,13 @@ exec_always swww img {{ "~/%s"|format(wallpaper.path) }}
 
 # Fade in
 for_window [app_id=.*] opacity 0
-for_window [app_id=.*] exec /home/froloket/.config/sway/scripts/fade/fadein.sh
+for_window [app_id=.*] exec /home/{{ username }}/.config/sway/scripts/fade/fadein.sh
 for_window [app_id=.*] mark fade
 
 # Fade out
-bindsym $mod+w mark quit; exec /home/froloket/.config/sway/scripts/fade/fadeout.sh
+bindsym $mod+w mark quit; exec /home/{{ username }}/.config/sway/scripts/fade/fadeout.sh
 
 # Fadefix (uncoment if necessary)
-exec /home/froloket/.config/sway/scripts/fade/fadefix.sh
+exec /home/{{ username }}/.config/sway/scripts/fade/fadefix.sh
 
 {%- endif %}

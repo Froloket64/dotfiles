@@ -1,6 +1,7 @@
 {
     "shell": "/bin/fish",
     "terminal": "kitty",
+    "username": "froloket",
     "terminalFont": {
         "name": "Iosevka Rounded",
         "size": 16

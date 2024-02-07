@@ -1,7 +1,7 @@
 # DO NOT EDIT! This file will be overwritten by LXAppearance.
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
-include "/home/froloket/.gtkrc-2.0.mine"
+include "/home/{{ username }}/.gtkrc-2.0.mine"
 
 gtk-font-name="{{ uiFont.name }} {{ uiFont.size }}"
 gtk-theme-name="{{ gtk.theme }}"
