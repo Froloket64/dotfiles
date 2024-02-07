@@ -3,7 +3,7 @@
 
 include "/home/froloket/.gtkrc-2.0.mine"
 
-gtk-font-name="{{ font.name }} {{ font.size}}"
+gtk-font-name="{{ uiFont.name }} {{ uiFont.size }}"
 gtk-theme-name="{{ gtk.theme }}"
 gtk-icon-theme-name="{{ gtk.iconTheme }}"
 gtk-cursor-theme-size=10

@@ -13,22 +13,22 @@ window:
 # Fonts
 font:
   normal:
-    family: {{ font.name }}
+    family: {{ terminalFont.name }}
     style: Regular
 
   bold:
-    family: {{ font.name }}
+    family: {{ terminalFont.name }}
     style: Bold
 
   italic:
-    family: {{ font.name }}
+    family: {{ terminalFont.name }}
     style: Italic
 
   bold_italic:
-    family: {{ font.name }}
+    family: {{ terminalFont.name }}
     style: Bold Italic
 
-  size: {{ font.size }}
+  size: {{ terminalFont.size }}
 
 # Colors
 colors:

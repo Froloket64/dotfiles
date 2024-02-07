@@ -1,5 +1,5 @@
 [global]
-    font = {{ font.name }} {{ font.size }}
+    font = {{ uiFont.name }} {{ uiFont.size }}
     frame_color = "{{ colors.bright.black }}"
     max_icon_size = 32
     icon_theme = "{{ gtk.iconTheme }}"

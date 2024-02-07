@@ -1,7 +1,11 @@
 {
     "shell": "/bin/fish",
     "terminal": "kitty",
-    "font": {
+    "terminalFont": {
+        "name": "Iosevka Rounded",
+        "size": 16
+    },
+    "uiFont": {
         "name": "Cascadia Code",
         "size": 15
     },

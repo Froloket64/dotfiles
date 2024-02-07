@@ -19,7 +19,7 @@ return {
     -- Visuals
     color_scheme = "{{ weztermTheme }}",
     use_fancy_tab_bar = false,
-    font_size = {{ font.size }},
+    font_size = {{ terminalFont.size }},
     window_background_opacity = 0.75,
     -- max_fps = 120,
     window_padding = {

@@ -2,7 +2,7 @@ vim.opt.background = "dark"
 vim.cmd("colorscheme gruvbox")
 
 vim.opt.termguicolors = true
-vim.o.guifont = "{{ font.name }}:h{{ font.size }}"
+vim.o.guifont = "{{ terminalFont.name }}:h{{ terminalFont.size }}"
 vim.o.guicursor = "i:block"
 
 vim.opt.number = true

@@ -28,7 +28,7 @@ set $cursor-theme "{{ gtk.cursorTheme }}"
 
 ## General
 # Font
-font "{{ font.name }}" {{ font.size }}
+font "{{ uiFont.name }}" {{ uiFont.size }}
 
 # Colors
 # name border background text indicator child_border
@@ -247,7 +247,7 @@ exec_always {
     gsettings set $gtk-schema gtk-theme $gtk-theme
     gsettings set $gtk-schema icon-theme $icon-theme
     gsettings set $gtk-schema cursor-theme $cursor-theme
-    gsettings set $gtk-schema font-name "{{ font.name }} {{ font.size }}"
+    gsettings set $gtk-schema font-name "{{ uiFont.name }} {{ uiFont.size }}"
 }
 
 # Notifications
