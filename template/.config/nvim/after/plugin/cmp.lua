@@ -67,7 +67,7 @@ cmp.setup {
         -- Confirm if visible, otherwise fall back
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
-                cmp.confirm()
+                cmp.confirm({ select = true, })
             else
                 fallback()
             end
