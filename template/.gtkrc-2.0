@@ -1,11 +1,11 @@
 # DO NOT EDIT! This file will be overwritten by LXAppearance.
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
-include "/home/{{ username }}/.gtkrc-2.0.mine"
+include "/home/{{ general.username }}/.gtkrc-2.0.mine"
 
-gtk-font-name="{{ uiFont.name }} {{ uiFont.size }}"
-gtk-theme-name="{{ gtk.theme }}"
-gtk-icon-theme-name="{{ gtk.iconTheme }}"
+gtk-font-name="{{ fonts.ui.name }} {{ fonts.ui.size }}"
+gtk-theme-name="{{ themes.gtk.name }}"
+gtk-icon-theme-name="{{ themes.gtk.icon_theme }}"
 gtk-cursor-theme-size=10
 gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
 gtk-toolbar-style=GTK_TOOLBAR_BOTH

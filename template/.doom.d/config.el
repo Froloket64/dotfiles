@@ -14,9 +14,9 @@
 (transparency 100) ;; Unfortunately, this also makes the text transparent :(
 
 ;; Font
-(setq doom-font (font-spec :family "{{ terminalFont.name }}" :size {{ terminalFont.size + 4 }} :weight 'normal)
-     doom-variable-pitch-font (font-spec :family "{{ uiFont.name }}" :size {{ terminalFont.size + 5 }})
-     doom-serif-font (font-spec :family "scientifica" :size {{ terminalFont.size + 5 }}))
+(setq doom-font (font-spec :family "{{ fonts.terminal.name }}" :size {{ fonts.terminal.size + 4 }} :weight 'normal)
+     doom-variable-pitch-font (font-spec :family "{{ fonts.ui.name }}" :size {{ fonts.terminal.size + 5 }})
+     doom-serif-font (font-spec :family "scientifica" :size {{ fonts.terminal.size + 5 }}))
 
 ;; Theme
 (setq doom-theme 'doom-{{ doomEmacsTheme }})

@@ -1,9 +1,9 @@
 [global]
-    font = {{ uiFont.name }} {{ uiFont.size }}
+    font = {{ fonts.ui.name }} {{ fonts.ui.size }}
     frame_color = "{{ colors.bright.black }}"
     max_icon_size = 32
-    icon_theme = "{{ gtk.iconTheme }}"
-    icon_path = "/usr/share/icons/{{ gtk.iconTheme }}/24x24/status/:/usr/share/icons/{{ gtk.iconTheme }}/24x24/devices/:/usr/share/icons/{{ gtk.iconTheme }}/24x24/apps/"
+    icon_theme = "{{ themes.gtk.icon_theme }}"
+    icon_path = "/usr/share/icons/{{ themes.gtk.icon_theme }}/24x24/status/:/usr/share/icons/{{ themes.gtk.icon_theme }}/24x24/devices/:/usr/share/icons/{{ themes.gtk.icon_theme }}/24x24/apps/"
     format = "<span foreground='{{ colors.foreground }}'><b>%s %p</b></span>\n%b"
     transparency = 10
 
@@ -37,4 +37,4 @@
     foreground = "{{ colors.bright.black }}"
     frame_color = "{{ colors.normal.red }}"
     timeout = 0
-    icon = /usr/share/icons/{{ gtk.iconTheme }}/24x24/status/dialog-warning.svg
+    icon = /usr/share/icons/{{ themes.gtk.icon_theme }}/24x24/status/dialog-warning.svg

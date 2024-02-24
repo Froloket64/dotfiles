@@ -2,7 +2,7 @@ vim.opt.background = "dark"
 vim.cmd("colorscheme gruvbox")
 
 vim.opt.termguicolors = true
-vim.o.guifont = "{{ terminalFont.name }}:h{{ terminalFont.size }}"
+vim.o.guifont = "{{ fonts.terminal.name }}:h{{ fonts.terminal.size }}"
 vim.o.guicursor = "i:block"
 
 vim.opt.number = true
@@ -31,6 +31,6 @@ vim.opt.concealcursor = "nc"
 if vim.g.neovide then
     vim.g.neovide_cursor_animation_length = 0.2
     vim.g.neovide_cursor_trail_size = 0.1
-    vim.g.neovide_refresh_rate = {{ monitors[0].rate }}
+    vim.g.neovide_refresh_rate = { { monitors[0].rate } }
     vim.g.neovide_refresh_rate_idle = 5
 end

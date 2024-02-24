@@ -13,49 +13,33 @@
 ## Installation
 ### Dependencies
 Normally, they should be taken care of by the installation script (see below), but it's a good idea to install them manually (or if the installation script fails to).
- - `stow`
- - `gum`
- - `python`
- - `jinja-cli` (from [PyPI](https://pypi.org/project/jinja-cli/))
- - `dart-sass` (or other [Sass distribution](https://sass-lang.com/install))[<sup>1</sup>](#notes)
+- [`dottery`](https://github.com/Froloket64/dottery)
 
 ### Supported distros
-Currently supported distros[<sup>2</sup>](#notes):
+Currently supported distros[<sup>1</sup>](#notes):
  - Arch Linux _(and -based)_
- - Ubuntu _(and -based)_
 
-To install the packages and deploy the dotfiles just do the following:
-
-``` bash
-git clone https://github.com/Froloket64/dotfiles --depth 1 ~/.dotfiles # Clone the repo
-cd ~/.dotfiles
-./install.sh # Run the installation script
-```
-
-Also, use `./install.sh --help` to see usage and options.
-
-### Other distros
-If you're not using one of the supported distros, the operations are the same, except for installation of the packages - you'll have to do that manually. Afterwards, the script can deploy all the dotfiles just fine (note the `-I` flag)
+To install the packages and deploy the dotfiles you will need `dottery`.
+Once it's installed, just do the following:
 
 ``` bash
-git clone https://github.com/Froloket64/dotfiles --depth 1 ~/.dotfiles # Clone the repo
-cd ~/.dotfiles
-./install.sh -I # Deploy without installation
+$ git clone https://github.com/Froloket64/dotfiles --depth 1 ~/.dotfiles # Clone the repo
+$ dot install
+$ dot deploy
 ```
 
 Contributions regarding other distro support are **welcome**.
 
 ## Metaconfiguration
-Yes, there's configuration to this configuration. It consists of a [`settings.json`](/settings.json) file that contains all "settings" to the configuration such as your theme, your monitors, wallpaper and so on. All of that is compiled into plain config files using `jinja` (and symlinked) with `./install.sh -I`.
+Yes, there's configuration for your configs. It consists of a [`..toml`](/..toml) file that contains all "settings" to the configuration such as your theme, your monitors, wallpaper and so on. All of that is compiled into plain config files using [`minininja`](https://crates.io/crates/minijinja) and copied by `dottery`.
 
 ### Features
-In [`settings.json`](/settings.json) there's also a section labeled **"features"**. It provides a way to enable/disable certain additional features that are opinionated/require additional dependencies. To toggle features on and off just set their values to `true` or `false` respectively.
+In [`..toml`](/..toml) there's also a section labeled `features`. It provides a way to enable/disable certain additional features that are opinionated/require additional dependencies. To toggle features on and off just set their values to `true` or `false` respectively.
 
 ``` diff
-    "features": {
--        "swayfx": false,
-+        "swayfx": true,
-    }
+  [features]
+- swayfx = false
++ swayfs = true
 ```
 
 Available features are:
@@ -63,8 +47,6 @@ Available features are:
  - `swayFade` - Enables fade in/out for windows in Sway (uses [these scripts](https://github.com/Froloket64/swayscripts/tree/main/fade) as a git submodule) **WIP**
  - `lsSingleLine` - Makes `ls` ouput each file on a separate line (without `ls -l` info)
  - `starship` - Use Starship prompt in all shells
- - `animatedWallpaper` - Use the animated wallpaper which path should is specified in `animatedWallpaper` variable
 
 ## Notes
- 1. (**NOTE**: If you install a different package, ensure that the `SASS_EXEC` variable in the [`install.sh`](/install.sh) script is set to its path or its name if it's in the [PATH](https://www.howtogeek.com/658904/how-to-add-a-directory-to-your-path-in-linux/))
- 2. But note the package name changes for *N*-based (from above) distros which are not considered by the script.
+1. But note the package name changes for *N*-based (from above) distros which are not considered by the script.

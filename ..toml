@@ -1,0 +1,89 @@
+# dottery configuration
+[dottery]
+packages = [
+    { name = "kitty",     from_aur = false },
+    { name = "fish",      from_aur = false },
+    { name = "hyprland",  from_aur = false },
+    { name = "broot",     from_aur = false },
+    { name = "dunst",     from_aur = false },
+    { name = "gBar",      from_aur = false },
+    { name = "neovim",    from_aur = false },
+    { name = "neofetch",  from_aur = false },
+    { name = "ranger",    from_aur = false },
+    { name = "rofi",      from_aur = false },
+    { name = "waybar",    from_aur = false }
+]
+
+# General settings
+[general]
+shell = "/bin/fish"
+terminal = "kitty"
+username = "froloket"
+wallpaper = { path = "Pictures/Wallpapers/sky.png", animated = false }
+editor = "nvim"
+
+# Primary monitor
+[monitors.primary]
+name = "HDMI-A-1"
+resolution = "2560x1440"
+rate = 144
+is_laptop = false
+
+# TODO: Secondary monitors
+# [monitors.secondary]
+
+# Colorscheme definitions
+[colors]
+background = "#282828"
+background1 = "#3c3836"
+foreground = "#ebdbb2"
+
+# Normal colors (ANSI 0-7)
+[colors.normal]
+black =   "#282828"
+red =     "#cc241d"
+green =   "#98971a"
+yellow =  "#d79921"
+blue =    "#458588"
+magenta = "#b16286"
+cyan =    "#689d6a"
+white =   "#a89984"
+
+# Bright color variants (ANSI 8-15)
+[colors.bright]
+black =   "#928374"
+red =     "#fb4934"
+green =   "#b8bb26"
+yellow =  "#fabd2f"
+blue =    "#83a598"
+magenta = "#d3869b"
+cyan =    "#8ec07c"
+white =   "#ebdbb2"
+
+# GTK theme
+[themes.gtk]
+name =  "Gruvbox-Material-Dark"
+icon_theme = "Papirus-Dark"
+cursor_theme = "Bibata-Original-Ice"
+
+[themes.doom_emacs]
+name = "gruvbox"
+
+# [themes.]
+
+# Font used in the terminal, for coding, etc.
+[fonts.terminal]
+name = "Iosevka Rounded"
+size = 16
+
+# Font used in UIs
+[fonts.ui]
+name = "Cascadia Code"
+size = 15
+
+# Additional opt-in features
+[features]
+swayfx = false # Use `swayfx` package instead of `sway`
+sway_fade = true # Use scripts to simulate fading in Sway
+ls_single_line = true # Make `ls` utilities print each file on a separate line
+starship = false # Use Starship as a prompt in shells
