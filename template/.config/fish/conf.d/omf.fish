@@ -14,7 +14,9 @@ set -gx SHELL /bin/fish
 # Manpager
 if command -vq bat
     set -gx BAT_THEME "{{ themes.bat }}"
+
     set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
+    set -gx MANROFFOPT "-c"
     set -gx FZF_CTRL_T_OPTS "--preview 'bat -n --color always {}'"
 end
 
