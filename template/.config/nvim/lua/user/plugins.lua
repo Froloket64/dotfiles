@@ -243,4 +243,6 @@ return require("packer").startup(function(use)
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
     }
+
+    use "godlygeek/tabular"
 end)
