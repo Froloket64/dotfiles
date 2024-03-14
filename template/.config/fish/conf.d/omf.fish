@@ -25,6 +25,11 @@ if command -vq vivid
     set -gx LS_COLORS (vivid generate {{ themes.vivid }})
 end
 
+# Zoxide
+if command -vq zoxide
+    zoxide init fish --cmd cd | source
+end
+
 ## Other vars/overrides
 set fish_greeting # Disable the startup intro message
 set -gx EDITOR {{ "emacsclient -nw" if general.editor == "emacs" else general.editor }}
