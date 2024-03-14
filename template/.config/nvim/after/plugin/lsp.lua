@@ -13,7 +13,7 @@ lsp_format.setup()
 
 lsp.on_attach(function(client, bufnr)
     -- Maps
-    local opts = {buffer = bufnr, remap = false}
+    local opts = { buffer = bufnr, remap = false }
 
     lsp_format.on_attach(client, bufnr)
 
@@ -97,7 +97,7 @@ mason.setup {
         "rust_analyzer",
         "lua_ls",
         "marksman",
-        "pyright",
+        "pylsp",
         "bashls",
         "vimls",
         "cssls",
