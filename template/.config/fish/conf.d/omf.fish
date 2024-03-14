@@ -13,18 +13,18 @@ set -gx SHELL /bin/fish
 
 # Manpager
 if command -vq bat
-    set -gx BAT_THEME "{{ theme }}"
+    set -gx BAT_THEME "{{ themes.bat }}"
     set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
 end
 
 # LSColors
 if command -vq vivid
-    set -gx LS_COLORS (vivid generate {{ theme }}) # Needs `vivid`
+    set -gx LS_COLORS (vivid generate {{ themes.vivid }})
 end
 
 ## Other vars/overrides
 set fish_greeting # Disable the startup intro message
-set -gx EDITOR {{ "emacsclient -nw" if editor == "emacs" else editor }}
+set -gx EDITOR {{ "emacsclient -nw" if general.editor == "emacs" else general.editor }}
 set -gx COLORTERM truecolor
 set -gx MAKEFLAFS "-j$(nproc)"
 

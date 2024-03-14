@@ -69,7 +69,9 @@ cursor_theme = "Bibata-Original-Ice"
 [themes.doom_emacs]
 name = "gruvbox"
 
-# [themes.]
+[themes]
+bat = "gruvbox-dark"
+vivid = "gruvbox-dark"
 
 # Font used in the terminal, for coding, etc.
 [fonts.terminal]
