@@ -14,6 +14,29 @@ packages = [
     { name = "waybar",    from_aur = false }
 ]
 
+[dottery.dependencies]
+# Dependencies that are required for certain configs to function
+required = [
+    { name = "swaybg",  from_aur = false },
+    { name = "rofi",    from_aur = false },
+    { name = "gBar",    from_aur = false },
+
+    # Fonts
+    { name = "ttf-cascadia-code", from_aur = false }
+]
+# Dependencies that enable addional features
+optional = [
+    { name = "slurp",     from_aur = false },
+    { name = "grim",      from_aur = false },
+    { name = "entr",      from_aur = false },
+    { name = "fd",        from_aur = false },
+    { name = "btop",      from_aur = false },
+    { name = "nvtop",     from_aur = false },
+    { name = "eza",       from_aur = false },
+    { name = "bat",       from_aur = false },
+    { name = "starship",  from_aur = false },
+]
+
 # General settings
 [general]
 shell = "/bin/fish"
