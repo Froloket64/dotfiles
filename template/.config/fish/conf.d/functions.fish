@@ -1,10 +1,3 @@
-# Shortcut to recompile dotfiles
-function recomp_dots
-    cd ~/.dotfiles
-    ./install.sh -I -G $argv
-    cd -
-end
-
 # Execute broot and command it returns
 function br --wraps=broot
     set -l cmd_file (mktemp)
