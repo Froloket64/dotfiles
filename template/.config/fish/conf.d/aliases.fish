@@ -10,7 +10,7 @@ end
 alias lst "$ls_exec --tree"
 alias clt "clear; $ls_exec --tree"
 
-{%- if features.lsSingleLine %}
+{%- if features.ls_single_line %}
 # One file on each line
 alias ls "$ls_exec -1"
 {% else %}
