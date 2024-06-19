@@ -40,7 +40,7 @@ optional = [
 # General settings
 [general]
 shell = "/bin/fish"
-terminal = "kitty"
+terminal = "alacritty"
 username = "froloket"
 wallpaper = { path = "Pictures/Wallpapers/sky.png", animated = false }
 editor = "nvim"

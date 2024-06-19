@@ -1,0 +1,54 @@
+[colors]
+transparent_background_colors = true
+
+[colors.primary]
+background = "{{ colors.background }}"
+foreground = "{{ colors.foreground }}"
+
+[colors.normal]
+black   = "{{ colors.normal.black }}"
+blue    = "{{ colors.normal.blue }}"
+cyan    = "{{ colors.normal.cyan }}"
+green   = "{{ colors.normal.green }}"
+magenta = "{{ colors.normal.magenta }}"
+red     = "{{ colors.normal.red }}"
+white   = "{{ colors.normal.white }}"
+yellow  = "{{ colors.normal.yellow }}"
+
+[colors.bright]
+black   = "{{ colors.bright.black }}"
+blue    = "{{ colors.bright.blue }}"
+cyan    = "{{ colors.bright.cyan }}"
+green   = "{{ colors.bright.green }}"
+magenta = "{{ colors.bright.magenta }}"
+red     = "{{ colors.bright.red }}"
+white   = "{{ colors.bright.white }}"
+yellow  = "{{ colors.bright.yellow }}"
+
+[font]
+size = {{ fonts.terminal.size }}
+
+[font.normal]
+family = "{{ fonts.terminal.name }}"
+style = "Regular"
+
+[font.bold]
+family = "{{ fonts.terminal.name }}"
+style = "Bold"
+
+[font.italic]
+family = "{{ fonts.terminal.name }}"
+style = "Italic"
+
+[font.bold_italic]
+family = "{{ fonts.terminal.name }}"
+style = "Bold Italic"
+
+[window]
+decorations = "full"
+opacity = 0.9
+startup_mode = "Windowed"
+
+[window.padding]
+x = 0
+y = 0
