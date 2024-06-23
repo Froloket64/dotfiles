@@ -26,6 +26,7 @@ if command -vq ptsh
 end
 
 # Daily routine
+alias vimrc "vim $HOME/.dotfiles/template/.config/nvim/"
 alias ec "emacsclient -nw"
 alias lg "lazygit"
 
