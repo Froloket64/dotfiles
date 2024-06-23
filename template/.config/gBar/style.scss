@@ -9,7 +9,7 @@ $purple: {{ colors.normal.magenta }};
 $cyan: {{ colors.normal.cyan }};
 $blue: {{ colors.normal.blue }};
 
-$textsize: 16px;
+$textsize: {{ fonts.ui.size }}px;
 
 *{
     all: unset;
