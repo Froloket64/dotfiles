@@ -19,6 +19,7 @@ packages = [
 required = [
     { name = "swaybg",  from_aur = false },
     { name = "rofi",    from_aur = false },
+    { name = "fuzzel",  from_aur = false },
     { name = "gBar",    from_aur = false },
 
     # Fonts
