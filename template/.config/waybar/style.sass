@@ -75,41 +75,6 @@ window
     @if $transparentBackground
         @extend %selectiveBackground
 
-#workspaces button,
-#tray,
-#mpd,
-#clock,
-#network,
-#memory,
-#gamemode,
-#battery,
-#cpu,
-#pulseaudio,
-#language
-    @extend %container
-
-#tray,
-#mpd,
-#gamemode,
-#battery,
-#cpu,
-#pulseaudio
-    @extend %module
-
-#clock,
-#network,
-#memory,
-#language
-    @extend %moduleWider
-
-#network,
-#memory,
-#clock
-    color: $foreground
-
-#language
-    min-width: 32px
-
 #workspaces
     @if $transparentBackground
         @extend %selectiveBackground
@@ -144,45 +109,6 @@ window
             animation-iteration-count: infinite 
             animation-direction: alternate 
 
-#gamemode 
-    background-color: $bred
-
-#tray
-    @if $transparentBackground
-        background-color: $background
-
-    & > .passive 
-        -gtk-icon-effect: dim 
-
-    & > .needs-attention 
-        -gtk-icon-effect: highlight 
-        background-color: $bred
-
-#pulseaudio 
-    background-color: $byellow
-
-    &.muted 
-        background-color: $bblue
-        color: $background1
-
-#network 
-    background-color: $blue
-
-    &.disconnected 
-        background-color: $bblue
-
-#language 
-    background-color: $borange
-
-#cpu 
-    background-color: $bcyan
-
-#memory 
-    background-color: $magenta
-
-#clock 
-    background-color: $background1
-
 #battery 
     background-color: $foreground
     padding: 0 12px 0 8px 
@@ -209,3 +135,77 @@ window
 
     &.paused 
         background-color: $bblue // subject to change
+
+#tray
+    @if $transparentBackground
+        background-color: $background
+
+    & > .passive 
+        -gtk-icon-effect: dim 
+
+    & > .needs-attention 
+        -gtk-icon-effect: highlight 
+        background-color: $bred
+
+#pulseaudio 
+    background-color: $byellow
+
+    &.muted 
+        background-color: $bblue
+        color: $background1
+
+#network 
+    background-color: $blue
+
+    &.disconnected 
+        background-color: $bblue
+
+#gamemode 
+    background-color: $bred
+
+#language 
+    background-color: $borange
+
+#cpu 
+    background-color: $bcyan
+
+#memory 
+    background-color: $magenta
+
+#clock 
+    background-color: $background1
+
+#network,
+#memory,
+#clock
+    color: $foreground
+
+#language
+    min-width: 32px
+
+#workspaces button,
+#tray,
+#mpd,
+#clock,
+#network,
+#memory,
+#gamemode,
+#battery,
+#cpu,
+#pulseaudio,
+#language
+    @extend %container
+
+#tray,
+#mpd,
+#gamemode,
+#battery,
+#cpu,
+#pulseaudio
+    @extend %module
+
+#clock,
+#network,
+#memory,
+#language
+    @extend %moduleWider
