@@ -36,6 +36,7 @@ optional = [
     { name = "eza",       from_aur = false },
     { name = "bat",       from_aur = false },
     { name = "starship",  from_aur = false },
+    { name = "safeeyes",  from_aur = true },
 ]
 
 # General settings
