@@ -43,7 +43,7 @@ $textsize: {{ fonts.ui.size }}px;
 
 .reboot-button {
     font-size: 28px;
-    
+
     color: $blue;
 }
 // .sleep-button {
@@ -111,6 +111,9 @@ highlight {
 }
 
 .audio-volume {
+    font-size: 16px;
+    color: $yellow;
+
     trough {
         background-color: $bg1;
     }
@@ -122,9 +125,6 @@ highlight {
     highlight {
         background-color: $yellow;
     }
-
-    font-size: 16px;
-    color: $yellow;
 }
 
 .mic-icon {
@@ -134,6 +134,9 @@ highlight {
 }
 
 .mic-volume {
+    font-size: 16px;
+    color: $purple;
+
     trough {
         background-color: $bg1;
     }
@@ -145,9 +148,6 @@ highlight {
     highlight {
         background-color: $purple;
     }
-
-    font-size: 16px;
-    color: $purple;
 }
 
 .package-outofdate {
@@ -362,6 +362,17 @@ highlight {
     margin-left: 8px;
 }
 .bt-button {
+    border-radius: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+    margin-bottom: 4px;
+    margin-top: 4px;
+
+    font-size: 16px;
+
     &.active {
         animation-name: connectanim;
         animation-duration: 50ms;
@@ -377,16 +388,6 @@ highlight {
     &.failed {
         color: $red;
     }
-    border-radius: 16px;
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-top: 4px;
-    padding-bottom: 4px;
-
-    margin-bottom: 4px;
-    margin-top: 4px;
-
-    font-size: 16px;
     // color: $green;
 }
 .bt-close {
@@ -397,6 +398,13 @@ highlight {
 	margin: 0px 0px 0px 8px;
 }
 .bt-scan {
+    color: $yellow;
+    background-color: $bg1;
+    border-radius: 16px;
+    padding: 2px 11px 0px 7px;
+    margin: 0px 0px 0px 10px;
+    font-size: 18px;
+
     &.active {
         animation-name: scanonanim;
         animation-duration: 50ms;
@@ -409,10 +417,4 @@ highlight {
         animation-timing-function: linear;
         animation-fill-mode: forwards;
     }
-    color: $yellow;
-    background-color: $bg1;
-    border-radius: 16px;
-    padding: 2px 11px 0px 7px;
-	margin: 0px 0px 0px 10px;
-    font-size: 18px;
-}
+  }
