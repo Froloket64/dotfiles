@@ -38,6 +38,7 @@ optional = [
     { name = "starship",  from_aur = false },
     { name = "safeeyes",  from_aur = true },
     { name = "gammastep", from_aur = false },
+    { name = "pinta",     from_aur = false },
 ]
 
 # General settings
