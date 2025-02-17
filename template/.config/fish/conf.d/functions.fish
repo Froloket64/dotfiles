@@ -78,3 +78,17 @@ function waysudo -w sudo -a cmd
 
     xhost -si:localuser:root
 end
+
+function crun -a src_file
+    set -l tmp (mktemp)
+    gcc $src_file -std=c99 -Wall -Wpedantic -Wextra -Werror -lm -o $tmp \
+        && $tmp \
+        && rm $tmp
+end
+
+function cfmt -a file
+    set -l tmp (mktemp)
+    clang-format --style=Microsoft $file > $tmp \
+        && cp $tmp $file \
+        && rm $tmp
+end
