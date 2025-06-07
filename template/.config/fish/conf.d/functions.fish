@@ -81,14 +81,41 @@ end
 
 function crun -a src_file
     set -l tmp (mktemp)
-    gcc $src_file -std=c99 -Wall -Wpedantic -Wextra -Werror -lm -o $tmp \
-        && $tmp \
-        && rm $tmp
+    gcc $src_file -std=c99 -Wall -Wpedantic -Wextra -Wfloat-equal -Wfloat-conversion -Werror -lm -o $tmp &&
+        $tmp
+    rm $tmp
 end
 
 function cfmt -a file
     set -l tmp (mktemp)
-    clang-format --style=Microsoft $file > $tmp \
-        && cp $tmp $file \
-        && rm $tmp
+    clang-format --style=Microsoft $file > $tmp &&
+        cp $tmp $file
+    rm $tmp
+end
+
+function ccompile -a src out
+    gcc $src \
+        -std=c99 \
+        -Wall \
+        -Wpedantic \
+        -Wextra \
+        -Wfloat-equal \
+        -Wfloat-conversion \
+        -Werror \
+        -lm \
+        -o $out
+end
+
+function ccompile-dbg -a src out
+    gcc $src \
+        -std=c99 \
+        -Wall \
+        -Wpedantic \
+        -Wextra \
+        -Wfloat-equal \
+        -Wfloat-conversion \
+        -Werror \
+        -lm \
+        -g3 \
+        -o $out
 end
