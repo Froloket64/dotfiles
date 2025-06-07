@@ -160,12 +160,12 @@ imports: [
             dark
             unknown
         ]
-        file: dark-gruvbox.hjson
+        file: skins/dark-gruvbox.hjson
     }
 
     # Light theme
     {
         luma: light
-        file: white-skin.hjson
+        file: skins/white-skin.hjson
     }
 ]
