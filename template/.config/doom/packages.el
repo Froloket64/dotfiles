@@ -54,3 +54,6 @@
            :files ("*.el" "data")))
 
 (package! ellama)
+(package! dap-mode)
+(package! hyprlang-ts-mode)
+(package! highlight-indent-guides)
