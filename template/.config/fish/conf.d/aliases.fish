@@ -29,6 +29,7 @@ end
 alias vimrc "vim $HOME/.dotfiles/template/.config/nvim/"
 alias ec "emacsclient -nw"
 alias lg "lazygit"
+alias gitl "git log --oneline --all --graph"
 
 # Other
 alias logout "pkill -KILL -u $USER"
