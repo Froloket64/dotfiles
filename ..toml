@@ -1,30 +1,32 @@
 # dottery configuration
 [dottery]
 packages = [
-    { name = "kitty",     from_aur = false },
-    { name = "fish",      from_aur = false },
-    { name = "hyprland",  from_aur = false },
-    { name = "broot",     from_aur = false },
-    { name = "dunst",     from_aur = false },
-    { name = "gBar",      from_aur = false },
-    { name = "neovim",    from_aur = false },
-    { name = "neofetch",  from_aur = false },
-    { name = "ranger",    from_aur = false },
-    { name = "rofi",      from_aur = false },
-    { name = "waybar",    from_aur = false }
+    { name = "kitty" },
+    { name = "fish" },
+    { name = "hyprland" },
+    { name = "broot" },
+    { name = "dunst" },
+    { name = "gBar" },
+    { name = "emacs" },
+    { name = "neovim" },
+    { name = "neofetch" },
+    { name = "ranger" },
+    { name = "rofi" },
+    { name = "waybar" },
+    { name = "fuzzel" },
 ]
 
 [dottery.dependencies]
 # Dependencies that are required for certain configs to function
 required = [
-    { name = "swaybg",  from_aur = false },
-    { name = "rofi",    from_aur = false },
-    { name = "fuzzel",  from_aur = false },
-    { name = "gBar",    from_aur = false },
+    { name = "swaybg" },
+    { name = "rofi" },
+    { name = "gBar" },
 
     # Fonts
-    { name = "ttf-cascadia-code", from_aur = false }
+    { name = "ttf-cascadia-code" }
 ]
+
 # Dependencies that enable addional features
 optional = [
     { name = "slurp",      from_aur = false },
