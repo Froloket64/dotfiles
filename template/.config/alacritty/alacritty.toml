@@ -46,7 +46,7 @@ style = "Bold Italic"
 
 [window]
 decorations = "full"
-opacity = 0.9
+opacity = 0.75
 startup_mode = "Windowed"
 
 [window.padding]
