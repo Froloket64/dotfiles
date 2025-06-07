@@ -18,6 +18,7 @@ packages = [
     { name = "mpd" },
     { name = "nushell" },
     { name = "zathura" },
+    { name = "zellij" },
 ]
 
 [dottery.dependencies]

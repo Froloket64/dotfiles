@@ -1,0 +1,8 @@
+layout {
+    tab name="shell" {
+        pane // Shell
+    }
+    tab name="procs" {
+        pane command="mprocs"
+    }
+}
