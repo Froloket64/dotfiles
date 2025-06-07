@@ -1,0 +1,42 @@
+(defcfg
+    process-unmapped-keys yes
+)
+
+(defsrc
+    u
+    p n
+    caps f g
+    h j k l
+    i o m , . /
+)
+
+(deflayer main
+    u
+    p n
+    @vi f g
+    h j k l
+    i o m , . /
+)
+
+(deflayer vi
+    bspc
+    @ctrl-l @ctrl-r
+    _ @num esc
+    left down up right
+    _ _ _ _ _ _
+)
+
+(deflayer numpad
+    1
+    _ _
+    _ _ _
+    _ 4 5 6
+    2 3 7 8 9 0
+)
+
+(defalias
+    vi (layer-while-held vi)
+    num (layer-while-held numpad)
+    ctrl-l C-left
+    ctrl-r C-right
+)
