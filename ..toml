@@ -12,10 +12,10 @@ packages = [
     { name = "neovim" },
     { name = "neofetch" },
     { name = "ranger" },
-    { name = "rofi" },
+    { name = "rofi-wayland" },
     { name = "waybar" },
     { name = "fuzzel" },
-    { name = "kanata" },
+    { name = "kanata-bin", from_aur = true },
     { name = "mpd" },
     { name = "nushell" },
     { name = "zathura" },
@@ -26,8 +26,6 @@ packages = [
 # Dependencies that are required for certain configs to function
 required = [
     { name = "swaybg" },
-    { name = "rofi" },
-    { name = "gBar" },
 
     # Fonts
     { name = "ttf-cascadia-code" }
@@ -48,9 +46,6 @@ optional = [
     { name = "fd" },
     { name = "eza" },
     { name = "bat" },
-
-    # Input
-    { name = "kanata-bin", from_aur = true  },
 
     # Misc
     { name = "safeeyes", from_aur = true  },
