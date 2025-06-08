@@ -48,6 +48,9 @@ optional = [
     { name = "eza" },
     { name = "bat" },
 
+    # Web
+    { name = "zen-browser-bin", from_aur = true },
+
     # Misc
     { name = "safeeyes", from_aur = true  },
     { name = "gammastep" },
