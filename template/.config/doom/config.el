@@ -43,9 +43,9 @@
 (setq org-directory "~/org/")
 
 ;; Mode configuration
-;; HACK
+;; HACK?
 (add-hook! 'python-mode-hook
-           :append (setq indent-line-function 'insert-tab))
+           (setq python-indent-offset 4))
 
 (add-hook! 'lean4-mode-hook
            :append (setq indent-line-function 'insert-tab))
