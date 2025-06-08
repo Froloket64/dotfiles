@@ -57,24 +57,6 @@ optional = [
     { name = "pinta" },
 ]
 
-# General settings
-[general]
-shell = "/bin/fish"
-terminal = "alacritty"
-username = "froloket"
-wallpaper = { path = "Pictures/Wallpapers/sky.png", animated = false }
-editor = "nvim"
-
-# Primary monitor
-[monitors.primary]
-name = "HDMI-A-1"
-resolution = "2560x1440"
-rate = 144
-is_laptop = false
-
-# TODO: Secondary monitors
-# [monitors.secondary]
-
 # Colorscheme definitions
 [colors]
 background = "#282828"
@@ -125,10 +107,3 @@ size = 16
 [fonts.ui]
 name = "Cascadia Code"
 size = 15
-
-# Additional opt-in features
-[features]
-swayfx = false # Use `swayfx` package instead of `sway`
-sway_fade = true # Use scripts to simulate fading in Sway
-ls_single_line = true # Make `ls` utilities print each file on a separate line
-starship = false # Use Starship as a prompt in shells

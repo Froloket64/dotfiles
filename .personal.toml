@@ -1,0 +1,24 @@
+# General settings
+[general]
+shell = "/bin/fish"
+terminal = "alacritty"
+username = "froloket"
+wallpaper = { path = "Pictures/Wallpapers/andre-benz-JBkwaYMuhdc-unsplash.jpg", animated = false }
+editor = "nvim"
+
+# Primary monitor
+[monitors.primary]
+name = "HDMI-A-1"
+resolution = "2560x1440"
+rate = 144
+is_laptop = false
+
+# TODO: Secondary monitors
+# [monitors.secondary]
+
+# Additional opt-in features
+[features]
+swayfx = false # Use `swayfx` package instead of `sway`
+sway_fade = false # Use scripts to simulate fading in Sway
+ls_single_line = true # Make `ls` utilities print each file on a separate line
+starship = false # Use Starship as a prompt in shells
