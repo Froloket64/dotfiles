@@ -53,6 +53,12 @@
 (add-hook! 'c-mode-hook
            (setq tab-width 4))
 
+(add-hook! 'hyprlang-ts-mode-hook
+           (hyprlang-ts-mode-indent-offset 4))
+
+(require 'dap-mode)
+(dap-mode 1)
+
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
