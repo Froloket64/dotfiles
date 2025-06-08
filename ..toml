@@ -44,6 +44,7 @@ optional = [
     # Files
     { name = "entr" },
     { name = "fd" },
+    { name = "fzf" },
     { name = "eza" },
     { name = "bat" },
 
