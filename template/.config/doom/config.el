@@ -48,10 +48,10 @@
            (setq python-indent-offset 4))
 
 (add-hook! 'lean4-mode-hook
-           :append (setq indent-line-function 'insert-tab))
+           (setq indent-line-function 'insert-tab))
 
 (add-hook! 'c-mode-hook
-           :append (setq tab-width 4))
+           (setq tab-width 4))
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
